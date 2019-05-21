@@ -1,0 +1,1671 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C37F0D496F6517AE6540362 /* Pods_Dotstudiopro_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FB3251D8CFEF598AD02FC2 /* Pods_Dotstudiopro_ios.framework */; };
+		5ADA3B40CDFC058AC14D139B /* Pods_Dotstudiopro_tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A89E56FFE5F1E9FB3B794 /* Pods_Dotstudiopro_tvos.framework */; };
+		6C3827FE2293DCFB00B05562 /* Dotstudiopro_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3827FC2293DCFB00B05562 /* Dotstudiopro_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C38280B2293DD8300B05562 /* Dotstudiopro_tvos.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3828092293DD8300B05562 /* Dotstudiopro_tvos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3828542293DE6400B05562 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828122293DE6400B05562 /* JWTDecode.swift */; };
+		6C3828552293DE6400B05562 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828122293DE6400B05562 /* JWTDecode.swift */; };
+		6C3828562293DE6400B05562 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828132293DE6400B05562 /* JWT.swift */; };
+		6C3828572293DE6400B05562 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828132293DE6400B05562 /* JWT.swift */; };
+		6C3828582293DE6400B05562 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828142293DE6400B05562 /* Base64.swift */; };
+		6C3828592293DE6400B05562 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828142293DE6400B05562 /* Base64.swift */; };
+		6C38285A2293DE6400B05562 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828152293DE6400B05562 /* Errors.swift */; };
+		6C38285B2293DE6400B05562 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828152293DE6400B05562 /* Errors.swift */; };
+		6C38285C2293DE6400B05562 /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3828162293DE6400B05562 /* JWTDecode.h */; };
+		6C38285D2293DE6400B05562 /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3828162293DE6400B05562 /* JWTDecode.h */; };
+		6C38285E2293DE6400B05562 /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828172293DE6400B05562 /* A0JWT.swift */; };
+		6C38285F2293DE6400B05562 /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828172293DE6400B05562 /* A0JWT.swift */; };
+		6C3828602293DE6400B05562 /* SPLTVideoChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828192293DE6400B05562 /* SPLTVideoChannel.swift */; };
+		6C3828612293DE6400B05562 /* SPLTVideoChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828192293DE6400B05562 /* SPLTVideoChannel.swift */; };
+		6C3828622293DE6400B05562 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281A2293DE6400B05562 /* Constants.swift */; };
+		6C3828632293DE6400B05562 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281A2293DE6400B05562 /* Constants.swift */; };
+		6C3828642293DE6400B05562 /* SPLTSubscriptionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281B2293DE6400B05562 /* SPLTSubscriptionProduct.swift */; };
+		6C3828652293DE6400B05562 /* SPLTSubscriptionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281B2293DE6400B05562 /* SPLTSubscriptionProduct.swift */; };
+		6C3828662293DE6400B05562 /* SPLTChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281C2293DE6400B05562 /* SPLTChannel.swift */; };
+		6C3828672293DE6400B05562 /* SPLTChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281C2293DE6400B05562 /* SPLTChannel.swift */; };
+		6C3828682293DE6400B05562 /* SPLTRecommandedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281D2293DE6400B05562 /* SPLTRecommandedData.swift */; };
+		6C3828692293DE6400B05562 /* SPLTRecommandedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281D2293DE6400B05562 /* SPLTRecommandedData.swift */; };
+		6C38286A2293DE6400B05562 /* DTSZVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281E2293DE6400B05562 /* DTSZVideo.swift */; };
+		6C38286B2293DE6400B05562 /* DTSZVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281E2293DE6400B05562 /* DTSZVideo.swift */; };
+		6C38286C2293DE6400B05562 /* SPLTPlaylistChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281F2293DE6400B05562 /* SPLTPlaylistChannel.swift */; };
+		6C38286D2293DE6400B05562 /* SPLTPlaylistChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38281F2293DE6400B05562 /* SPLTPlaylistChannel.swift */; };
+		6C38286E2293DE6400B05562 /* SPLTCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828202293DE6400B05562 /* SPLTCategory.swift */; };
+		6C38286F2293DE6400B05562 /* SPLTCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828202293DE6400B05562 /* SPLTCategory.swift */; };
+		6C3828702293DE6400B05562 /* SPLTCustomCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828212293DE6400B05562 /* SPLTCustomCategory.swift */; };
+		6C3828712293DE6400B05562 /* SPLTCustomCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828212293DE6400B05562 /* SPLTCustomCategory.swift */; };
+		6C3828722293DE6400B05562 /* DTSZChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828222293DE6400B05562 /* DTSZChannel.swift */; };
+		6C3828732293DE6400B05562 /* DTSZChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828222293DE6400B05562 /* DTSZChannel.swift */; };
+		6C3828742293DE6400B05562 /* SPLTCompanyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828232293DE6400B05562 /* SPLTCompanyData.swift */; };
+		6C3828752293DE6400B05562 /* SPLTCompanyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828232293DE6400B05562 /* SPLTCompanyData.swift */; };
+		6C3828762293DE6400B05562 /* SPLTAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828252293DE6400B05562 /* SPLTAnalyticsEvent.swift */; };
+		6C3828772293DE6400B05562 /* SPLTAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828252293DE6400B05562 /* SPLTAnalyticsEvent.swift */; };
+		6C3828782293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828262293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift */; };
+		6C3828792293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828262293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift */; };
+		6C38287A2293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828272293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift */; };
+		6C38287B2293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828272293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift */; };
+		6C38287C2293DE6400B05562 /* SPLTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828282293DE6400B05562 /* SPLTUser.swift */; };
+		6C38287D2293DE6400B05562 /* SPLTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828282293DE6400B05562 /* SPLTUser.swift */; };
+		6C38287E2293DE6400B05562 /* DTSZChannelFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828292293DE6400B05562 /* DTSZChannelFeed.swift */; };
+		6C38287F2293DE6400B05562 /* DTSZChannelFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828292293DE6400B05562 /* DTSZChannelFeed.swift */; };
+		6C3828802293DE6400B05562 /* SPLTVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282A2293DE6400B05562 /* SPLTVideo.swift */; };
+		6C3828812293DE6400B05562 /* SPLTVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282A2293DE6400B05562 /* SPLTVideo.swift */; };
+		6C3828822293DE6400B05562 /* SPLTCustomPlaylistChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282B2293DE6400B05562 /* SPLTCustomPlaylistChannel.swift */; };
+		6C3828832293DE6400B05562 /* SPLTCustomPlaylistChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282B2293DE6400B05562 /* SPLTCustomPlaylistChannel.swift */; };
+		6C3828842293DE6400B05562 /* SPLTMultiLevelChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282C2293DE6400B05562 /* SPLTMultiLevelChannel.swift */; };
+		6C3828852293DE6400B05562 /* SPLTMultiLevelChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282C2293DE6400B05562 /* SPLTMultiLevelChannel.swift */; };
+		6C3828862293DE6400B05562 /* SPLTTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282E2293DE6400B05562 /* SPLTTokenAPI.swift */; };
+		6C3828872293DE6400B05562 /* SPLTTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282E2293DE6400B05562 /* SPLTTokenAPI.swift */; };
+		6C3828882293DE6400B05562 /* SPLTHelperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282F2293DE6400B05562 /* SPLTHelperAPI.swift */; };
+		6C3828892293DE6400B05562 /* SPLTHelperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38282F2293DE6400B05562 /* SPLTHelperAPI.swift */; };
+		6C38288A2293DE6400B05562 /* SPLTFullPathRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828302293DE6400B05562 /* SPLTFullPathRouter.swift */; };
+		6C38288B2293DE6400B05562 /* SPLTFullPathRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828302293DE6400B05562 /* SPLTFullPathRouter.swift */; };
+		6C38288C2293DE6400B05562 /* SPLTResumptionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828312293DE6400B05562 /* SPLTResumptionAPI.swift */; };
+		6C38288D2293DE6400B05562 /* SPLTResumptionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828312293DE6400B05562 /* SPLTResumptionAPI.swift */; };
+		6C38288E2293DE6400B05562 /* SPLTAdsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828322293DE6400B05562 /* SPLTAdsAPI.swift */; };
+		6C38288F2293DE6400B05562 /* SPLTAdsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828322293DE6400B05562 /* SPLTAdsAPI.swift */; };
+		6C3828902293DE6400B05562 /* SPLTWatchlistAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828332293DE6400B05562 /* SPLTWatchlistAPI.swift */; };
+		6C3828912293DE6400B05562 /* SPLTWatchlistAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828332293DE6400B05562 /* SPLTWatchlistAPI.swift */; };
+		6C3828922293DE6400B05562 /* SPLTBaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828342293DE6400B05562 /* SPLTBaseAPI.swift */; };
+		6C3828932293DE6400B05562 /* SPLTBaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828342293DE6400B05562 /* SPLTBaseAPI.swift */; };
+		6C3828942293DE6400B05562 /* SPLTAnalyticsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828352293DE6400B05562 /* SPLTAnalyticsAPI.swift */; };
+		6C3828952293DE6400B05562 /* SPLTAnalyticsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828352293DE6400B05562 /* SPLTAnalyticsAPI.swift */; };
+		6C3828962293DE6400B05562 /* SPLTRecommandationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828362293DE6400B05562 /* SPLTRecommandationAPI.swift */; };
+		6C3828972293DE6400B05562 /* SPLTRecommandationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828362293DE6400B05562 /* SPLTRecommandationAPI.swift */; };
+		6C3828982293DE6400B05562 /* SPLTTokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828372293DE6400B05562 /* SPLTTokenHandler.swift */; };
+		6C3828992293DE6400B05562 /* SPLTTokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828372293DE6400B05562 /* SPLTTokenHandler.swift */; };
+		6C38289A2293DE6400B05562 /* SPLTOrderDetailsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828382293DE6400B05562 /* SPLTOrderDetailsAPI.swift */; };
+		6C38289B2293DE6400B05562 /* SPLTOrderDetailsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828382293DE6400B05562 /* SPLTOrderDetailsAPI.swift */; };
+		6C38289C2293DE6400B05562 /* DTSZAnalyticsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828392293DE6400B05562 /* DTSZAnalyticsAPI.swift */; };
+		6C38289D2293DE6400B05562 /* DTSZAnalyticsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828392293DE6400B05562 /* DTSZAnalyticsAPI.swift */; };
+		6C38289E2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283A2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift */; };
+		6C38289F2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283A2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift */; };
+		6C3828A02293DE6400B05562 /* SPLTHomepageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283B2293DE6400B05562 /* SPLTHomepageAPI.swift */; };
+		6C3828A12293DE6400B05562 /* SPLTHomepageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283B2293DE6400B05562 /* SPLTHomepageAPI.swift */; };
+		6C3828A22293DE6400B05562 /* SPLTScheduledProgramsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283C2293DE6400B05562 /* SPLTScheduledProgramsAPI.swift */; };
+		6C3828A32293DE6400B05562 /* SPLTScheduledProgramsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283C2293DE6400B05562 /* SPLTScheduledProgramsAPI.swift */; };
+		6C3828A42293DE6400B05562 /* SPLTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283D2293DE6400B05562 /* SPLTAPI.swift */; };
+		6C3828A52293DE6400B05562 /* SPLTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283D2293DE6400B05562 /* SPLTAPI.swift */; };
+		6C3828A62293DE6400B05562 /* SPLTSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283E2293DE6400B05562 /* SPLTSearchAPI.swift */; };
+		6C3828A72293DE6400B05562 /* SPLTSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283E2293DE6400B05562 /* SPLTSearchAPI.swift */; };
+		6C3828A82293DE6400B05562 /* SPLTSubscriptionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283F2293DE6400B05562 /* SPLTSubscriptionAPI.swift */; };
+		6C3828A92293DE6400B05562 /* SPLTSubscriptionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38283F2293DE6400B05562 /* SPLTSubscriptionAPI.swift */; };
+		6C3828AA2293DE6400B05562 /* SPLTChannelsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828402293DE6400B05562 /* SPLTChannelsAPI.swift */; };
+		6C3828AB2293DE6400B05562 /* SPLTChannelsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828402293DE6400B05562 /* SPLTChannelsAPI.swift */; };
+		6C3828AC2293DE6400B05562 /* SPLTVideoProgressAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828412293DE6400B05562 /* SPLTVideoProgressAPI.swift */; };
+		6C3828AD2293DE6400B05562 /* SPLTVideoProgressAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828412293DE6400B05562 /* SPLTVideoProgressAPI.swift */; };
+		6C3828AE2293DE6400B05562 /* SPLTChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828422293DE6400B05562 /* SPLTChannelAPI.swift */; };
+		6C3828AF2293DE6400B05562 /* SPLTChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828422293DE6400B05562 /* SPLTChannelAPI.swift */; };
+		6C3828B02293DE6400B05562 /* SPLTLoginVerificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828432293DE6400B05562 /* SPLTLoginVerificationAPI.swift */; };
+		6C3828B12293DE6400B05562 /* SPLTLoginVerificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828432293DE6400B05562 /* SPLTLoginVerificationAPI.swift */; };
+		6C3828B22293DE6400B05562 /* SPLTCategoriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828442293DE6400B05562 /* SPLTCategoriesAPI.swift */; };
+		6C3828B32293DE6400B05562 /* SPLTCategoriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828442293DE6400B05562 /* SPLTCategoriesAPI.swift */; };
+		6C3828B42293DE6400B05562 /* SPLTUserDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828452293DE6400B05562 /* SPLTUserDetailAPI.swift */; };
+		6C3828B52293DE6400B05562 /* SPLTUserDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828452293DE6400B05562 /* SPLTUserDetailAPI.swift */; };
+		6C3828B62293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828462293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift */; };
+		6C3828B72293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828462293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift */; };
+		6C3828B82293DE6400B05562 /* SPLTVideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828472293DE6400B05562 /* SPLTVideoAPI.swift */; };
+		6C3828B92293DE6400B05562 /* SPLTVideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828472293DE6400B05562 /* SPLTVideoAPI.swift */; };
+		6C3828BA2293DE6400B05562 /* SPLTConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828492293DE6400B05562 /* SPLTConfig.swift */; };
+		6C3828BB2293DE6400B05562 /* SPLTConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828492293DE6400B05562 /* SPLTConfig.swift */; };
+		6C3828BC2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284A2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift */; };
+		6C3828BD2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284A2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift */; };
+		6C3828BE2293DE6400B05562 /* SPLTAnalyticsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284C2293DE6400B05562 /* SPLTAnalyticsUtility.swift */; };
+		6C3828BF2293DE6400B05562 /* SPLTAnalyticsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284C2293DE6400B05562 /* SPLTAnalyticsUtility.swift */; };
+		6C3828C02293DE6400B05562 /* SPLTSubscriptionUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284D2293DE6400B05562 /* SPLTSubscriptionUtility.swift */; };
+		6C3828C12293DE6400B05562 /* SPLTSubscriptionUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284D2293DE6400B05562 /* SPLTSubscriptionUtility.swift */; };
+		6C3828C22293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284E2293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift */; };
+		6C3828C32293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284E2293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift */; };
+		6C3828C42293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284F2293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift */; };
+		6C3828C52293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38284F2293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift */; };
+		6C3828C62293DE6400B05562 /* K10Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828502293DE6400B05562 /* K10Utility.swift */; };
+		6C3828C72293DE6400B05562 /* K10Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828502293DE6400B05562 /* K10Utility.swift */; };
+		6C3828C82293DE6400B05562 /* SPLTInAppPurchaseUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828512293DE6400B05562 /* SPLTInAppPurchaseUtility.swift */; };
+		6C3828C92293DE6400B05562 /* SPLTInAppPurchaseUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828512293DE6400B05562 /* SPLTInAppPurchaseUtility.swift */; };
+		6C3828CC2293DE6400B05562 /* Randoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828532293DE6400B05562 /* Randoms.swift */; };
+		6C3828CD2293DE6400B05562 /* Randoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828532293DE6400B05562 /* Randoms.swift */; };
+		6C3829202293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D02293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift */; };
+		6C3829212293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D02293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift */; };
+		6C3829222293E1C400B05562 /* SPLTBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D12293E1C400B05562 /* SPLTBaseCollectionViewCell.swift */; };
+		6C3829232293E1C400B05562 /* SPLTBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D12293E1C400B05562 /* SPLTBaseCollectionViewCell.swift */; };
+		6C3829242293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D22293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift */; };
+		6C3829252293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D22293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift */; };
+		6C3829262293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D32293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift */; };
+		6C3829272293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D32293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift */; };
+		6C3829282293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D42293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift */; };
+		6C3829292293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D42293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift */; };
+		6C38292A2293E1C400B05562 /* SPLTGenericCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D52293E1C400B05562 /* SPLTGenericCollectionViewCell.swift */; };
+		6C38292B2293E1C400B05562 /* SPLTGenericCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D52293E1C400B05562 /* SPLTGenericCollectionViewCell.swift */; };
+		6C38292C2293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D62293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift */; };
+		6C38292D2293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D62293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift */; };
+		6C38292E2293E1C400B05562 /* SPLTBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D82293E1C400B05562 /* SPLTBaseNavigationViewController.swift */; };
+		6C38292F2293E1C400B05562 /* SPLTBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D82293E1C400B05562 /* SPLTBaseNavigationViewController.swift */; };
+		6C3829302293E1C400B05562 /* SPLTBaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D92293E1C400B05562 /* SPLTBaseTabBarController.swift */; };
+		6C3829312293E1C400B05562 /* SPLTBaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828D92293E1C400B05562 /* SPLTBaseTabBarController.swift */; };
+		6C3829322293E1C400B05562 /* SPLTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DA2293E1C400B05562 /* SPLTBaseViewController.swift */; };
+		6C3829332293E1C400B05562 /* SPLTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DA2293E1C400B05562 /* SPLTBaseViewController.swift */; };
+		6C3829342293E1C400B05562 /* SPLTBaseVideoProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DB2293E1C400B05562 /* SPLTBaseVideoProgressView.swift */; };
+		6C3829352293E1C400B05562 /* SPLTBaseVideoProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DB2293E1C400B05562 /* SPLTBaseVideoProgressView.swift */; };
+		6C3829362293E1C400B05562 /* SPLTBaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DC2293E1C400B05562 /* SPLTBaseImageView.swift */; };
+		6C3829372293E1C400B05562 /* SPLTBaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DC2293E1C400B05562 /* SPLTBaseImageView.swift */; };
+		6C3829382293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DD2293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift */; };
+		6C3829392293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828DD2293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift */; };
+		6C38293A2293E1C400B05562 /* SPLTLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E02293E1C400B05562 /* SPLTLoginViewController.swift */; };
+		6C38293C2293E1C400B05562 /* SPLTIVPChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E22293E1C400B05562 /* SPLTIVPChannelViewController.swift */; };
+		6C38293E2293E1C400B05562 /* SPLTIVPVideoChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E32293E1C400B05562 /* SPLTIVPVideoChannelViewController.swift */; };
+		6C3829402293E1C400B05562 /* SPLTIVPMultiSeriesChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E42293E1C400B05562 /* SPLTIVPMultiSeriesChannelViewController.swift */; };
+		6C3829422293E1C400B05562 /* SPLTIVPVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E52293E1C400B05562 /* SPLTIVPVideoViewController.swift */; };
+		6C3829442293E1C400B05562 /* SPLTIVPSeriesChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E62293E1C400B05562 /* SPLTIVPSeriesChannelViewController.swift */; };
+		6C3829462293E1C400B05562 /* Auth0SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E82293E1C400B05562 /* Auth0SessionManager.swift */; };
+		6C3829482293E1C400B05562 /* SPLTAuth0iOSLoginUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828E92293E1C400B05562 /* SPLTAuth0iOSLoginUtility.swift */; };
+		6C38294A2293E1C400B05562 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EB2293E1C400B05562 /* UIImageView+Extension.swift */; };
+		6C38294B2293E1C400B05562 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EB2293E1C400B05562 /* UIImageView+Extension.swift */; };
+		6C38294C2293E1C400B05562 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EC2293E1C400B05562 /* UIColorExtension.swift */; };
+		6C38294D2293E1C400B05562 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EC2293E1C400B05562 /* UIColorExtension.swift */; };
+		6C38294E2293E1C400B05562 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828ED2293E1C400B05562 /* UIView+extension.swift */; };
+		6C38294F2293E1C400B05562 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828ED2293E1C400B05562 /* UIView+extension.swift */; };
+		6C3829502293E1C400B05562 /* UIColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EE2293E1C400B05562 /* UIColorInputError.swift */; };
+		6C3829512293E1C400B05562 /* UIColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EE2293E1C400B05562 /* UIColorInputError.swift */; };
+		6C3829522293E1C400B05562 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EF2293E1C400B05562 /* UIViewController+extension.swift */; };
+		6C3829532293E1C400B05562 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828EF2293E1C400B05562 /* UIViewController+extension.swift */; };
+		6C3829542293E1C400B05562 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828F02293E1C400B05562 /* StringExtension.swift */; };
+		6C3829552293E1C400B05562 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828F02293E1C400B05562 /* StringExtension.swift */; };
+		6C3829572293E1C400B05562 /* SPLTLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828F32293E1C400B05562 /* SPLTLoginViewController.swift */; };
+		6C3829592293E1C400B05562 /* SPLTIVPChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828F52293E1C400B05562 /* SPLTIVPChannelViewController.swift */; };
+		6C38295B2293E1C400B05562 /* SPLTIVPPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828F62293E1C400B05562 /* SPLTIVPPlayerViewController.swift */; };
+		6C38295D2293E1C400B05562 /* SPLTIVPVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828F72293E1C400B05562 /* SPLTIVPVideoViewController.swift */; };
+		6C38295F2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828FA2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailsTableViewCell.swift */; };
+		6C3829612293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828FB2293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoDetailTableViewCell.swift */; };
+		6C3829632293E1C400B05562 /* SPLTIVPSeriesChannelVideoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828FC2293E1C400B05562 /* SPLTIVPSeriesChannelVideoDetailTableViewCell.swift */; };
+		6C3829652293E1C400B05562 /* SPLTIVPChannelVideoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828FD2293E1C400B05562 /* SPLTIVPChannelVideoDetailTableViewCell.swift */; };
+		6C3829672293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828FE2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailCollectionViewCell.swift */; };
+		6C3829692293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoSeriesSeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3828FF2293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoSeriesSeasonCollectionViewCell.swift */; };
+		6C38296B2293E1C400B05562 /* SPLTIVPChannelRecommandedVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829002293E1C400B05562 /* SPLTIVPChannelRecommandedVideoCollectionViewCell.swift */; };
+		6C38296D2293E1C400B05562 /* SPLTIVPChannelRecommandedVideosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829012293E1C400B05562 /* SPLTIVPChannelRecommandedVideosTableViewCell.swift */; };
+		6C38296F2293E1C400B05562 /* SPLTIVPMultiseriesChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829022293E1C400B05562 /* SPLTIVPMultiseriesChannelTableViewController.swift */; };
+		6C3829712293E1C400B05562 /* SPLTIVPSeriesChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829032293E1C400B05562 /* SPLTIVPSeriesChannelTableViewController.swift */; };
+		6C3829732293E1C400B05562 /* SPLTIVPVideoChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829042293E1C400B05562 /* SPLTIVPVideoChannelTableViewController.swift */; };
+		6C3829752293E1C400B05562 /* SPLTIVPChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829052293E1C400B05562 /* SPLTIVPChannelTableViewController.swift */; };
+		6C3829772293E1C400B05562 /* SPLTAuth0LoginUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829072293E1C400B05562 /* SPLTAuth0LoginUtility.swift */; };
+		6C3829782293E1C400B05562 /* SPLTProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829092293E1C400B05562 /* SPLTProtocols.swift */; };
+		6C3829792293E1C400B05562 /* SPLTProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829092293E1C400B05562 /* SPLTProtocols.swift */; };
+		6C38297A2293E1C400B05562 /* SPLTSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290A2293E1C400B05562 /* SPLTSearchViewController.swift */; };
+		6C38297B2293E1C400B05562 /* SPLTSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290A2293E1C400B05562 /* SPLTSearchViewController.swift */; };
+		6C38297C2293E1C400B05562 /* SPLTSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290B2293E1C400B05562 /* SPLTSplashViewController.swift */; };
+		6C38297D2293E1C400B05562 /* SPLTSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290B2293E1C400B05562 /* SPLTSplashViewController.swift */; };
+		6C38297E2293E1C400B05562 /* SPLTWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290C2293E1C400B05562 /* SPLTWatchlistViewController.swift */; };
+		6C38297F2293E1C400B05562 /* SPLTWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290C2293E1C400B05562 /* SPLTWatchlistViewController.swift */; };
+		6C3829802293E1C400B05562 /* SPLTBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290D2293E1C400B05562 /* SPLTBrowseViewController.swift */; };
+		6C3829812293E1C400B05562 /* SPLTBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290D2293E1C400B05562 /* SPLTBrowseViewController.swift */; };
+		6C3829822293E1C400B05562 /* SPLTCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290E2293E1C400B05562 /* SPLTCategoriesViewController.swift */; };
+		6C3829832293E1C400B05562 /* SPLTCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290E2293E1C400B05562 /* SPLTCategoriesViewController.swift */; };
+		6C3829842293E1C400B05562 /* SPLTCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290F2293E1C400B05562 /* SPLTCategoryViewController.swift */; };
+		6C3829852293E1C400B05562 /* SPLTCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38290F2293E1C400B05562 /* SPLTCategoryViewController.swift */; };
+		6C3829862293E1C400B05562 /* SPLTHomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829102293E1C400B05562 /* SPLTHomeTabBarController.swift */; };
+		6C3829872293E1C400B05562 /* SPLTHomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829102293E1C400B05562 /* SPLTHomeTabBarController.swift */; };
+		6C3829882293E1C400B05562 /* EZYGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829122293E1C400B05562 /* EZYGradientView.swift */; };
+		6C3829892293E1C400B05562 /* EZYGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829122293E1C400B05562 /* EZYGradientView.swift */; };
+		6C38298B2293E1C400B05562 /* GATracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829142293E1C400B05562 /* GATracker.swift */; };
+		6C38298C2293E1C400B05562 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829162293E1C400B05562 /* ProgressView.swift */; };
+		6C38298D2293E1C400B05562 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829162293E1C400B05562 /* ProgressView.swift */; };
+		6C38298E2293E1C400B05562 /* HKProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829172293E1C400B05562 /* HKProgressHUD.swift */; };
+		6C38298F2293E1C400B05562 /* HKProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829172293E1C400B05562 /* HKProgressHUD.swift */; };
+		6C3829902293E1C400B05562 /* InfiniteCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829182293E1C400B05562 /* InfiniteCarousel.swift */; };
+		6C3829912293E1C400B05562 /* InfiniteCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829182293E1C400B05562 /* InfiniteCarousel.swift */; };
+		6C3829922293E1C400B05562 /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829192293E1C400B05562 /* UIImageViewAligned.swift */; };
+		6C3829932293E1C400B05562 /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829192293E1C400B05562 /* UIImageViewAligned.swift */; };
+		6C3829942293E1C400B05562 /* SPLTAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291A2293E1C400B05562 /* SPLTAppDelegate.swift */; };
+		6C3829952293E1C400B05562 /* SPLTAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291A2293E1C400B05562 /* SPLTAppDelegate.swift */; };
+		6C3829982293E1C400B05562 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291D2293E1C400B05562 /* NetworkActivityIndicatorManager.swift */; };
+		6C3829992293E1C400B05562 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291D2293E1C400B05562 /* NetworkActivityIndicatorManager.swift */; };
+		6C38299A2293E1C400B05562 /* SPLTUIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291E2293E1C400B05562 /* SPLTUIUtility.swift */; };
+		6C38299B2293E1C400B05562 /* SPLTUIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291E2293E1C400B05562 /* SPLTUIUtility.swift */; };
+		6C38299C2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291F2293E1C400B05562 /* SPLTWatchlistUtility.swift */; };
+		6C38299D2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291F2293E1C400B05562 /* SPLTWatchlistUtility.swift */; };
+		6C3829B22294125100B05562 /* SPLTVideoViewController+cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */; };
+		6C3829B32294125100B05562 /* SPLTVideo+extensionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A12294125100B05562 /* SPLTVideo+extensionPlayer.swift */; };
+		6C3829B42294125100B05562 /* DSCastUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A32294125100B05562 /* DSCastUtility.swift */; };
+		6C3829B52294125100B05562 /* DSChromeCastUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A42294125100B05562 /* DSChromeCastUtility.swift */; };
+		6C3829B62294125100B05562 /* DSCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A52294125100B05562 /* DSCastViewController.swift */; };
+		6C3829B72294125100B05562 /* DSCastButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A62294125100B05562 /* DSCastButton.swift */; };
+		6C3829B82294125100B05562 /* DSCastDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A72294125100B05562 /* DSCastDeviceModel.swift */; };
+		6C3829B92294125100B05562 /* DSAirplayCastUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A82294125100B05562 /* DSAirplayCastUtility.swift */; };
+		6C3829BA2294125100B05562 /* DotstudioIMAPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */; };
+		6C3829BB2294125100B05562 /* SPLTVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829AA2294125100B05562 /* SPLTVideoViewController.swift */; };
+		6C3829BC2294125100B05562 /* SubtitlesAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829AB2294125100B05562 /* SubtitlesAVPlayer.swift */; };
+		6C3829BD2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829AC2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift */; };
+		6C3829BF2294125100B05562 /* DotstudioIMAPlayer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3829AE2294125100B05562 /* DotstudioIMAPlayer.xcassets */; };
+		6C3829C22294125100B05562 /* DotstudioIMAPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */; };
+		6C3829C6229413D600B05562 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3829C4229413D500B05562 /* FontAwesome.ttf */; };
+		6C3829C7229413D600B05562 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3829C4229413D500B05562 /* FontAwesome.ttf */; };
+		6C3829C8229413D600B05562 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829C5229413D500B05562 /* FAIcon.swift */; };
+		6C3829C9229413D600B05562 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829C5229413D500B05562 /* FAIcon.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		189A89E56FFE5F1E9FB3B794 /* Pods_Dotstudiopro_tvos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dotstudiopro_tvos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FB3251D8CFEF598AD02FC2 /* Pods_Dotstudiopro_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dotstudiopro_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3827F92293DCFB00B05562 /* DotstudioPRO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DotstudioPRO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3827FC2293DCFB00B05562 /* Dotstudiopro_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dotstudiopro_ios.h; sourceTree = "<group>"; };
+		6C3827FD2293DCFB00B05562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C3828072293DD8300B05562 /* DotstudioPRO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DotstudioPRO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3828092293DD8300B05562 /* Dotstudiopro_tvos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dotstudiopro_tvos.h; sourceTree = "<group>"; };
+		6C38280A2293DD8300B05562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C3828122293DE6400B05562 /* JWTDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
+		6C3828132293DE6400B05562 /* JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		6C3828142293DE6400B05562 /* Base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
+		6C3828152293DE6400B05562 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		6C3828162293DE6400B05562 /* JWTDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWTDecode.h; sourceTree = "<group>"; };
+		6C3828172293DE6400B05562 /* A0JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A0JWT.swift; sourceTree = "<group>"; };
+		6C3828192293DE6400B05562 /* SPLTVideoChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTVideoChannel.swift; sourceTree = "<group>"; };
+		6C38281A2293DE6400B05562 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6C38281B2293DE6400B05562 /* SPLTSubscriptionProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTSubscriptionProduct.swift; sourceTree = "<group>"; };
+		6C38281C2293DE6400B05562 /* SPLTChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTChannel.swift; sourceTree = "<group>"; };
+		6C38281D2293DE6400B05562 /* SPLTRecommandedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTRecommandedData.swift; sourceTree = "<group>"; };
+		6C38281E2293DE6400B05562 /* DTSZVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTSZVideo.swift; sourceTree = "<group>"; };
+		6C38281F2293DE6400B05562 /* SPLTPlaylistChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTPlaylistChannel.swift; sourceTree = "<group>"; };
+		6C3828202293DE6400B05562 /* SPLTCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTCategory.swift; sourceTree = "<group>"; };
+		6C3828212293DE6400B05562 /* SPLTCustomCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTCustomCategory.swift; sourceTree = "<group>"; };
+		6C3828222293DE6400B05562 /* DTSZChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTSZChannel.swift; sourceTree = "<group>"; };
+		6C3828232293DE6400B05562 /* SPLTCompanyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTCompanyData.swift; sourceTree = "<group>"; };
+		6C3828252293DE6400B05562 /* SPLTAnalyticsEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAnalyticsEvent.swift; sourceTree = "<group>"; };
+		6C3828262293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAnalyticsEventsAPIObject.swift; sourceTree = "<group>"; };
+		6C3828272293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAnalyticsEventsHelper.swift; sourceTree = "<group>"; };
+		6C3828282293DE6400B05562 /* SPLTUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTUser.swift; sourceTree = "<group>"; };
+		6C3828292293DE6400B05562 /* DTSZChannelFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTSZChannelFeed.swift; sourceTree = "<group>"; };
+		6C38282A2293DE6400B05562 /* SPLTVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTVideo.swift; sourceTree = "<group>"; };
+		6C38282B2293DE6400B05562 /* SPLTCustomPlaylistChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTCustomPlaylistChannel.swift; sourceTree = "<group>"; };
+		6C38282C2293DE6400B05562 /* SPLTMultiLevelChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTMultiLevelChannel.swift; sourceTree = "<group>"; };
+		6C38282E2293DE6400B05562 /* SPLTTokenAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTTokenAPI.swift; sourceTree = "<group>"; };
+		6C38282F2293DE6400B05562 /* SPLTHelperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTHelperAPI.swift; sourceTree = "<group>"; };
+		6C3828302293DE6400B05562 /* SPLTFullPathRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTFullPathRouter.swift; sourceTree = "<group>"; };
+		6C3828312293DE6400B05562 /* SPLTResumptionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTResumptionAPI.swift; sourceTree = "<group>"; };
+		6C3828322293DE6400B05562 /* SPLTAdsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAdsAPI.swift; sourceTree = "<group>"; };
+		6C3828332293DE6400B05562 /* SPLTWatchlistAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTWatchlistAPI.swift; sourceTree = "<group>"; };
+		6C3828342293DE6400B05562 /* SPLTBaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBaseAPI.swift; sourceTree = "<group>"; };
+		6C3828352293DE6400B05562 /* SPLTAnalyticsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAnalyticsAPI.swift; sourceTree = "<group>"; };
+		6C3828362293DE6400B05562 /* SPLTRecommandationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTRecommandationAPI.swift; sourceTree = "<group>"; };
+		6C3828372293DE6400B05562 /* SPLTTokenHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTTokenHandler.swift; sourceTree = "<group>"; };
+		6C3828382293DE6400B05562 /* SPLTOrderDetailsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTOrderDetailsAPI.swift; sourceTree = "<group>"; };
+		6C3828392293DE6400B05562 /* DTSZAnalyticsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTSZAnalyticsAPI.swift; sourceTree = "<group>"; };
+		6C38283A2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTPurchaseVideoAPI.swift; sourceTree = "<group>"; };
+		6C38283B2293DE6400B05562 /* SPLTHomepageAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTHomepageAPI.swift; sourceTree = "<group>"; };
+		6C38283C2293DE6400B05562 /* SPLTScheduledProgramsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTScheduledProgramsAPI.swift; sourceTree = "<group>"; };
+		6C38283D2293DE6400B05562 /* SPLTAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAPI.swift; sourceTree = "<group>"; };
+		6C38283E2293DE6400B05562 /* SPLTSearchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTSearchAPI.swift; sourceTree = "<group>"; };
+		6C38283F2293DE6400B05562 /* SPLTSubscriptionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTSubscriptionAPI.swift; sourceTree = "<group>"; };
+		6C3828402293DE6400B05562 /* SPLTChannelsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTChannelsAPI.swift; sourceTree = "<group>"; };
+		6C3828412293DE6400B05562 /* SPLTVideoProgressAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTVideoProgressAPI.swift; sourceTree = "<group>"; };
+		6C3828422293DE6400B05562 /* SPLTChannelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTChannelAPI.swift; sourceTree = "<group>"; };
+		6C3828432293DE6400B05562 /* SPLTLoginVerificationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTLoginVerificationAPI.swift; sourceTree = "<group>"; };
+		6C3828442293DE6400B05562 /* SPLTCategoriesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTCategoriesAPI.swift; sourceTree = "<group>"; };
+		6C3828452293DE6400B05562 /* SPLTUserDetailAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTUserDetailAPI.swift; sourceTree = "<group>"; };
+		6C3828462293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAppVersionCheckerAPI.swift; sourceTree = "<group>"; };
+		6C3828472293DE6400B05562 /* SPLTVideoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTVideoAPI.swift; sourceTree = "<group>"; };
+		6C3828492293DE6400B05562 /* SPLTConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTConfig.swift; sourceTree = "<group>"; };
+		6C38284A2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBackgroundTaskUtility.swift; sourceTree = "<group>"; };
+		6C38284C2293DE6400B05562 /* SPLTAnalyticsUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAnalyticsUtility.swift; sourceTree = "<group>"; };
+		6C38284D2293DE6400B05562 /* SPLTSubscriptionUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTSubscriptionUtility.swift; sourceTree = "<group>"; };
+		6C38284E2293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAppVersionCheckerUtility.swift; sourceTree = "<group>"; };
+		6C38284F2293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTLoginCodeVerificationUtility.swift; sourceTree = "<group>"; };
+		6C3828502293DE6400B05562 /* K10Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K10Utility.swift; sourceTree = "<group>"; };
+		6C3828512293DE6400B05562 /* SPLTInAppPurchaseUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTInAppPurchaseUtility.swift; sourceTree = "<group>"; };
+		6C3828532293DE6400B05562 /* Randoms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Randoms.swift; sourceTree = "<group>"; };
+		6C3828D02293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTHorizontalBaseTableViewCell.swift; sourceTree = "<group>"; };
+		6C3828D12293E1C400B05562 /* SPLTBaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3828D22293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTWatchlistCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3828D32293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTFeaturedHorizontalTableViewCell.swift; sourceTree = "<group>"; };
+		6C3828D42293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTHorizontalBaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3828D52293E1C400B05562 /* SPLTGenericCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTGenericCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3828D62293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPVideoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3828D82293E1C400B05562 /* SPLTBaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBaseNavigationViewController.swift; sourceTree = "<group>"; };
+		6C3828D92293E1C400B05562 /* SPLTBaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBaseTabBarController.swift; sourceTree = "<group>"; };
+		6C3828DA2293E1C400B05562 /* SPLTBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBaseViewController.swift; sourceTree = "<group>"; };
+		6C3828DB2293E1C400B05562 /* SPLTBaseVideoProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBaseVideoProgressView.swift; sourceTree = "<group>"; };
+		6C3828DC2293E1C400B05562 /* SPLTBaseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBaseImageView.swift; sourceTree = "<group>"; };
+		6C3828DD2293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTTabBarBaseNavigationViewController.swift; sourceTree = "<group>"; };
+		6C3828E02293E1C400B05562 /* SPLTLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTLoginViewController.swift; sourceTree = "<group>"; };
+		6C3828E22293E1C400B05562 /* SPLTIVPChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelViewController.swift; sourceTree = "<group>"; };
+		6C3828E32293E1C400B05562 /* SPLTIVPVideoChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPVideoChannelViewController.swift; sourceTree = "<group>"; };
+		6C3828E42293E1C400B05562 /* SPLTIVPMultiSeriesChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPMultiSeriesChannelViewController.swift; sourceTree = "<group>"; };
+		6C3828E52293E1C400B05562 /* SPLTIVPVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPVideoViewController.swift; sourceTree = "<group>"; };
+		6C3828E62293E1C400B05562 /* SPLTIVPSeriesChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPSeriesChannelViewController.swift; sourceTree = "<group>"; };
+		6C3828E82293E1C400B05562 /* Auth0SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth0SessionManager.swift; sourceTree = "<group>"; };
+		6C3828E92293E1C400B05562 /* SPLTAuth0iOSLoginUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAuth0iOSLoginUtility.swift; sourceTree = "<group>"; };
+		6C3828EB2293E1C400B05562 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		6C3828EC2293E1C400B05562 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		6C3828ED2293E1C400B05562 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		6C3828EE2293E1C400B05562 /* UIColorInputError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorInputError.swift; sourceTree = "<group>"; };
+		6C3828EF2293E1C400B05562 /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		6C3828F02293E1C400B05562 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		6C3828F32293E1C400B05562 /* SPLTLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTLoginViewController.swift; sourceTree = "<group>"; };
+		6C3828F52293E1C400B05562 /* SPLTIVPChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelViewController.swift; sourceTree = "<group>"; };
+		6C3828F62293E1C400B05562 /* SPLTIVPPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPPlayerViewController.swift; sourceTree = "<group>"; };
+		6C3828F72293E1C400B05562 /* SPLTIVPVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPVideoViewController.swift; sourceTree = "<group>"; };
+		6C3828FA2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelPlaylistVideoDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		6C3828FB2293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPMultiSeriesChannelVideoDetailTableViewCell.swift; sourceTree = "<group>"; };
+		6C3828FC2293E1C400B05562 /* SPLTIVPSeriesChannelVideoDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPSeriesChannelVideoDetailTableViewCell.swift; sourceTree = "<group>"; };
+		6C3828FD2293E1C400B05562 /* SPLTIVPChannelVideoDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelVideoDetailTableViewCell.swift; sourceTree = "<group>"; };
+		6C3828FE2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelPlaylistVideoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3828FF2293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoSeriesSeasonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPMultiSeriesChannelVideoSeriesSeasonCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3829002293E1C400B05562 /* SPLTIVPChannelRecommandedVideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelRecommandedVideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C3829012293E1C400B05562 /* SPLTIVPChannelRecommandedVideosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelRecommandedVideosTableViewCell.swift; sourceTree = "<group>"; };
+		6C3829022293E1C400B05562 /* SPLTIVPMultiseriesChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPMultiseriesChannelTableViewController.swift; sourceTree = "<group>"; };
+		6C3829032293E1C400B05562 /* SPLTIVPSeriesChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPSeriesChannelTableViewController.swift; sourceTree = "<group>"; };
+		6C3829042293E1C400B05562 /* SPLTIVPVideoChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPVideoChannelTableViewController.swift; sourceTree = "<group>"; };
+		6C3829052293E1C400B05562 /* SPLTIVPChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTIVPChannelTableViewController.swift; sourceTree = "<group>"; };
+		6C3829072293E1C400B05562 /* SPLTAuth0LoginUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAuth0LoginUtility.swift; sourceTree = "<group>"; };
+		6C3829092293E1C400B05562 /* SPLTProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTProtocols.swift; sourceTree = "<group>"; };
+		6C38290A2293E1C400B05562 /* SPLTSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTSearchViewController.swift; sourceTree = "<group>"; };
+		6C38290B2293E1C400B05562 /* SPLTSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTSplashViewController.swift; sourceTree = "<group>"; };
+		6C38290C2293E1C400B05562 /* SPLTWatchlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTWatchlistViewController.swift; sourceTree = "<group>"; };
+		6C38290D2293E1C400B05562 /* SPLTBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTBrowseViewController.swift; sourceTree = "<group>"; };
+		6C38290E2293E1C400B05562 /* SPLTCategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTCategoriesViewController.swift; sourceTree = "<group>"; };
+		6C38290F2293E1C400B05562 /* SPLTCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTCategoryViewController.swift; sourceTree = "<group>"; };
+		6C3829102293E1C400B05562 /* SPLTHomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTHomeTabBarController.swift; sourceTree = "<group>"; };
+		6C3829122293E1C400B05562 /* EZYGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZYGradientView.swift; sourceTree = "<group>"; };
+		6C3829142293E1C400B05562 /* GATracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GATracker.swift; sourceTree = "<group>"; };
+		6C3829162293E1C400B05562 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		6C3829172293E1C400B05562 /* HKProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProgressHUD.swift; sourceTree = "<group>"; };
+		6C3829182293E1C400B05562 /* InfiniteCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCarousel.swift; sourceTree = "<group>"; };
+		6C3829192293E1C400B05562 /* UIImageViewAligned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAligned.swift; sourceTree = "<group>"; };
+		6C38291A2293E1C400B05562 /* SPLTAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTAppDelegate.swift; sourceTree = "<group>"; };
+		6C38291D2293E1C400B05562 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		6C38291E2293E1C400B05562 /* SPLTUIUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTUIUtility.swift; sourceTree = "<group>"; };
+		6C38291F2293E1C400B05562 /* SPLTWatchlistUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTWatchlistUtility.swift; sourceTree = "<group>"; };
+		6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTVideoViewController+cast.swift"; sourceTree = "<group>"; };
+		6C3829A12294125100B05562 /* SPLTVideo+extensionPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTVideo+extensionPlayer.swift"; sourceTree = "<group>"; };
+		6C3829A32294125100B05562 /* DSCastUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSCastUtility.swift; sourceTree = "<group>"; };
+		6C3829A42294125100B05562 /* DSChromeCastUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSChromeCastUtility.swift; sourceTree = "<group>"; };
+		6C3829A52294125100B05562 /* DSCastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSCastViewController.swift; sourceTree = "<group>"; };
+		6C3829A62294125100B05562 /* DSCastButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSCastButton.swift; sourceTree = "<group>"; };
+		6C3829A72294125100B05562 /* DSCastDeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSCastDeviceModel.swift; sourceTree = "<group>"; };
+		6C3829A82294125100B05562 /* DSAirplayCastUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAirplayCastUtility.swift; sourceTree = "<group>"; };
+		6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotstudioIMAPlayerViewController.swift; sourceTree = "<group>"; };
+		6C3829AA2294125100B05562 /* SPLTVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTVideoViewController.swift; sourceTree = "<group>"; };
+		6C3829AB2294125100B05562 /* SubtitlesAVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitlesAVPlayer.swift; sourceTree = "<group>"; };
+		6C3829AC2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTVideoViewController+GoogleIMA.swift"; sourceTree = "<group>"; };
+		6C3829AE2294125100B05562 /* DotstudioIMAPlayer.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DotstudioIMAPlayer.xcassets; sourceTree = "<group>"; };
+		6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DotstudioIMAPlayerViewController.storyboard; sourceTree = "<group>"; };
+		6C3829C4229413D500B05562 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		6C3829C5229413D500B05562 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		85B08942B02AE5DF102494D5 /* Pods-Dotstudiopro-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-tvos.debug.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-tvos/Pods-Dotstudiopro-tvos.debug.xcconfig"; sourceTree = "<group>"; };
+		B283F23B008CEA924C5C6808 /* Pods-Dotstudiopro-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-ios.release.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-ios/Pods-Dotstudiopro-ios.release.xcconfig"; sourceTree = "<group>"; };
+		EFB7E3A268C23C29D1B3446D /* Pods-Dotstudiopro-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-tvos.release.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-tvos/Pods-Dotstudiopro-tvos.release.xcconfig"; sourceTree = "<group>"; };
+		F7C5961082D6DE53EB6B36CA /* Pods-Dotstudiopro-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-ios.debug.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-ios/Pods-Dotstudiopro-ios.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6C3827F62293DCFB00B05562 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C37F0D496F6517AE6540362 /* Pods_Dotstudiopro_ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3828042293DD8300B05562 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ADA3B40CDFC058AC14D139B /* Pods_Dotstudiopro_tvos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06E6E07905B2E2CB1967C0EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52FB3251D8CFEF598AD02FC2 /* Pods_Dotstudiopro_ios.framework */,
+				189A89E56FFE5F1E9FB3B794 /* Pods_Dotstudiopro_tvos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		203D72DEEEA9E9EC781E132F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F7C5961082D6DE53EB6B36CA /* Pods-Dotstudiopro-ios.debug.xcconfig */,
+				B283F23B008CEA924C5C6808 /* Pods-Dotstudiopro-ios.release.xcconfig */,
+				85B08942B02AE5DF102494D5 /* Pods-Dotstudiopro-tvos.debug.xcconfig */,
+				EFB7E3A268C23C29D1B3446D /* Pods-Dotstudiopro-tvos.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6C3827ED2293DCC400B05562 = {
+			isa = PBXGroup;
+			children = (
+				6C38280F2293DDD600B05562 /* source */,
+				6C3827FB2293DCFB00B05562 /* Dotstudiopro-ios */,
+				6C3828082293DD8300B05562 /* Dotstudiopro-tvos */,
+				6C3827FA2293DCFB00B05562 /* Products */,
+				203D72DEEEA9E9EC781E132F /* Pods */,
+				06E6E07905B2E2CB1967C0EE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6C3827FA2293DCFB00B05562 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C3827F92293DCFB00B05562 /* DotstudioPRO.framework */,
+				6C3828072293DD8300B05562 /* DotstudioPRO.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C3827FB2293DCFB00B05562 /* Dotstudiopro-ios */ = {
+			isa = PBXGroup;
+			children = (
+				6C3827FC2293DCFB00B05562 /* Dotstudiopro_ios.h */,
+				6C3827FD2293DCFB00B05562 /* Info.plist */,
+			);
+			path = "Dotstudiopro-ios";
+			sourceTree = "<group>";
+		};
+		6C3828082293DD8300B05562 /* Dotstudiopro-tvos */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828092293DD8300B05562 /* Dotstudiopro_tvos.h */,
+				6C38280A2293DD8300B05562 /* Info.plist */,
+			);
+			path = "Dotstudiopro-tvos";
+			sourceTree = "<group>";
+		};
+		6C38280F2293DDD600B05562 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				6C38299E2294120A00B05562 /* player */,
+				6C3828102293DE6400B05562 /* api */,
+				6C3828CE2293E1C400B05562 /* ui */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		6C3828102293DE6400B05562 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828112293DE6400B05562 /* JWT */,
+				6C3828182293DE6400B05562 /* Objects */,
+				6C38282D2293DE6400B05562 /* NetworkKit */,
+				6C3828482293DE6400B05562 /* Utility */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		6C3828112293DE6400B05562 /* JWT */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828122293DE6400B05562 /* JWTDecode.swift */,
+				6C3828132293DE6400B05562 /* JWT.swift */,
+				6C3828142293DE6400B05562 /* Base64.swift */,
+				6C3828152293DE6400B05562 /* Errors.swift */,
+				6C3828162293DE6400B05562 /* JWTDecode.h */,
+				6C3828172293DE6400B05562 /* A0JWT.swift */,
+			);
+			path = JWT;
+			sourceTree = "<group>";
+		};
+		6C3828182293DE6400B05562 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828192293DE6400B05562 /* SPLTVideoChannel.swift */,
+				6C38281A2293DE6400B05562 /* Constants.swift */,
+				6C38281B2293DE6400B05562 /* SPLTSubscriptionProduct.swift */,
+				6C38281C2293DE6400B05562 /* SPLTChannel.swift */,
+				6C38281D2293DE6400B05562 /* SPLTRecommandedData.swift */,
+				6C38281E2293DE6400B05562 /* DTSZVideo.swift */,
+				6C38281F2293DE6400B05562 /* SPLTPlaylistChannel.swift */,
+				6C3828202293DE6400B05562 /* SPLTCategory.swift */,
+				6C3828212293DE6400B05562 /* SPLTCustomCategory.swift */,
+				6C3828222293DE6400B05562 /* DTSZChannel.swift */,
+				6C3828232293DE6400B05562 /* SPLTCompanyData.swift */,
+				6C3828242293DE6400B05562 /* AnalyticsObjects */,
+				6C3828292293DE6400B05562 /* DTSZChannelFeed.swift */,
+				6C38282A2293DE6400B05562 /* SPLTVideo.swift */,
+				6C38282B2293DE6400B05562 /* SPLTCustomPlaylistChannel.swift */,
+				6C38282C2293DE6400B05562 /* SPLTMultiLevelChannel.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		6C3828242293DE6400B05562 /* AnalyticsObjects */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828252293DE6400B05562 /* SPLTAnalyticsEvent.swift */,
+				6C3828262293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift */,
+				6C3828272293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift */,
+				6C3828282293DE6400B05562 /* SPLTUser.swift */,
+			);
+			path = AnalyticsObjects;
+			sourceTree = "<group>";
+		};
+		6C38282D2293DE6400B05562 /* NetworkKit */ = {
+			isa = PBXGroup;
+			children = (
+				6C38282E2293DE6400B05562 /* SPLTTokenAPI.swift */,
+				6C38282F2293DE6400B05562 /* SPLTHelperAPI.swift */,
+				6C3828302293DE6400B05562 /* SPLTFullPathRouter.swift */,
+				6C3828312293DE6400B05562 /* SPLTResumptionAPI.swift */,
+				6C3828322293DE6400B05562 /* SPLTAdsAPI.swift */,
+				6C3828332293DE6400B05562 /* SPLTWatchlistAPI.swift */,
+				6C3828342293DE6400B05562 /* SPLTBaseAPI.swift */,
+				6C3828352293DE6400B05562 /* SPLTAnalyticsAPI.swift */,
+				6C3828362293DE6400B05562 /* SPLTRecommandationAPI.swift */,
+				6C3828372293DE6400B05562 /* SPLTTokenHandler.swift */,
+				6C3828382293DE6400B05562 /* SPLTOrderDetailsAPI.swift */,
+				6C3828392293DE6400B05562 /* DTSZAnalyticsAPI.swift */,
+				6C38283A2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift */,
+				6C38283B2293DE6400B05562 /* SPLTHomepageAPI.swift */,
+				6C38283C2293DE6400B05562 /* SPLTScheduledProgramsAPI.swift */,
+				6C38283D2293DE6400B05562 /* SPLTAPI.swift */,
+				6C38283E2293DE6400B05562 /* SPLTSearchAPI.swift */,
+				6C38283F2293DE6400B05562 /* SPLTSubscriptionAPI.swift */,
+				6C3828402293DE6400B05562 /* SPLTChannelsAPI.swift */,
+				6C3828412293DE6400B05562 /* SPLTVideoProgressAPI.swift */,
+				6C3828422293DE6400B05562 /* SPLTChannelAPI.swift */,
+				6C3828432293DE6400B05562 /* SPLTLoginVerificationAPI.swift */,
+				6C3828442293DE6400B05562 /* SPLTCategoriesAPI.swift */,
+				6C3828452293DE6400B05562 /* SPLTUserDetailAPI.swift */,
+				6C3828462293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift */,
+				6C3828472293DE6400B05562 /* SPLTVideoAPI.swift */,
+			);
+			path = NetworkKit;
+			sourceTree = "<group>";
+		};
+		6C3828482293DE6400B05562 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828492293DE6400B05562 /* SPLTConfig.swift */,
+				6C38284A2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift */,
+				6C38284B2293DE6400B05562 /* AnalyticsUtility */,
+				6C38284D2293DE6400B05562 /* SPLTSubscriptionUtility.swift */,
+				6C38284E2293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift */,
+				6C38284F2293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift */,
+				6C3828502293DE6400B05562 /* K10Utility.swift */,
+				6C3828512293DE6400B05562 /* SPLTInAppPurchaseUtility.swift */,
+				6C3828532293DE6400B05562 /* Randoms.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		6C38284B2293DE6400B05562 /* AnalyticsUtility */ = {
+			isa = PBXGroup;
+			children = (
+				6C38284C2293DE6400B05562 /* SPLTAnalyticsUtility.swift */,
+			);
+			path = AnalyticsUtility;
+			sourceTree = "<group>";
+		};
+		6C3828CE2293E1C400B05562 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828CF2293E1C400B05562 /* cells */,
+				6C3828D72293E1C400B05562 /* baseclasses */,
+				6C3828DE2293E1C400B05562 /* ios */,
+				6C3828EA2293E1C400B05562 /* extensions */,
+				6C3828F12293E1C400B05562 /* tvos */,
+				6C3829082293E1C400B05562 /* controllers */,
+				6C3829112293E1C400B05562 /* thirdparty */,
+				6C38291A2293E1C400B05562 /* SPLTAppDelegate.swift */,
+				6C38291B2293E1C400B05562 /* utility */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		6C3828CF2293E1C400B05562 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828D02293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift */,
+				6C3828D12293E1C400B05562 /* SPLTBaseCollectionViewCell.swift */,
+				6C3828D22293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift */,
+				6C3828D32293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift */,
+				6C3828D42293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift */,
+				6C3828D52293E1C400B05562 /* SPLTGenericCollectionViewCell.swift */,
+				6C3828D62293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		6C3828D72293E1C400B05562 /* baseclasses */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828D82293E1C400B05562 /* SPLTBaseNavigationViewController.swift */,
+				6C3828D92293E1C400B05562 /* SPLTBaseTabBarController.swift */,
+				6C3828DA2293E1C400B05562 /* SPLTBaseViewController.swift */,
+				6C3828DB2293E1C400B05562 /* SPLTBaseVideoProgressView.swift */,
+				6C3828DC2293E1C400B05562 /* SPLTBaseImageView.swift */,
+				6C3828DD2293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift */,
+			);
+			path = baseclasses;
+			sourceTree = "<group>";
+		};
+		6C3828DE2293E1C400B05562 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828DF2293E1C400B05562 /* controllers */,
+				6C3828E72293E1C400B05562 /* Utility */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		6C3828DF2293E1C400B05562 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828E02293E1C400B05562 /* SPLTLoginViewController.swift */,
+				6C3828E12293E1C400B05562 /* SPLTIVPController */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		6C3828E12293E1C400B05562 /* SPLTIVPController */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828E22293E1C400B05562 /* SPLTIVPChannelViewController.swift */,
+				6C3828E32293E1C400B05562 /* SPLTIVPVideoChannelViewController.swift */,
+				6C3828E42293E1C400B05562 /* SPLTIVPMultiSeriesChannelViewController.swift */,
+				6C3828E52293E1C400B05562 /* SPLTIVPVideoViewController.swift */,
+				6C3828E62293E1C400B05562 /* SPLTIVPSeriesChannelViewController.swift */,
+			);
+			path = SPLTIVPController;
+			sourceTree = "<group>";
+		};
+		6C3828E72293E1C400B05562 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828E82293E1C400B05562 /* Auth0SessionManager.swift */,
+				6C3828E92293E1C400B05562 /* SPLTAuth0iOSLoginUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		6C3828EA2293E1C400B05562 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828EB2293E1C400B05562 /* UIImageView+Extension.swift */,
+				6C3828EC2293E1C400B05562 /* UIColorExtension.swift */,
+				6C3828ED2293E1C400B05562 /* UIView+extension.swift */,
+				6C3828EE2293E1C400B05562 /* UIColorInputError.swift */,
+				6C3828EF2293E1C400B05562 /* UIViewController+extension.swift */,
+				6C3828F02293E1C400B05562 /* StringExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		6C3828F12293E1C400B05562 /* tvos */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828F22293E1C400B05562 /* controllers */,
+				6C3829062293E1C400B05562 /* Utility */,
+			);
+			path = tvos;
+			sourceTree = "<group>";
+		};
+		6C3828F22293E1C400B05562 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828F32293E1C400B05562 /* SPLTLoginViewController.swift */,
+				6C3828F42293E1C400B05562 /* SPLTIVPVideoController */,
+				6C3828F82293E1C400B05562 /* SPLTIVPController */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		6C3828F42293E1C400B05562 /* SPLTIVPVideoController */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828F52293E1C400B05562 /* SPLTIVPChannelViewController.swift */,
+				6C3828F62293E1C400B05562 /* SPLTIVPPlayerViewController.swift */,
+				6C3828F72293E1C400B05562 /* SPLTIVPVideoViewController.swift */,
+			);
+			path = SPLTIVPVideoController;
+			sourceTree = "<group>";
+		};
+		6C3828F82293E1C400B05562 /* SPLTIVPController */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828F92293E1C400B05562 /* SPLTIVPCells */,
+				6C3829022293E1C400B05562 /* SPLTIVPMultiseriesChannelTableViewController.swift */,
+				6C3829032293E1C400B05562 /* SPLTIVPSeriesChannelTableViewController.swift */,
+				6C3829042293E1C400B05562 /* SPLTIVPVideoChannelTableViewController.swift */,
+				6C3829052293E1C400B05562 /* SPLTIVPChannelTableViewController.swift */,
+			);
+			path = SPLTIVPController;
+			sourceTree = "<group>";
+		};
+		6C3828F92293E1C400B05562 /* SPLTIVPCells */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828FA2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailsTableViewCell.swift */,
+				6C3828FB2293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoDetailTableViewCell.swift */,
+				6C3828FC2293E1C400B05562 /* SPLTIVPSeriesChannelVideoDetailTableViewCell.swift */,
+				6C3828FD2293E1C400B05562 /* SPLTIVPChannelVideoDetailTableViewCell.swift */,
+				6C3828FE2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailCollectionViewCell.swift */,
+				6C3828FF2293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoSeriesSeasonCollectionViewCell.swift */,
+				6C3829002293E1C400B05562 /* SPLTIVPChannelRecommandedVideoCollectionViewCell.swift */,
+				6C3829012293E1C400B05562 /* SPLTIVPChannelRecommandedVideosTableViewCell.swift */,
+			);
+			path = SPLTIVPCells;
+			sourceTree = "<group>";
+		};
+		6C3829062293E1C400B05562 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829072293E1C400B05562 /* SPLTAuth0LoginUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		6C3829082293E1C400B05562 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829092293E1C400B05562 /* SPLTProtocols.swift */,
+				6C38290A2293E1C400B05562 /* SPLTSearchViewController.swift */,
+				6C38290B2293E1C400B05562 /* SPLTSplashViewController.swift */,
+				6C38290C2293E1C400B05562 /* SPLTWatchlistViewController.swift */,
+				6C38290D2293E1C400B05562 /* SPLTBrowseViewController.swift */,
+				6C38290E2293E1C400B05562 /* SPLTCategoriesViewController.swift */,
+				6C38290F2293E1C400B05562 /* SPLTCategoryViewController.swift */,
+				6C3829102293E1C400B05562 /* SPLTHomeTabBarController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		6C3829112293E1C400B05562 /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829C3229413D500B05562 /* FontAwesome */,
+				6C3829122293E1C400B05562 /* EZYGradientView.swift */,
+				6C3829132293E1C400B05562 /* GoogleAnalytics */,
+				6C3829152293E1C400B05562 /* HKProgress */,
+				6C3829182293E1C400B05562 /* InfiniteCarousel.swift */,
+				6C3829192293E1C400B05562 /* UIImageViewAligned.swift */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		6C3829132293E1C400B05562 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829142293E1C400B05562 /* GATracker.swift */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		6C3829152293E1C400B05562 /* HKProgress */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829162293E1C400B05562 /* ProgressView.swift */,
+				6C3829172293E1C400B05562 /* HKProgressHUD.swift */,
+			);
+			path = HKProgress;
+			sourceTree = "<group>";
+		};
+		6C38291B2293E1C400B05562 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				6C38291D2293E1C400B05562 /* NetworkActivityIndicatorManager.swift */,
+				6C38291E2293E1C400B05562 /* SPLTUIUtility.swift */,
+				6C38291F2293E1C400B05562 /* SPLTWatchlistUtility.swift */,
+			);
+			path = utility;
+			sourceTree = "<group>";
+		};
+		6C38299E2294120A00B05562 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				6C38299F2294125100B05562 /* ios */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		6C38299F2294125100B05562 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */,
+				6C3829A12294125100B05562 /* SPLTVideo+extensionPlayer.swift */,
+				6C3829A22294125100B05562 /* Cast */,
+				6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */,
+				6C3829AA2294125100B05562 /* SPLTVideoViewController.swift */,
+				6C3829AB2294125100B05562 /* SubtitlesAVPlayer.swift */,
+				6C3829AC2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift */,
+				6C3829AE2294125100B05562 /* DotstudioIMAPlayer.xcassets */,
+				6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		6C3829A22294125100B05562 /* Cast */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829A32294125100B05562 /* DSCastUtility.swift */,
+				6C3829A42294125100B05562 /* DSChromeCastUtility.swift */,
+				6C3829A52294125100B05562 /* DSCastViewController.swift */,
+				6C3829A62294125100B05562 /* DSCastButton.swift */,
+				6C3829A72294125100B05562 /* DSCastDeviceModel.swift */,
+				6C3829A82294125100B05562 /* DSAirplayCastUtility.swift */,
+			);
+			path = Cast;
+			sourceTree = "<group>";
+		};
+		6C3829C3229413D500B05562 /* FontAwesome */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829C4229413D500B05562 /* FontAwesome.ttf */,
+				6C3829C5229413D500B05562 /* FAIcon.swift */,
+			);
+			path = FontAwesome;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6C3827F42293DCFB00B05562 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C38285C2293DE6400B05562 /* JWTDecode.h in Headers */,
+				6C3827FE2293DCFB00B05562 /* Dotstudiopro_ios.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3828022293DD8300B05562 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C38285D2293DE6400B05562 /* JWTDecode.h in Headers */,
+				6C38280B2293DD8300B05562 /* Dotstudiopro_tvos.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6C3827F82293DCFB00B05562 /* Dotstudiopro-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C3827FF2293DCFB00B05562 /* Build configuration list for PBXNativeTarget "Dotstudiopro-ios" */;
+			buildPhases = (
+				AFBE2FEAFC40794F03B68EAC /* [CP] Check Pods Manifest.lock */,
+				6C3827F42293DCFB00B05562 /* Headers */,
+				6C3827F52293DCFB00B05562 /* Sources */,
+				6C3827F62293DCFB00B05562 /* Frameworks */,
+				6C3827F72293DCFB00B05562 /* Resources */,
+				AF74A641D3232F664587122D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dotstudiopro-ios";
+			productName = "Dotstudiopro-ios";
+			productReference = 6C3827F92293DCFB00B05562 /* DotstudioPRO.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6C3828062293DD8300B05562 /* Dotstudiopro-tvos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C38280C2293DD8300B05562 /* Build configuration list for PBXNativeTarget "Dotstudiopro-tvos" */;
+			buildPhases = (
+				5EA643EA3E3B42928CDF34DE /* [CP] Check Pods Manifest.lock */,
+				6C3828022293DD8300B05562 /* Headers */,
+				6C3828032293DD8300B05562 /* Sources */,
+				6C3828042293DD8300B05562 /* Frameworks */,
+				6C3828052293DD8300B05562 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dotstudiopro-tvos";
+			productName = "Dotstudiopro-tvos";
+			productReference = 6C3828072293DD8300B05562 /* DotstudioPRO.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6C3827EE2293DCC400B05562 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+					6C3827F82293DCFB00B05562 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					6C3828062293DD8300B05562 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 6C3827F12293DCC400B05562 /* Build configuration list for PBXProject "DotstudioPRO" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6C3827ED2293DCC400B05562;
+			productRefGroup = 6C3827FA2293DCFB00B05562 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C3827F82293DCFB00B05562 /* Dotstudiopro-ios */,
+				6C3828062293DD8300B05562 /* Dotstudiopro-tvos */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6C3827F72293DCFB00B05562 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3829BF2294125100B05562 /* DotstudioIMAPlayer.xcassets in Resources */,
+				6C3829C22294125100B05562 /* DotstudioIMAPlayerViewController.storyboard in Resources */,
+				6C3829C6229413D600B05562 /* FontAwesome.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3828052293DD8300B05562 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3829C7229413D600B05562 /* FontAwesome.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5EA643EA3E3B42928CDF34DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dotstudiopro-tvos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF74A641D3232F664587122D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dotstudiopro-ios/Pods-Dotstudiopro-ios-resources.sh",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.4.1_static/GoogleCast.framework/GoogleCastCoreResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.4.1_static/GoogleCast.framework/GoogleCastUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastCoreResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastUIResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dotstudiopro-ios/Pods-Dotstudiopro-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFBE2FEAFC40794F03B68EAC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dotstudiopro-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C3827F52293DCFB00B05562 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C38294A2293E1C400B05562 /* UIImageView+Extension.swift in Sources */,
+				6C3829442293E1C400B05562 /* SPLTIVPSeriesChannelViewController.swift in Sources */,
+				6C3829922293E1C400B05562 /* UIImageViewAligned.swift in Sources */,
+				6C3829C8229413D600B05562 /* FAIcon.swift in Sources */,
+				6C38292C2293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift in Sources */,
+				6C3828BC2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift in Sources */,
+				6C38292E2293E1C400B05562 /* SPLTBaseNavigationViewController.swift in Sources */,
+				6C38286E2293DE6400B05562 /* SPLTCategory.swift in Sources */,
+				6C3828662293DE6400B05562 /* SPLTChannel.swift in Sources */,
+				6C3829782293E1C400B05562 /* SPLTProtocols.swift in Sources */,
+				6C3828A62293DE6400B05562 /* SPLTSearchAPI.swift in Sources */,
+				6C38285E2293DE6400B05562 /* A0JWT.swift in Sources */,
+				6C38293E2293E1C400B05562 /* SPLTIVPVideoChannelViewController.swift in Sources */,
+				6C3828682293DE6400B05562 /* SPLTRecommandedData.swift in Sources */,
+				6C3829BB2294125100B05562 /* SPLTVideoViewController.swift in Sources */,
+				6C3828BA2293DE6400B05562 /* SPLTConfig.swift in Sources */,
+				6C3828802293DE6400B05562 /* SPLTVideo.swift in Sources */,
+				6C3828C02293DE6400B05562 /* SPLTSubscriptionUtility.swift in Sources */,
+				6C38297C2293E1C400B05562 /* SPLTSplashViewController.swift in Sources */,
+				6C3828742293DE6400B05562 /* SPLTCompanyData.swift in Sources */,
+				6C3829B62294125100B05562 /* DSCastViewController.swift in Sources */,
+				6C3829482293E1C400B05562 /* SPLTAuth0iOSLoginUtility.swift in Sources */,
+				6C3829202293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift in Sources */,
+				6C3829B92294125100B05562 /* DSAirplayCastUtility.swift in Sources */,
+				6C3828642293DE6400B05562 /* SPLTSubscriptionProduct.swift in Sources */,
+				6C3828AE2293DE6400B05562 /* SPLTChannelAPI.swift in Sources */,
+				6C3828962293DE6400B05562 /* SPLTRecommandationAPI.swift in Sources */,
+				6C3828882293DE6400B05562 /* SPLTHelperAPI.swift in Sources */,
+				6C3829302293E1C400B05562 /* SPLTBaseTabBarController.swift in Sources */,
+				6C3829802293E1C400B05562 /* SPLTBrowseViewController.swift in Sources */,
+				6C3828AA2293DE6400B05562 /* SPLTChannelsAPI.swift in Sources */,
+				6C3828A82293DE6400B05562 /* SPLTSubscriptionAPI.swift in Sources */,
+				6C3828B82293DE6400B05562 /* SPLTVideoAPI.swift in Sources */,
+				6C38286A2293DE6400B05562 /* DTSZVideo.swift in Sources */,
+				6C3829362293E1C400B05562 /* SPLTBaseImageView.swift in Sources */,
+				6C3829242293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift in Sources */,
+				6C3829B42294125100B05562 /* DSCastUtility.swift in Sources */,
+				6C38288E2293DE6400B05562 /* SPLTAdsAPI.swift in Sources */,
+				6C3829862293E1C400B05562 /* SPLTHomeTabBarController.swift in Sources */,
+				6C3829282293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift in Sources */,
+				6C38287C2293DE6400B05562 /* SPLTUser.swift in Sources */,
+				6C3828B62293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift in Sources */,
+				6C38297E2293E1C400B05562 /* SPLTWatchlistViewController.swift in Sources */,
+				6C38285A2293DE6400B05562 /* Errors.swift in Sources */,
+				6C3828B42293DE6400B05562 /* SPLTUserDetailAPI.swift in Sources */,
+				6C3829382293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift in Sources */,
+				6C3828C62293DE6400B05562 /* K10Utility.swift in Sources */,
+				6C3828A42293DE6400B05562 /* SPLTAPI.swift in Sources */,
+				6C3828A02293DE6400B05562 /* SPLTHomepageAPI.swift in Sources */,
+				6C3828782293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift in Sources */,
+				6C3828C22293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift in Sources */,
+				6C3828902293DE6400B05562 /* SPLTWatchlistAPI.swift in Sources */,
+				6C3829542293E1C400B05562 /* StringExtension.swift in Sources */,
+				6C3829BA2294125100B05562 /* DotstudioIMAPlayerViewController.swift in Sources */,
+				6C3828722293DE6400B05562 /* DTSZChannel.swift in Sources */,
+				6C3828B02293DE6400B05562 /* SPLTLoginVerificationAPI.swift in Sources */,
+				6C38293A2293E1C400B05562 /* SPLTLoginViewController.swift in Sources */,
+				6C3829B82294125100B05562 /* DSCastDeviceModel.swift in Sources */,
+				6C38289C2293DE6400B05562 /* DTSZAnalyticsAPI.swift in Sources */,
+				6C3829422293E1C400B05562 /* SPLTIVPVideoViewController.swift in Sources */,
+				6C3828AC2293DE6400B05562 /* SPLTVideoProgressAPI.swift in Sources */,
+				6C3828762293DE6400B05562 /* SPLTAnalyticsEvent.swift in Sources */,
+				6C3829262293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift in Sources */,
+				6C38289A2293DE6400B05562 /* SPLTOrderDetailsAPI.swift in Sources */,
+				6C38298C2293E1C400B05562 /* ProgressView.swift in Sources */,
+				6C3829902293E1C400B05562 /* InfiniteCarousel.swift in Sources */,
+				6C3828C82293DE6400B05562 /* SPLTInAppPurchaseUtility.swift in Sources */,
+				6C3828842293DE6400B05562 /* SPLTMultiLevelChannel.swift in Sources */,
+				6C38287E2293DE6400B05562 /* DTSZChannelFeed.swift in Sources */,
+				6C3829BD2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift in Sources */,
+				6C3829322293E1C400B05562 /* SPLTBaseViewController.swift in Sources */,
+				6C3829462293E1C400B05562 /* Auth0SessionManager.swift in Sources */,
+				6C3828702293DE6400B05562 /* SPLTCustomCategory.swift in Sources */,
+				6C3828862293DE6400B05562 /* SPLTTokenAPI.swift in Sources */,
+				6C3829222293E1C400B05562 /* SPLTBaseCollectionViewCell.swift in Sources */,
+				6C3829982293E1C400B05562 /* NetworkActivityIndicatorManager.swift in Sources */,
+				6C38286C2293DE6400B05562 /* SPLTPlaylistChannel.swift in Sources */,
+				6C3829502293E1C400B05562 /* UIColorInputError.swift in Sources */,
+				6C3828C42293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift in Sources */,
+				6C38288A2293DE6400B05562 /* SPLTFullPathRouter.swift in Sources */,
+				6C3828982293DE6400B05562 /* SPLTTokenHandler.swift in Sources */,
+				6C3829B72294125100B05562 /* DSCastButton.swift in Sources */,
+				6C3829942293E1C400B05562 /* SPLTAppDelegate.swift in Sources */,
+				6C3828942293DE6400B05562 /* SPLTAnalyticsAPI.swift in Sources */,
+				6C3828542293DE6400B05562 /* JWTDecode.swift in Sources */,
+				6C3829B22294125100B05562 /* SPLTVideoViewController+cast.swift in Sources */,
+				6C3828A22293DE6400B05562 /* SPLTScheduledProgramsAPI.swift in Sources */,
+				6C38294E2293E1C400B05562 /* UIView+extension.swift in Sources */,
+				6C3828B22293DE6400B05562 /* SPLTCategoriesAPI.swift in Sources */,
+				6C3829882293E1C400B05562 /* EZYGradientView.swift in Sources */,
+				6C3828922293DE6400B05562 /* SPLTBaseAPI.swift in Sources */,
+				6C38288C2293DE6400B05562 /* SPLTResumptionAPI.swift in Sources */,
+				6C3828582293DE6400B05562 /* Base64.swift in Sources */,
+				6C38289E2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift in Sources */,
+				6C38287A2293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift in Sources */,
+				6C3829822293E1C400B05562 /* SPLTCategoriesViewController.swift in Sources */,
+				6C3829522293E1C400B05562 /* UIViewController+extension.swift in Sources */,
+				6C38297A2293E1C400B05562 /* SPLTSearchViewController.swift in Sources */,
+				6C38294C2293E1C400B05562 /* UIColorExtension.swift in Sources */,
+				6C38299A2293E1C400B05562 /* SPLTUIUtility.swift in Sources */,
+				6C3828622293DE6400B05562 /* Constants.swift in Sources */,
+				6C3828602293DE6400B05562 /* SPLTVideoChannel.swift in Sources */,
+				6C38292A2293E1C400B05562 /* SPLTGenericCollectionViewCell.swift in Sources */,
+				6C3829842293E1C400B05562 /* SPLTCategoryViewController.swift in Sources */,
+				6C3828CC2293DE6400B05562 /* Randoms.swift in Sources */,
+				6C3829B32294125100B05562 /* SPLTVideo+extensionPlayer.swift in Sources */,
+				6C38299C2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */,
+				6C3828BE2293DE6400B05562 /* SPLTAnalyticsUtility.swift in Sources */,
+				6C3829402293E1C400B05562 /* SPLTIVPMultiSeriesChannelViewController.swift in Sources */,
+				6C3829B52294125100B05562 /* DSChromeCastUtility.swift in Sources */,
+				6C3828822293DE6400B05562 /* SPLTCustomPlaylistChannel.swift in Sources */,
+				6C38298E2293E1C400B05562 /* HKProgressHUD.swift in Sources */,
+				6C3829342293E1C400B05562 /* SPLTBaseVideoProgressView.swift in Sources */,
+				6C38293C2293E1C400B05562 /* SPLTIVPChannelViewController.swift in Sources */,
+				6C3828562293DE6400B05562 /* JWT.swift in Sources */,
+				6C3829BC2294125100B05562 /* SubtitlesAVPlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3828032293DD8300B05562 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C38294B2293E1C400B05562 /* UIImageView+Extension.swift in Sources */,
+				6C3829692293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoSeriesSeasonCollectionViewCell.swift in Sources */,
+				6C3829932293E1C400B05562 /* UIImageViewAligned.swift in Sources */,
+				6C3829672293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailCollectionViewCell.swift in Sources */,
+				6C38292D2293E1C400B05562 /* SPLTIVPVideoDetailCollectionViewCell.swift in Sources */,
+				6C3828BD2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift in Sources */,
+				6C38292F2293E1C400B05562 /* SPLTBaseNavigationViewController.swift in Sources */,
+				6C38286F2293DE6400B05562 /* SPLTCategory.swift in Sources */,
+				6C3828672293DE6400B05562 /* SPLTChannel.swift in Sources */,
+				6C3829792293E1C400B05562 /* SPLTProtocols.swift in Sources */,
+				6C3828A72293DE6400B05562 /* SPLTSearchAPI.swift in Sources */,
+				6C38285F2293DE6400B05562 /* A0JWT.swift in Sources */,
+				6C3828692293DE6400B05562 /* SPLTRecommandedData.swift in Sources */,
+				6C3828BB2293DE6400B05562 /* SPLTConfig.swift in Sources */,
+				6C3829632293E1C400B05562 /* SPLTIVPSeriesChannelVideoDetailTableViewCell.swift in Sources */,
+				6C3828812293DE6400B05562 /* SPLTVideo.swift in Sources */,
+				6C3828C12293DE6400B05562 /* SPLTSubscriptionUtility.swift in Sources */,
+				6C38297D2293E1C400B05562 /* SPLTSplashViewController.swift in Sources */,
+				6C38296F2293E1C400B05562 /* SPLTIVPMultiseriesChannelTableViewController.swift in Sources */,
+				6C3828752293DE6400B05562 /* SPLTCompanyData.swift in Sources */,
+				6C3829212293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift in Sources */,
+				6C3828652293DE6400B05562 /* SPLTSubscriptionProduct.swift in Sources */,
+				6C3828AF2293DE6400B05562 /* SPLTChannelAPI.swift in Sources */,
+				6C3828972293DE6400B05562 /* SPLTRecommandationAPI.swift in Sources */,
+				6C3828892293DE6400B05562 /* SPLTHelperAPI.swift in Sources */,
+				6C3829312293E1C400B05562 /* SPLTBaseTabBarController.swift in Sources */,
+				6C3829812293E1C400B05562 /* SPLTBrowseViewController.swift in Sources */,
+				6C3828AB2293DE6400B05562 /* SPLTChannelsAPI.swift in Sources */,
+				6C3829592293E1C400B05562 /* SPLTIVPChannelViewController.swift in Sources */,
+				6C3828A92293DE6400B05562 /* SPLTSubscriptionAPI.swift in Sources */,
+				6C3828B92293DE6400B05562 /* SPLTVideoAPI.swift in Sources */,
+				6C38286B2293DE6400B05562 /* DTSZVideo.swift in Sources */,
+				6C3829372293E1C400B05562 /* SPLTBaseImageView.swift in Sources */,
+				6C3829252293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift in Sources */,
+				6C38288F2293DE6400B05562 /* SPLTAdsAPI.swift in Sources */,
+				6C3829872293E1C400B05562 /* SPLTHomeTabBarController.swift in Sources */,
+				6C3829292293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift in Sources */,
+				6C38287D2293DE6400B05562 /* SPLTUser.swift in Sources */,
+				6C3828B72293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift in Sources */,
+				6C3829C9229413D600B05562 /* FAIcon.swift in Sources */,
+				6C38297F2293E1C400B05562 /* SPLTWatchlistViewController.swift in Sources */,
+				6C38285B2293DE6400B05562 /* Errors.swift in Sources */,
+				6C3828B52293DE6400B05562 /* SPLTUserDetailAPI.swift in Sources */,
+				6C3829392293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift in Sources */,
+				6C3828C72293DE6400B05562 /* K10Utility.swift in Sources */,
+				6C38295F2293E1C400B05562 /* SPLTIVPChannelPlaylistVideoDetailsTableViewCell.swift in Sources */,
+				6C3828A52293DE6400B05562 /* SPLTAPI.swift in Sources */,
+				6C3829752293E1C400B05562 /* SPLTIVPChannelTableViewController.swift in Sources */,
+				6C3828A12293DE6400B05562 /* SPLTHomepageAPI.swift in Sources */,
+				6C3828792293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift in Sources */,
+				6C3828C32293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift in Sources */,
+				6C3828912293DE6400B05562 /* SPLTWatchlistAPI.swift in Sources */,
+				6C38295D2293E1C400B05562 /* SPLTIVPVideoViewController.swift in Sources */,
+				6C3829552293E1C400B05562 /* StringExtension.swift in Sources */,
+				6C3828732293DE6400B05562 /* DTSZChannel.swift in Sources */,
+				6C3828B12293DE6400B05562 /* SPLTLoginVerificationAPI.swift in Sources */,
+				6C38289D2293DE6400B05562 /* DTSZAnalyticsAPI.swift in Sources */,
+				6C38296B2293E1C400B05562 /* SPLTIVPChannelRecommandedVideoCollectionViewCell.swift in Sources */,
+				6C3829612293E1C400B05562 /* SPLTIVPMultiSeriesChannelVideoDetailTableViewCell.swift in Sources */,
+				6C3828AD2293DE6400B05562 /* SPLTVideoProgressAPI.swift in Sources */,
+				6C3828772293DE6400B05562 /* SPLTAnalyticsEvent.swift in Sources */,
+				6C3829272293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift in Sources */,
+				6C38289B2293DE6400B05562 /* SPLTOrderDetailsAPI.swift in Sources */,
+				6C38298D2293E1C400B05562 /* ProgressView.swift in Sources */,
+				6C38296D2293E1C400B05562 /* SPLTIVPChannelRecommandedVideosTableViewCell.swift in Sources */,
+				6C3829912293E1C400B05562 /* InfiniteCarousel.swift in Sources */,
+				6C3828C92293DE6400B05562 /* SPLTInAppPurchaseUtility.swift in Sources */,
+				6C3828852293DE6400B05562 /* SPLTMultiLevelChannel.swift in Sources */,
+				6C38287F2293DE6400B05562 /* DTSZChannelFeed.swift in Sources */,
+				6C38295B2293E1C400B05562 /* SPLTIVPPlayerViewController.swift in Sources */,
+				6C3829332293E1C400B05562 /* SPLTBaseViewController.swift in Sources */,
+				6C3829732293E1C400B05562 /* SPLTIVPVideoChannelTableViewController.swift in Sources */,
+				6C3828712293DE6400B05562 /* SPLTCustomCategory.swift in Sources */,
+				6C3828872293DE6400B05562 /* SPLTTokenAPI.swift in Sources */,
+				6C3829232293E1C400B05562 /* SPLTBaseCollectionViewCell.swift in Sources */,
+				6C3829992293E1C400B05562 /* NetworkActivityIndicatorManager.swift in Sources */,
+				6C38286D2293DE6400B05562 /* SPLTPlaylistChannel.swift in Sources */,
+				6C3829512293E1C400B05562 /* UIColorInputError.swift in Sources */,
+				6C3828C52293DE6400B05562 /* SPLTLoginCodeVerificationUtility.swift in Sources */,
+				6C38288B2293DE6400B05562 /* SPLTFullPathRouter.swift in Sources */,
+				6C3828992293DE6400B05562 /* SPLTTokenHandler.swift in Sources */,
+				6C3829952293E1C400B05562 /* SPLTAppDelegate.swift in Sources */,
+				6C3828952293DE6400B05562 /* SPLTAnalyticsAPI.swift in Sources */,
+				6C3828552293DE6400B05562 /* JWTDecode.swift in Sources */,
+				6C3829772293E1C400B05562 /* SPLTAuth0LoginUtility.swift in Sources */,
+				6C3828A32293DE6400B05562 /* SPLTScheduledProgramsAPI.swift in Sources */,
+				6C38294F2293E1C400B05562 /* UIView+extension.swift in Sources */,
+				6C3828B32293DE6400B05562 /* SPLTCategoriesAPI.swift in Sources */,
+				6C3829892293E1C400B05562 /* EZYGradientView.swift in Sources */,
+				6C3828932293DE6400B05562 /* SPLTBaseAPI.swift in Sources */,
+				6C38288D2293DE6400B05562 /* SPLTResumptionAPI.swift in Sources */,
+				6C3828592293DE6400B05562 /* Base64.swift in Sources */,
+				6C38289F2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift in Sources */,
+				6C38287B2293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift in Sources */,
+				6C3829652293E1C400B05562 /* SPLTIVPChannelVideoDetailTableViewCell.swift in Sources */,
+				6C3829572293E1C400B05562 /* SPLTLoginViewController.swift in Sources */,
+				6C3829832293E1C400B05562 /* SPLTCategoriesViewController.swift in Sources */,
+				6C3829532293E1C400B05562 /* UIViewController+extension.swift in Sources */,
+				6C38297B2293E1C400B05562 /* SPLTSearchViewController.swift in Sources */,
+				6C38294D2293E1C400B05562 /* UIColorExtension.swift in Sources */,
+				6C38299B2293E1C400B05562 /* SPLTUIUtility.swift in Sources */,
+				6C3828632293DE6400B05562 /* Constants.swift in Sources */,
+				6C38298B2293E1C400B05562 /* GATracker.swift in Sources */,
+				6C3828612293DE6400B05562 /* SPLTVideoChannel.swift in Sources */,
+				6C38292B2293E1C400B05562 /* SPLTGenericCollectionViewCell.swift in Sources */,
+				6C3829852293E1C400B05562 /* SPLTCategoryViewController.swift in Sources */,
+				6C3828CD2293DE6400B05562 /* Randoms.swift in Sources */,
+				6C38299D2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */,
+				6C3828BF2293DE6400B05562 /* SPLTAnalyticsUtility.swift in Sources */,
+				6C3828832293DE6400B05562 /* SPLTCustomPlaylistChannel.swift in Sources */,
+				6C38298F2293E1C400B05562 /* HKProgressHUD.swift in Sources */,
+				6C3829352293E1C400B05562 /* SPLTBaseVideoProgressView.swift in Sources */,
+				6C3829712293E1C400B05562 /* SPLTIVPSeriesChannelTableViewController.swift in Sources */,
+				6C3828572293DE6400B05562 /* JWT.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6C3827F22293DCC400B05562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		6C3827F32293DCC400B05562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		6C3828002293DCFB00B05562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7C5961082D6DE53EB6B36CA /* Pods-Dotstudiopro-ios.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 63G3T8C3T9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Dotstudiopro-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dotstudio.Dotstudiopro-ios";
+				PRODUCT_NAME = DotstudioPRO;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C3828012293DCFB00B05562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B283F23B008CEA924C5C6808 /* Pods-Dotstudiopro-ios.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 63G3T8C3T9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Dotstudiopro-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dotstudio.Dotstudiopro-ios";
+				PRODUCT_NAME = DotstudioPRO;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6C38280D2293DD8300B05562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85B08942B02AE5DF102494D5 /* Pods-Dotstudiopro-tvos.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 63G3T8C3T9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Dotstudiopro-tvos/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dotstudio.Dotstudiopro-tvos";
+				PRODUCT_NAME = DotstudioPRO;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C38280E2293DD8300B05562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFB7E3A268C23C29D1B3446D /* Pods-Dotstudiopro-tvos.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 63G3T8C3T9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Dotstudiopro-tvos/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dotstudio.Dotstudiopro-tvos";
+				PRODUCT_NAME = DotstudioPRO;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6C3827F12293DCC400B05562 /* Build configuration list for PBXProject "DotstudioPRO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C3827F22293DCC400B05562 /* Debug */,
+				6C3827F32293DCC400B05562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C3827FF2293DCFB00B05562 /* Build configuration list for PBXNativeTarget "Dotstudiopro-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C3828002293DCFB00B05562 /* Debug */,
+				6C3828012293DCFB00B05562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C38280C2293DD8300B05562 /* Build configuration list for PBXNativeTarget "Dotstudiopro-tvos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C38280D2293DD8300B05562 /* Debug */,
+				6C38280E2293DD8300B05562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6C3827EE2293DCC400B05562 /* Project object */;
+}
