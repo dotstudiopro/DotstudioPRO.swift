@@ -484,9 +484,10 @@
 		6C38280F2293DDD600B05562 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				6C528273229432A600367A71 /* common */,
+				6C5282702294323500367A71 /* tvos */,
+				6C52826F2294322500367A71 /* ios */,
 				6C38299E2294120A00B05562 /* player */,
-				6C3828102293DE6400B05562 /* api */,
-				6C3828CE2293E1C400B05562 /* ui */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -611,9 +612,7 @@
 			children = (
 				6C3828CF2293E1C400B05562 /* cells */,
 				6C3828D72293E1C400B05562 /* baseclasses */,
-				6C3828DE2293E1C400B05562 /* ios */,
 				6C3828EA2293E1C400B05562 /* extensions */,
-				6C3828F12293E1C400B05562 /* tvos */,
 				6C3829082293E1C400B05562 /* controllers */,
 				6C3829112293E1C400B05562 /* thirdparty */,
 				6C38291A2293E1C400B05562 /* SPLTAppDelegate.swift */,
@@ -647,15 +646,6 @@
 				6C3828DD2293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift */,
 			);
 			path = baseclasses;
-			sourceTree = "<group>";
-		};
-		6C3828DE2293E1C400B05562 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				6C3828DF2293E1C400B05562 /* controllers */,
-				6C3828E72293E1C400B05562 /* Utility */,
-			);
-			path = ios;
 			sourceTree = "<group>";
 		};
 		6C3828DF2293E1C400B05562 /* controllers */ = {
@@ -699,15 +689,6 @@
 				6C3828F02293E1C400B05562 /* StringExtension.swift */,
 			);
 			path = extensions;
-			sourceTree = "<group>";
-		};
-		6C3828F12293E1C400B05562 /* tvos */ = {
-			isa = PBXGroup;
-			children = (
-				6C3828F22293E1C400B05562 /* controllers */,
-				6C3829062293E1C400B05562 /* Utility */,
-			);
-			path = tvos;
 			sourceTree = "<group>";
 		};
 		6C3828F22293E1C400B05562 /* controllers */ = {
@@ -864,6 +845,49 @@
 				6C3829C5229413D500B05562 /* FAIcon.swift */,
 			);
 			path = FontAwesome;
+			sourceTree = "<group>";
+		};
+		6C52826F2294322500367A71 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				6C5282712294324200367A71 /* ui */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		6C5282702294323500367A71 /* tvos */ = {
+			isa = PBXGroup;
+			children = (
+				6C5282722294326E00367A71 /* ui */,
+			);
+			path = tvos;
+			sourceTree = "<group>";
+		};
+		6C5282712294324200367A71 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828DF2293E1C400B05562 /* controllers */,
+				6C3828E72293E1C400B05562 /* Utility */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		6C5282722294326E00367A71 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828F22293E1C400B05562 /* controllers */,
+				6C3829062293E1C400B05562 /* Utility */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		6C528273229432A600367A71 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				6C3828CE2293E1C400B05562 /* ui */,
+				6C3828102293DE6400B05562 /* api */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
