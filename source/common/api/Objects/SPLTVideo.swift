@@ -33,6 +33,8 @@ public enum PaywallTypes {
     case presell
 }
 
+public typealias DSPVideo = SPLTVideo
+
 open class SPLTVideo: NSObject {
     
     open var isExpandedUI: Bool = false

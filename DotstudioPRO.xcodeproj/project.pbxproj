@@ -247,6 +247,8 @@
 		6C3829C7229413D600B05562 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3829C4229413D500B05562 /* FontAwesome.ttf */; };
 		6C3829C8229413D600B05562 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829C5229413D500B05562 /* FAIcon.swift */; };
 		6C3829C9229413D600B05562 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829C5229413D500B05562 /* FAIcon.swift */; };
+		6CF59D7E229522CB00F17717 /* DSPRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF59D7D229522CB00F17717 /* DSPRO.swift */; };
+		6CF59D7F229522CB00F17717 /* DSPRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF59D7D229522CB00F17717 /* DSPRO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -396,6 +398,7 @@
 		6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DotstudioIMAPlayerViewController.storyboard; sourceTree = "<group>"; };
 		6C3829C4229413D500B05562 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		6C3829C5229413D500B05562 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		6CF59D7D229522CB00F17717 /* DSPRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSPRO.swift; sourceTree = "<group>"; };
 		85B08942B02AE5DF102494D5 /* Pods-Dotstudiopro-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-tvos.debug.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-tvos/Pods-Dotstudiopro-tvos.debug.xcconfig"; sourceTree = "<group>"; };
 		B283F23B008CEA924C5C6808 /* Pods-Dotstudiopro-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-ios.release.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-ios/Pods-Dotstudiopro-ios.release.xcconfig"; sourceTree = "<group>"; };
 		EFB7E3A268C23C29D1B3446D /* Pods-Dotstudiopro-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-tvos.release.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-tvos/Pods-Dotstudiopro-tvos.release.xcconfig"; sourceTree = "<group>"; };
@@ -487,7 +490,6 @@
 				6C528273229432A600367A71 /* common */,
 				6C5282702294323500367A71 /* tvos */,
 				6C52826F2294322500367A71 /* ios */,
-				6C38299E2294120A00B05562 /* player */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -801,30 +803,6 @@
 			path = utility;
 			sourceTree = "<group>";
 		};
-		6C38299E2294120A00B05562 /* player */ = {
-			isa = PBXGroup;
-			children = (
-				6C38299F2294125100B05562 /* ios */,
-			);
-			path = player;
-			sourceTree = "<group>";
-		};
-		6C38299F2294125100B05562 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */,
-				6C3829A12294125100B05562 /* SPLTVideo+extensionPlayer.swift */,
-				6C3829A22294125100B05562 /* Cast */,
-				6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */,
-				6C3829AA2294125100B05562 /* SPLTVideoViewController.swift */,
-				6C3829AB2294125100B05562 /* SubtitlesAVPlayer.swift */,
-				6C3829AC2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift */,
-				6C3829AE2294125100B05562 /* DotstudioIMAPlayer.xcassets */,
-				6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
 		6C3829A22294125100B05562 /* Cast */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,6 +828,7 @@
 		6C52826F2294322500367A71 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				6C5282922294F6E800367A71 /* player */,
 				6C5282712294324200367A71 /* ui */,
 			);
 			path = ios;
@@ -884,10 +863,27 @@
 		6C528273229432A600367A71 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				6CF59D7D229522CB00F17717 /* DSPRO.swift */,
 				6C3828CE2293E1C400B05562 /* ui */,
 				6C3828102293DE6400B05562 /* api */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		6C5282922294F6E800367A71 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */,
+				6C3829A12294125100B05562 /* SPLTVideo+extensionPlayer.swift */,
+				6C3829A22294125100B05562 /* Cast */,
+				6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */,
+				6C3829AA2294125100B05562 /* SPLTVideoViewController.swift */,
+				6C3829AB2294125100B05562 /* SubtitlesAVPlayer.swift */,
+				6C3829AC2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift */,
+				6C3829AE2294125100B05562 /* DotstudioIMAPlayer.xcassets */,
+				6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */,
+			);
+			path = player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1108,6 +1104,7 @@
 				6C3829482293E1C400B05562 /* SPLTAuth0iOSLoginUtility.swift in Sources */,
 				6C3829202293E1C400B05562 /* SPLTHorizontalBaseTableViewCell.swift in Sources */,
 				6C3829B92294125100B05562 /* DSAirplayCastUtility.swift in Sources */,
+				6CF59D7E229522CB00F17717 /* DSPRO.swift in Sources */,
 				6C3828642293DE6400B05562 /* SPLTSubscriptionProduct.swift in Sources */,
 				6C3828AE2293DE6400B05562 /* SPLTChannelAPI.swift in Sources */,
 				6C3828962293DE6400B05562 /* SPLTRecommandationAPI.swift in Sources */,
@@ -1304,6 +1301,7 @@
 				6C3829652293E1C400B05562 /* SPLTIVPChannelVideoDetailTableViewCell.swift in Sources */,
 				6C3829572293E1C400B05562 /* SPLTLoginViewController.swift in Sources */,
 				6C3829832293E1C400B05562 /* SPLTCategoriesViewController.swift in Sources */,
+				6CF59D7F229522CB00F17717 /* DSPRO.swift in Sources */,
 				6C3829532293E1C400B05562 /* UIViewController+extension.swift in Sources */,
 				6C38297B2293E1C400B05562 /* SPLTSearchViewController.swift in Sources */,
 				6C38294D2293E1C400B05562 /* UIColorExtension.swift in Sources */,

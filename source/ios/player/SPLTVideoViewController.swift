@@ -258,7 +258,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupStyle()
+//        self.setupStyle()
 //        if SPLTConfig.USE_NAVIGATIONBAR_ON_CHANNEL_SCREEN {
 //            self.buttonTopBarClose.isHidden = true
 //            self.constraintTopBarCloseWidth.constant = 0

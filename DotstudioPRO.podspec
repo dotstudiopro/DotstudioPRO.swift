@@ -66,10 +66,10 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios, "9.2"
 
   #  When using multiple platforms
-  spec.ios.deployment_target = "9.2"
+  spec.ios.deployment_target = "9.0"
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
-  spec.tvos.deployment_target = "9.2"
+  spec.tvos.deployment_target = "9.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,9 +89,9 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "source/common/**/*", "source/common/**/**/*", "source/ui/**/**/**/*"
-  spec.ios.source_files   = "source/ios/**/*", "source/ios/**/**/*", "source/ios/**/**/**/*", "source/ios/**/**/**/**/*"
-  spec.tvos.source_files   = "source/tvos/**/*", "source/tvos/**/**/*", "source/tvos/**/**/**/*", "source/tvos/**/**/**/**/*"
+  spec.source_files  = "source/common/**/*.swift", "source/common/**/**/*.swift", "source/ui/**/**/**/*.swift"
+  spec.ios.source_files   = "source/ios/**/*.swift", "source/ios/**/**/*.swift", "source/ios/**/**/**/*.swift", "source/ios/**/**/**/**/*.swift"
+  spec.tvos.source_files   = "source/tvos/**/*.swift", "source/tvos/**/**/*.swift", "source/tvos/**/**/**/*.swift", "source/tvos/**/**/**/**/*.swift"
   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -107,6 +107,7 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
+  spec.ios.resources = "source/ios/**/*.{storyboard,xcassets}", "source/common/**/**/**/*.ttf"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
