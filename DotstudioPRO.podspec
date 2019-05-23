@@ -108,6 +108,7 @@ Pod::Spec.new do |spec|
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
   spec.ios.resources = "source/ios/**/*.{storyboard,xcassets}", "source/common/**/**/**/*.ttf"
+  spec.tvos.resources = "source/tvos/**/*.{storyboard,xcassets}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -146,5 +147,8 @@ Pod::Spec.new do |spec|
   spec.ios.dependency 'google-cast-sdk', '< 5.0', '>=4.3.4'
 
   spec.tvos.dependency 'Auth0', '~> 1.15'
+
+  spec.tvos.vendored_frameworks = 'source/tvos/player/framework/ClientSideInteractiveMediaAds.framework'
+
 
 end

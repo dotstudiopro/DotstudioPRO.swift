@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DotstudioPRO
 
 open class DSPRO {
     public static let shared = DSPRO()

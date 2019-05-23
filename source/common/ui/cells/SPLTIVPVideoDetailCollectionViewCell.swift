@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-//import DotstudioAPI
+
 
 open class SPLTIVPVideoDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak open var imageViewCell: SPLTBaseImageView?

@@ -1,0 +1,29 @@
+framework module ClientSideInteractiveMediaAds {
+  umbrella header "ClientSideInteractiveMediaAds.h"
+
+  export *
+  module * { export * }
+
+  link framework "AVFoundation"
+  link framework "Foundation"
+  link framework "UIKit"
+  link framework "AVKit"
+  link framework "CoreMedia"
+  link framework "JavaScriptCore"
+  link framework "QuartzCore"
+  link framework "SystemConfiguration"
+
+  header "IMAAd.h"
+  header "IMAAdError.h"
+  header "IMAAdEvent.h"
+  header "IMAAdPlaybackInfo.h"
+  header "IMAAdPodInfo.h"
+  header "IMAAdsLoader.h"
+  header "IMAAdsManager.h"
+  header "IMAAdsRenderingSettings.h"
+  header "IMAAdsRequest.h"
+  header "IMAAVPlayerContentPlayhead.h"
+  header "IMAContentPlayhead.h"
+  header "IMACuepoint.h"
+  header "IMASettings.h"
+}
