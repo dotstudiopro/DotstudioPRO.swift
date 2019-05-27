@@ -1,19 +1,19 @@
 ### DotstudioPRO.swift
 DotstudioPRO library for ios & tvos swift.
 
-##Requirements.
+## Requirements.
 <ul><li>iOS 9+</li>
 <li>Xcode 9+</li>
 <li>Swift 5.0</li></ul>
   
-##Install using CocoaPods
+## Install using CocoaPods
 Add the following line to your Podfile:
 
 ```cocoapods
 pod ‘DotstudioPRO’, :git => ’https://github.com/dotstudiopro/DotstudioPRO.swift.git'
 ```
 
-##Usage & Configuration
+## Usage & Configuration
 First import DotstudioPRO & Next in your AppDelegate.swift add the following:
 
 ```swift
