@@ -13,6 +13,12 @@ Add the following line to your Podfile:
 pod ‘DotstudioPRO’, :git => ’https://github.com/dotstudiopro/DotstudioPRO.swift.git'
 ```
 
+# Installation Notes
+<ul>
+  <li>If developing using Xcode 10 and targeting iOS devices running iOS 12 or higher, the "Access WiFi Information" capability is required in order to discover and connect to Cast devices.</li>
+  <li>You need to add Microphone usage permission.</li>
+ </ul>
+
 ## Usage & Configuration
 First import DotstudioPRO & Next in your AppDelegate.swift add the following:
 
