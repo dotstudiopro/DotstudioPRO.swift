@@ -288,10 +288,10 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                                        <color key="value" red="0.69275460025380708" green="0.69275460025380708" blue="0.69275460025380708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="value" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.80089128521126762" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                                        <color key="value" red="0.69404346446700504" green="0.69404346446700504" blue="0.69404346446700504" alpha="0.99839469178082196" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="value" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.30141395246478875" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
