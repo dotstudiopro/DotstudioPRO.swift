@@ -26,6 +26,8 @@ public protocol SPLTPlayerViewControllerDelegate {
      func didClosePlayingVideoOnTVOSPlayerViewController()
 }
 
+public typealias DSPPlayerViewController = SPLTPlayerViewController
+
 open class SPLTPlayerViewController: SPLTBaseViewController{
     
     open var delegate: SPLTPlayerViewControllerDelegate?
@@ -89,7 +91,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     open var hasSubstitles:Bool = false
 
     
-    open class func getSPLTPlayerViewController() -> SPLTPlayerViewController? {
+    open class func getViewController() -> SPLTPlayerViewController? {
         
         let spltPlayerViewController = SPLTPlayerViewController()
         return spltPlayerViewController
@@ -117,7 +119,9 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
         super.viewWillAppear(animated)
     }
     
-    
+    open func setCurrentVideo(curVideo: SPLTVideo) {
+        self.curVideo = curVideo
+    }
     open func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.applicationWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)

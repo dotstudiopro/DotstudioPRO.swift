@@ -121,7 +121,7 @@ open class SPLTMiniVideoView: UIView {
             spltPlayerViewController.stopAndRemoveAVPlayerViewController()
             self.spltPlayerViewController = nil
         }
-        if let spltPlayerViewController = SPLTPlayerViewController.getSPLTPlayerViewController(),
+        if let spltPlayerViewController = SPLTPlayerViewController.getViewController(),
             let spltVideo = self.curVideo {
             //        tvosVideoViewController.isMuted = true
 //            spltPlayerViewController.delegate = self
