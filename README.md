@@ -56,7 +56,7 @@ if let dspPlayerViewController = DSPPlayerViewController.getViewController() {
 if let dspPlayerViewController = DSPPlayerViewController.getViewController() {
     let dspVideo = DSPVideo()
     dspVideo.strId = "<video-id>"
-    dspPlayerViewController.dspVideo = dspVideo
+    dspPlayerViewController.setCurrentVideo(curVideo: dspVideo)
     self.present(dspPlayerViewController, animated: true, completion: nil)
 }
 ```
