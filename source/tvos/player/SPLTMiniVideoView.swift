@@ -42,6 +42,7 @@ open class SPLTMiniVideoView: UIView {
         if self.imageView == nil {
             let imgView = UIImageView(frame: self.bounds)
             self.addSubview(imgView)
+            self.splt_constrainViewEqual(subView: imgView)
             self.bringSubviewToFront(imgView)
             self.imageView = imgView
         }
@@ -125,15 +126,15 @@ open class SPLTMiniVideoView: UIView {
             let spltVideo = self.curVideo {
             //        tvosVideoViewController.isMuted = true
 //            spltPlayerViewController.delegate = self
-            //spltPlayerViewController.spltVideo = spltVideo
-            //spltPlayerViewController.bAdsEnabled = false
+            spltPlayerViewController.spltVideo = spltVideo
+            spltPlayerViewController.bAdsEnabled = false
             //self.show(tvosVideoViewController, sender: self)
             //            self.present(spltPlayerViewController, animated: true, completion: nil)
             
             self.addSubview(spltPlayerViewController.view)
             self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
-            //self.spltPlayerViewController = spltPlayerViewController
-            //spltPlayerViewController.loadVideoDetailFromPlay2Route()
+            self.spltPlayerViewController = spltPlayerViewController
+            spltPlayerViewController.loadVideoDetailFromPlay2Route()
 //            self.addChild(spltPlayerViewController)
         }
     }
@@ -168,6 +169,7 @@ open class SPLTMiniVideoView: UIView {
             }
             if let spltPlayerViewController = self.spltPlayerViewController {
                 spltPlayerViewController.stopAndRemoveAVPlayerViewController()
+                spltPlayerViewController.view.removeFromSuperview()
                 self.spltPlayerViewController = nil
             }
             break
