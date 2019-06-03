@@ -74,6 +74,8 @@ extension SPLTPlayerViewController {
 //            let adTagUrlTest = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpremidpostpod&cmsid=496&vid=short_onecue&correlator="
             let request = IMAAdsRequest.init(adTagUrl:adTagUrl , adDisplayContainer: self.view, contentPlayhead: self.contentPlayhead, userContext: nil)
             request?.vastLoadTimeout = 8000
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_request, video: self.curVideo)
+            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_request)
             self.adsLoader?.requestAds(with: request)
         }
     }
@@ -100,7 +102,9 @@ extension SPLTPlayerViewController {
 //MARK: - extension IMAAdsLoaderDelegate methods
 extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
     open func adsLoader(_ loader: IMAAdsLoader!, adsLoadedWith adsLoadedData: IMAAdsLoadedData!) {
-        
+        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_loaded, video: self.curVideo)
+        self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_loaded)
+
         // Grab the instance of the IMAAdsManager and set ourselves as the delegate.
         self.adsManager = adsLoadedData.adsManager
         self.adsManager?.delegate = self
@@ -116,6 +120,9 @@ extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
     open func adsLoader(_ loader: IMAAdsLoader!, failedWith adErrorData: IMAAdLoadingErrorData!) {
         // Something went wrong loading ads. Log the error and play the content.
         self.isAdPlayback = false
+        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_error, video: self.curVideo)
+        self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
+        self.addAnalyticsEvent(.playback, analyticsEventType: .play)
         print("Error loading ads: %@\(String(describing: adErrorData.adError.message))")
         self.contentPlayer?.play()
         self.isVideoSetupOnGoing = false
@@ -128,8 +135,36 @@ extension SPLTPlayerViewController: IMAAdsManagerDelegate {
     
     open func adsManager(_ adsManager: IMAAdsManager!, didReceive event: IMAAdEvent!) {
         switch (event.type) {
+        case IMAAdEventType.AD_BREAK_READY:
+            break
+        case IMAAdEventType.CLICKED:
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_clicked, video: self.curVideo)
+            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_click)
+            break
+        case IMAAdEventType.SKIPPED:
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_skipped, video: self.curVideo)
+            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_skip)
+            break
         case IMAAdEventType.LOADED:
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_impression, video: self.curVideo)
+            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_impression)
             self.adsManager?.start()
+            break
+        case IMAAdEventType.PAUSE:
+//            self.setPlayButtonType(SPLTVideoPlayButtonType.playButton)
+            break
+        case IMAAdEventType.RESUME:
+//            self.setPlayButtonType(SPLTVideoPlayButtonType.pauseButton)
+            break
+        case IMAAdEventType.STARTED:
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_started, video: self.curVideo)
+            break
+        case IMAAdEventType.COMPLETE:
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_complete, video: self.curVideo)
+            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_complete)
+            break
+        case IMAAdEventType.TAPPED:
+            //                showFullscreenControls(nil)
             break
         default:
             break
@@ -139,10 +174,13 @@ extension SPLTPlayerViewController: IMAAdsManagerDelegate {
     open func adsManager(_ adsManager: IMAAdsManager!, didReceive error: IMAAdError!) {
         // Something went wrong with the ads manager after ads were loaded. Log the error and play the content.
         self.isAdPlayback = false
+        self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
         print("AdsManager error: %@ \(String(describing: error.message))")
+        
         if self.isVideoContentCompletePlaying {
             //Finish playing the video
         } else {
+            self.addAnalyticsEvent(.playback, analyticsEventType: .play)
             self.contentPlayer?.play()
         }
     }

@@ -668,11 +668,11 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
             self.bAdsEnabled = false
         }
         
-        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
         
         self.labelSubtitles.isHidden = true
         
         self.initializeAnalyticsForCurVideo()
+        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
         self.setUpContentPlayer(curVideo: curVideo)
         
         if self.shouldAutoRotateToLandscape {
@@ -1491,7 +1491,7 @@ extension SPLTVideoViewController {
             if self.isVideoContentCompletePlaying {
                 self.allContentDidFinishPlayingWithAd()
             } else {
-                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+//                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
                 self.setPlayButtonType(SPLTVideoPlayButtonType.pauseButton)
                 self.contentPlayer?.play()
             }
@@ -1516,7 +1516,7 @@ extension SPLTVideoViewController {
                 self.allContentDidFinishPlayingWithAd()
             } else {
                 self.setPlayButtonType(SPLTVideoPlayButtonType.playButton)
-                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+//                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
                 self.contentPlayer?.play()
                 //            self.buttonClose.isHidden = false
             }

@@ -50,6 +50,10 @@ open class SPLTBaseImageView: UIImageView {
 //        imageView.af_setImage(withURL: url)
 
     }
+    
+//    open func splt_cancelSetImage() {
+//        self.af_cancelImageRequest()
+//    }
 }
 
 

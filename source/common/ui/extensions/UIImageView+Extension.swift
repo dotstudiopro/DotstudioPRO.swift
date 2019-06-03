@@ -50,7 +50,7 @@ public extension UIImageView {
     }
 
     func splt_setImageFromURL(_ url: URL, placeholder: UIImage?, format: SPLTImageFormat<UIImage>?, failure fail: ((Error?) -> ())?, success succeed: ((UIImage) -> ())?) {
-//        self.af_setImage(withURL: url, placeholderImage: placeholder, filter: nil, progress: nil, progressQueue: <#T##DispatchQueue#>, imageTransition: <#T##UIImageView.ImageTransition#>, runImageTransitionIfCached: <#T##Bool#>, completion: <#T##((DataResponse<UIImage>) -> Void)?##((DataResponse<UIImage>) -> Void)?##(DataResponse<UIImage>) -> Void#>)
+        //        self.af_setImage(withURL: url, placeholderImage: placeholder, filter: nil, progress: nil, progressQueue: <#T##DispatchQueue#>, imageTransition: <#T##UIImageView.ImageTransition#>, runImageTransitionIfCached@objc @objc : <#T##B@objc ool#>, completion: <#T##((DataResponse<UIImage>) -> Void)?##((DataResponse<UIImage>) -> Void)?##(DataResponse<UIImage>) -> Void#>)
     
         self.af_setImage(withURL: url, placeholderImage: placeholder, filter: nil, imageTransition: .noTransition) { (response) in
             self.af_setImage(withURL: url, placeholderImage: placeholder)
@@ -66,4 +66,9 @@ public extension UIImageView {
 ////        self.hnk_setImageFromURL(url, placeholder: placeholder, format: format, failure: fail, success: succeed)
 //        self.af_setImage(withURL: url, placeholderImage: placeholder)
 //    }
+    
+    func splt_cancelSetImage() {
+        self.af_cancelImageRequest()
+    }
+    
 }
