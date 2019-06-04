@@ -199,6 +199,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
                 case AVPlayer.Status.unknown:
                     break
                 case AVPlayer.Status.failed:
+                    self.addAnalyticsEvent(.player_setup, analyticsEventType: .player_setup_error)
                     break
                 case .readyToPlay:
                     if !self.isAdPlayback {
@@ -211,6 +212,8 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
                             })
                             self.iCurVideoProgressPoint = nil
                         }
+                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_player_ready, video: self.curVideo)
+                        self.addAnalyticsEvent(.player_setup, analyticsEventType: .player_setup_ready)
                     }
                     
                 default: break

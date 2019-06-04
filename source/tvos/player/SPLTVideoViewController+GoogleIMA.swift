@@ -134,6 +134,7 @@ extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
 extension SPLTPlayerViewController: IMAAdsManagerDelegate {
     
     open func adsManager(_ adsManager: IMAAdsManager!, didReceive event: IMAAdEvent!) {
+        print(event.type.rawValue)
         switch (event.type) {
         case IMAAdEventType.AD_BREAK_READY:
             break
