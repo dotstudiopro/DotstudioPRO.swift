@@ -536,18 +536,18 @@ class DTSZVideo: NSObject {
                     if let point = responseDict["point"] as? Int {
                         self.progressPoint = point
                     }
-                    #if os(tvOS)
-                        self.loadVideoAdTag(videoDict, completion: completion, completionError: completionError)
-                    #else
+//                    #if os(tvOS)
+//                        self.loadVideoAdTag(videoDict, completion: completion, completionError: completionError)
+//                    #else
                         completion?(videoDict)
-                    #endif
+//                    #endif
                 }, completionError: { (error) in
                     // error while updating video progress, but success to video data call.
-                    #if os(tvOS)
-                        self.loadVideoAdTag(videoDict, completion: completion, completionError: completionError)
-                    #else
+//                    #if os(tvOS)
+//                        self.loadVideoAdTag(videoDict, completion: completion, completionError: completionError)
+//                    #else
                         completion?(videoDict)
-                    #endif
+//                    #endif
                 })
             }, completionError: { (error) in
                 // Error
@@ -558,20 +558,20 @@ class DTSZVideo: NSObject {
         }
     }
     
-    func loadVideoAdTag(_ videoDict: [String: AnyObject], completion: ((_ videoDict: [String: AnyObject]) -> Void)?, completionError: ((_ error: NSError) -> Void)?) {
-        #if os(tvOS)
-            if let strVideoId = self.videoId {
-                SPLTAdsAPI().getAdTagForVideo(strVideoId, width: 1920, height: 1080, completion: { (adTagsDict) in
-                    // success
-                    self.mapFromVideoAdTagDict(adTagsDict)
-                    completion?(videoDict)
-                }, completionError: { (error) in
-                    // error.
-                    completion?(videoDict)
-                })
-            }
-        #endif
-    }
+//    func loadVideoAdTag(_ videoDict: [String: AnyObject], completion: ((_ videoDict: [String: AnyObject]) -> Void)?, completionError: ((_ error: NSError) -> Void)?) {
+//        #if os(tvOS)
+//            if let strVideoId = self.videoId {
+//                SPLTAdsAPI().getAdTagForVideo(strVideoId, width: 1920, height: 1080, completion: { (adTagsDict) in
+//                    // success
+//                    self.mapFromVideoAdTagDict(adTagsDict)
+//                    completion?(videoDict)
+//                }, completionError: { (error) in
+//                    // error.
+//                    completion?(videoDict)
+//                })
+//            }
+//        #endif
+//    }
     
 
     //MARK: -

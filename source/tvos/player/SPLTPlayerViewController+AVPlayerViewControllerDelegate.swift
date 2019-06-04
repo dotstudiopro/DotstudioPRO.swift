@@ -22,11 +22,11 @@ extension SPLTPlayerViewController: AVPlayerViewControllerDelegate {
         }
         let start_position: Int = Int(CMTimeGetSeconds(oldTime))
         let end_position: Int = Int(CMTimeGetSeconds(targetTime))
-        if let spltVideo = self.spltVideo {
-            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: SPLTAnalyticsEventCategory.playback, analyticsEventType: SPLTAnalyticsEventType.seek, duration: spltVideo.iDuration, position: start_position, position_end: end_position, message: nil)
+        if let curVideo = self.curVideo {
+            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: SPLTAnalyticsEventCategory.playback, analyticsEventType: SPLTAnalyticsEventType.seek, duration: curVideo.iDuration, position: start_position, position_end: end_position, message: nil)
             SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
-            SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.seek, video: spltVideo, position: start_position, position_end: end_position)
-            SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.resume_after_seek, video: spltVideo, position: end_position, position_end: nil)
+            SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.seek, video: curVideo, position: start_position, position_end: end_position)
+            SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.resume_after_seek, video: curVideo, position: end_position, position_end: nil)
         }
         self.wasSeek = true
     }

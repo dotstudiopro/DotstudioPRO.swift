@@ -58,27 +58,27 @@ open class SPLTAdsAPI {
         return encodedAdTagParams //strAdTagParameters
     }
     
-    open func getAdTagForVideo(_ strVideoId: String, width: Int, height: Int, completion: @escaping (_ adTagsDict: [String: AnyObject]) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
-        
-        var strAdTagUrl = SPLTRouter.getAdTags(strVideoId, width, height).URLString
-        if let strVmapAdTagParameters = SPLTAdsAPI.getVmapAdTagParameters() {
-            strAdTagUrl += "?\(strVmapAdTagParameters)"
-        }
-
-        let headers = ["device-type":"AppleTV"]
-        SPLTBaseAPI.sessionManager.request(strAdTagUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
-            //                debugPrint(response)
-            if (response.result.value != nil) {
-                if let infoDict = response.result.value as? [String: AnyObject],
-                    let bSuccess = infoDict["success"] as? Bool, bSuccess == true,
-                    let tagsDict = infoDict["tags"] as? [String: AnyObject] {
-                    completion(tagsDict)
-                    return
-                }
-            }
-            completionError(NSError(domain: "SPLTAdsAPI", code: 1, userInfo: nil))
-        }
-    }
+//    open func getAdTagForVideo(_ strVideoId: String, width: Int, height: Int, completion: @escaping (_ adTagsDict: [String: AnyObject]) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
+//        
+//        var strAdTagUrl = SPLTRouter.getAdTags(strVideoId, width, height).URLString
+//        if let strVmapAdTagParameters = SPLTAdsAPI.getVmapAdTagParameters() {
+//            strAdTagUrl += "?\(strVmapAdTagParameters)"
+//        }
+//
+//        let headers = ["device-type":"AppleTV"]
+//        SPLTBaseAPI.sessionManager.request(strAdTagUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
+//            //                debugPrint(response)
+//            if (response.result.value != nil) {
+//                if let infoDict = response.result.value as? [String: AnyObject],
+//                    let bSuccess = infoDict["success"] as? Bool, bSuccess == true,
+//                    let tagsDict = infoDict["tags"] as? [String: AnyObject] {
+//                    completion(tagsDict)
+//                    return
+//                }
+//            }
+//            completionError(NSError(domain: "SPLTAdsAPI", code: 1, userInfo: nil))
+//        }
+//    }
 }
 
 

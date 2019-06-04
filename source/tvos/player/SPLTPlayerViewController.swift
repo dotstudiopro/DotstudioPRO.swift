@@ -64,7 +64,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     open var shouldResume: Bool = false
     open var channel: SPLTChannel?
     
-    open var spltVideo: SPLTVideo?
+//    open var spltVideo: SPLTVideo?
     open var curSpltVideoAdType: SPLTVideoAdType = .none
     
     open var isPlayerSetupReady = false

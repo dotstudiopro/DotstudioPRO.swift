@@ -16,13 +16,13 @@ import AVFoundation
 extension SPLTPlayerViewController {
     
     open func saveVideoProgress() {
-        if let spltVideo = self.spltVideo,
-            let strVideoId = spltVideo.strId,
+        if let curVideo = self.curVideo,
+            let strVideoId = curVideo.strId,
             let currentTime_cmtime = self.avPlayerViewController.player?.currentTime(), currentTime_cmtime.isValid {
             let floatCurrentTime = CMTimeGetSeconds(currentTime_cmtime)
-            if !floatCurrentTime.isNaN, !spltVideo.isLiveStreaming {
+            if !floatCurrentTime.isNaN, !curVideo.isLiveStreaming {
                 let currentTime: Int = Int(floatCurrentTime)
-                self.spltVideo?.progressPoint = currentTime
+                self.curVideo?.progressPoint = currentTime
                 SPLTVideoProgressAPI().setVideoProgress(strVideoId, iVideoDuration: currentTime, completion: { (responseDict) in
                         // success
                 }, completionError: { (error) in
@@ -34,8 +34,8 @@ extension SPLTPlayerViewController {
 
     open func stopAndRemoveAVPlayerViewController() {
         self.saveVideoProgress()
-        if let spltVideo = self.spltVideo {
-            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.end_playback, video: spltVideo)
+        if let curVideo = self.curVideo {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.end_playback, video: curVideo)
             self.addAnalyticsEvent(.playback, analyticsEventType: .end_playback)
         }
         if let contentPlayer = self.contentPlayer {
@@ -54,8 +54,8 @@ extension SPLTPlayerViewController {
         } else {
             if let contentPlayer = self.contentPlayer {
                 contentPlayer.play()
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.spltVideo)
-                self.addAnalyticsEvent(.playback, analyticsEventType: .play, message: self.spltVideo?.strId)
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
+                self.addAnalyticsEvent(.playback, analyticsEventType: .play, message: self.curVideo?.strId)
             }
         }
     }
@@ -66,8 +66,8 @@ extension SPLTPlayerViewController {
         } else {
             if let contentPlayer = self.contentPlayer {
                 contentPlayer.pause()
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.pause_event, video: self.spltVideo)
-                self.addAnalyticsEvent(.playback, analyticsEventType: .pause, message: self.spltVideo?.strId)
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.pause_event, video: self.curVideo)
+                self.addAnalyticsEvent(.playback, analyticsEventType: .pause, message: self.curVideo?.strId)
             }
             
         }
@@ -94,15 +94,15 @@ extension SPLTPlayerViewController {
                     //print("quartile crossed : \(index)")
                     switch index {
                     case 0:
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_1, video: self.spltVideo)
+                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_1, video: self.curVideo)
                         self.addAnalyticsEvent(.playback, analyticsEventType: .first_quartile)
                         break
                     case 1:
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_2, video: self.spltVideo)
+                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_2, video: self.curVideo)
                         self.addAnalyticsEvent(.playback, analyticsEventType: .second_quartile)
                         break
                     case 2:
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_3, video: self.spltVideo)
+                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_3, video: self.curVideo)
                         self.addAnalyticsEvent(.playback, analyticsEventType: .third_quartile)
                         break
                     default: break
@@ -135,8 +135,8 @@ extension SPLTPlayerViewController {
         let iCurrentTime = Int(floatCurrentTime)
         self.iCurElapsedSeconds = iCurrentTime
         if !self.isFirstFramePlayed {
-            if let spltVideo = self.spltVideo {
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_first_frame, video: spltVideo)
+            if let curVideo = self.curVideo {
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_first_frame, video: curVideo)
                 self.addAnalyticsEvent(.playback, analyticsEventType: .first_frame)
             }
             self.isFirstFramePlayed = true
@@ -146,7 +146,7 @@ extension SPLTPlayerViewController {
             return
         }
         
-        var iDurationTime = self.spltVideo?.iDuration
+        var iDurationTime = self.curVideo?.iDuration
         if let duration_cmtime = self.avPlayerViewController.player?.currentItem?.duration {
             if !duration_cmtime.isValid {
                 return
@@ -177,8 +177,8 @@ extension SPLTPlayerViewController {
 extension SPLTPlayerViewController {
     
     open func initializeAnalyticsForCurVideo() {
-        if let spltVideo = self.spltVideo {
-            if let strVideoId = spltVideo.strId, let strVideoCompanyId = spltVideo.strComapnyId {
+        if let curVideo = self.curVideo {
+            if let strVideoId = curVideo.strId, let strVideoCompanyId = curVideo.strComapnyId {
                 let channel_spotlight_company_id = strVideoCompanyId
                 SPLTAnalyticsEventsHelper.sharedInstance.initializeWith(self.channel?.strId, pageVideoId: strVideoId, pageVideoCompanyId: strVideoCompanyId, pagePlaylistId: nil, pageCompanyId: channel_spotlight_company_id)
             }
@@ -186,12 +186,12 @@ extension SPLTPlayerViewController {
     }
     
     open func addAnalyticsEvent(_ analyticsEventCategory :SPLTAnalyticsEventCategory, analyticsEventType: SPLTAnalyticsEventType, position: Int? = nil, position_end: Int? = nil, message: String? = nil) {
-        if let spltVideo = self.spltVideo {
+        if let curVideo = self.curVideo {
             var cur_position = self.iCurElapsedSeconds
             if let position_ = position {
                 cur_position = position_
             }
-            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: spltVideo.iDuration, position: cur_position, position_end: position_end, message: message)
+            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: curVideo.iDuration, position: cur_position, position_end: position_end, message: message)
             SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
         }
     }
@@ -199,8 +199,8 @@ extension SPLTPlayerViewController {
     open func addAnalyticsResizeEvent(_ newSize: CGSize) {
         let analyticsEventCategory :SPLTAnalyticsEventCategory = SPLTAnalyticsEventCategory.player_setup
         let analyticsEventType: SPLTAnalyticsEventType = SPLTAnalyticsEventType.player_setup_resize
-        if let spltVideo = self.spltVideo {
-            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: spltVideo.iDuration, position: self.iCurElapsedSeconds, position_end: nil, message: "width: \(Int(newSize.width)), height: \(Int(newSize.height))")
+        if let curVideo = self.curVideo {
+            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: curVideo.iDuration, position: self.iCurElapsedSeconds, position_end: nil, message: "width: \(Int(newSize.width)), height: \(Int(newSize.height))")
             SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
         }
     }

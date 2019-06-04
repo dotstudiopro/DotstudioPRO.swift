@@ -123,10 +123,10 @@ open class SPLTMiniVideoView: UIView {
             self.spltPlayerViewController = nil
         }
         if let spltPlayerViewController = SPLTPlayerViewController.getViewController(),
-            let spltVideo = self.curVideo {
+            let curVideo = self.curVideo {
             //        tvosVideoViewController.isMuted = true
 //            spltPlayerViewController.delegate = self
-            spltPlayerViewController.spltVideo = spltVideo
+            spltPlayerViewController.curVideo = curVideo
             spltPlayerViewController.bAdsEnabled = false
             //self.show(tvosVideoViewController, sender: self)
             //            self.present(spltPlayerViewController, animated: true, completion: nil)

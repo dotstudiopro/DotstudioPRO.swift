@@ -93,6 +93,7 @@ open class SPLTVideoAPI: SPLTBaseAPI {
             if (response.result.value != nil) {
                 if let infoDict = response.result.value as? [String: AnyObject] {
                     completion(infoDict)
+                    return
                 }
             }
             completionError(NSError(domain: "SPLTVideoAPI", code: 1, userInfo: nil))

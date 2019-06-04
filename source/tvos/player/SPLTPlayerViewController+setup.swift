@@ -18,20 +18,21 @@ extension SPLTPlayerViewController {
     
     open func loadVideoDetailFromPlay2Route() {
         self.avPlayerViewController.delegate = self
-        if let spltVideo = self.spltVideo {
-            spltVideo.resetAdPlayedData() // reseting ad played data
-            spltVideo.loadFullVideo({ (videoDict) in
+        if let curVideo = self.curVideo {
+            curVideo.resetAdPlayedData() // reseting ad played data
+            curVideo.loadFullVideo({ (videoDict) in
                 self.checkVideoStatusAndValidate()
             }, completionError: { (error) in
                 // error
+                print(error.debugDescription)
             })
         }
     }
     
     func checkVideoStatusAndValidate() {
-        if let spltVideo = self.spltVideo {
+        if let curVideo = self.curVideo {
             
-            if spltVideo.isGeoblocked {
+            if curVideo.isGeoblocked {
                 let alert = UIAlertController(title: "This content is geoblocked in your region.", message: nil, preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                     _ = self.navigationController?.popViewController(animated: false)
@@ -41,8 +42,8 @@ extension SPLTPlayerViewController {
             }
             
             
-            if spltVideo.videoAccess ==  SPLTVideoAccessType.videoPaywall {
-                SPLTInAppPurchaseUtility.shared.checkAndPurchaseVideoFromItunes(spltVideo: spltVideo, fromViewController: self) { (success) in
+            if curVideo.videoAccess ==  SPLTVideoAccessType.videoPaywall {
+                SPLTInAppPurchaseUtility.shared.checkAndPurchaseVideoFromItunes(spltVideo: curVideo, fromViewController: self) { (success) in
                     if success == true {
                         self.initializeAnalyticsAndLoadMedia()
                     }
@@ -56,14 +57,14 @@ extension SPLTPlayerViewController {
     
     open func initializeAnalyticsAndLoadMedia() {
         
-        if let spltVideo = self.spltVideo {
+        if let curVideo = self.curVideo {
 
             self.initializeAnalyticsForCurVideo()
             
-            if let progressPoint = spltVideo.progressPoint, !spltVideo.isLiveStreaming { //, progressPoint > 10 {
-                if (progressPoint > 30 && (spltVideo.iDuration == 0 || ((spltVideo.iDuration - progressPoint) > 30))) {
-                    let alert = UIAlertController(title: spltVideo.strTitle, message: nil, preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Resume from \(spltVideo.strProgressDuration)", style: .default, handler: { action in
+            if let progressPoint = curVideo.progressPoint, !curVideo.isLiveStreaming { //, progressPoint > 10 {
+                if (progressPoint > 30 && (curVideo.iDuration == 0 || ((curVideo.iDuration - progressPoint) > 30))) {
+                    let alert = UIAlertController(title: curVideo.strTitle, message: nil, preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Resume from \(curVideo.strProgressDuration)", style: .default, handler: { action in
                         self.shouldResume = true
                         self.loadMedia()
                     }))
@@ -84,13 +85,13 @@ extension SPLTPlayerViewController {
    
         var streamingURL:URL?
         
-        if let strVideoUrl = self.spltVideo?.strVideoUrl,
+        if let strVideoUrl = self.curVideo?.strVideoUrl,
             let url = URL(string: strVideoUrl) {
             streamingURL = url
         }
         
         if self.useMP4URL {
-            if let strMP4VideoUrl = self.spltVideo?.getMP4Url(),
+            if let strMP4VideoUrl = self.curVideo?.getMP4Url(),
                 let url = URL(string: strMP4VideoUrl) {
                 streamingURL = url
             }
@@ -101,40 +102,40 @@ extension SPLTPlayerViewController {
         }
         let mediaItem = AVPlayerItem(url: streamingURL!)
         
-        if let spltVideo = self.spltVideo {
+        if let curVideo = self.curVideo {
             //Title
             let titleMetadataItem = AVMutableMetadataItem()
             titleMetadataItem.locale = Locale.current
             titleMetadataItem.key = AVMetadataKey.commonKeyTitle as (NSCopying & NSObjectProtocol)?
             titleMetadataItem.keySpace = AVMetadataKeySpace.common
-            titleMetadataItem.value = spltVideo.strTitle as (NSCopying & NSObjectProtocol)? //"The Title"
+            titleMetadataItem.value = curVideo.strTitle as (NSCopying & NSObjectProtocol)? //"The Title"
             mediaItem.externalMetadata.append(titleMetadataItem)
             //Description
             let descriptionMetadataItem = AVMutableMetadataItem()
             descriptionMetadataItem.locale = Locale.current
             descriptionMetadataItem.key = AVMetadataKey.commonKeyDescription as (NSCopying & NSObjectProtocol)?
             descriptionMetadataItem.keySpace = AVMetadataKeySpace.common
-            descriptionMetadataItem.value = spltVideo.strDescription as (NSCopying & NSObjectProtocol)? //"This is the description"
+            descriptionMetadataItem.value = curVideo.strDescription as (NSCopying & NSObjectProtocol)? //"This is the description"
             mediaItem.externalMetadata.append(descriptionMetadataItem)
             //Language
             let languageMetadataItem = AVMutableMetadataItem()
             languageMetadataItem.locale = Locale.current
             languageMetadataItem.key = AVMetadataKey.commonKeyLanguage as (NSCopying & NSObjectProtocol)?
             languageMetadataItem.keySpace = AVMetadataKeySpace.common
-            languageMetadataItem.value = spltVideo.strLanguage as (NSCopying & NSObjectProtocol)? //"This is the description"
+            languageMetadataItem.value = curVideo.strLanguage as (NSCopying & NSObjectProtocol)? //"This is the description"
             mediaItem.externalMetadata.append(languageMetadataItem)
             //Publisher
             let publisherMetadataItem = AVMutableMetadataItem()
             publisherMetadataItem.locale = Locale.current
             publisherMetadataItem.key = AVMetadataKey.commonKeyPublisher as (NSCopying & NSObjectProtocol)?
             publisherMetadataItem.keySpace = AVMetadataKeySpace.common
-            publisherMetadataItem.value = spltVideo.strCompanyName as (NSCopying & NSObjectProtocol)? //"This is the description"
+            publisherMetadataItem.value = curVideo.strCompanyName as (NSCopying & NSObjectProtocol)? //"This is the description"
             mediaItem.externalMetadata.append(publisherMetadataItem)
             
             let qualityOfServiceClass = DispatchQoS.QoSClass.background
             let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
             backgroundQueue.async(execute: {
-                if let strThumbUrl = spltVideo.thumb {
+                if let strThumbUrl = curVideo.thumb {
                     //            if (self.videoDetail!.strThumbUrl != "") {
                     let strFinalThumbUrl = strThumbUrl + "/320/180"
                     let thumbURL:URL = URL(string: strFinalThumbUrl)!
@@ -168,7 +169,7 @@ extension SPLTPlayerViewController {
                 self.addObservers(contentPlayer)
             }
             
-            if let strCloseCaptionUrl = spltVideo.strCloseCaptionUrl {
+            if let strCloseCaptionUrl = curVideo.strCloseCaptionUrl {
                 if let subtitleURL = URL(string: strCloseCaptionUrl) {
                     self.hasSubstitles = true
                     self.avPlayerViewController.addSubtitles().open(file: subtitleURL)
@@ -178,7 +179,7 @@ extension SPLTPlayerViewController {
             
             //self.setVideoWaterMark()
             
-            if spltVideo.haveServerSideAds {
+            if curVideo.haveServerSideAds {
                 self.bAdsEnabled = false
             }
             
@@ -188,7 +189,7 @@ extension SPLTPlayerViewController {
             if self.bAdsEnabled {
                 self.setupContentPlayerForIMA()
                 self.setUpAdsLoader()
-                self.requestAds(curVideo: spltVideo)
+                self.requestAds(curVideo: curVideo)
             } else {
                 self.isVideoSetupOnGoing = false
                 self.contentPlayer?.play()
@@ -202,11 +203,11 @@ extension SPLTPlayerViewController {
     }
     
 //    open func setVideoWaterMark() {
-//        if let spltVideo = self.spltVideo {
-//            if spltVideo.isVideoWaterMarkingEnabled {
+//        if let curVideo = self.curVideo {
+//            if curVideo.isVideoWaterMarkingEnabled {
 //                self.imageViewVideoWaterMark?.isHidden = false
-//                if let strVideoWaterMarkId = spltVideo.strVideoWaterMarkId {
-//                    if let fWaterMarkOpacity = spltVideo.fWaterMarkOpacity {
+//                if let strVideoWaterMarkId = curVideo.strVideoWaterMarkId {
+//                    if let fWaterMarkOpacity = curVideo.fWaterMarkOpacity {
 //                        self.imageViewVideoWaterMark?.alpha = fWaterMarkOpacity
 //                    }
 //                    let strFullVideoWaterMarkPath = SPLTFullPathRouter.imageFullPath(strVideoWaterMarkId).URLString

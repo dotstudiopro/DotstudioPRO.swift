@@ -75,7 +75,7 @@ extension SPLTPlayerViewController {
 //    @objc open func contentDidFinishPlaying(_ notification: Notification) {
 //        if (notification.object as! AVPlayerItem) == contentPlayer?.currentItem {
 //            self.saveVideoProgress()
-//            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_content_ended, video: self.spltVideo)
+//            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_content_ended, video: self.curVideo)
 //            self.addAnalyticsEvent(.playback, analyticsEventType: .complete)
 //            _ = self.navigationController?.popViewController(animated: false)
 //            self.delegate?.didFinishPlayingVideoOnTVOSPlayerViewController(self)
@@ -86,18 +86,18 @@ extension SPLTPlayerViewController {
         if (!self.isAdPlayback && !self.isVideoPlaybackComplete) {
             if (contentPlayer.rate == 0) {
                 // changed To Pause
-                if let spltVideo = self.spltVideo {
+                if let curVideo = self.curVideo {
                     self.addAnalyticsEvent(.playback, analyticsEventType: .pause)
                 }
             } else {
                 if self.wasSeek {
-                    if let spltVideo = self.spltVideo {
+                    if let curVideo = self.curVideo {
                         self.addAnalyticsEvent(.playback, analyticsEventType: .resume_after_seek)
                     }
                     self.wasSeek = false
                 } else {
-                    if let spltVideo = self.spltVideo {
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: spltVideo)
+                    if let curVideo = self.curVideo {
+                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: curVideo)
                         self.addAnalyticsEvent(.playback, analyticsEventType: .play)
                     }
                 }
@@ -118,14 +118,14 @@ extension SPLTPlayerViewController {
                 if !self.isAdPlayback {
                     if self.shouldResume {
                         self.shouldResume = false
-                        if let spltVideo = self.spltVideo, let progressPoint = spltVideo.progressPoint {
+                        if let curVideo = self.curVideo, let progressPoint = curVideo.progressPoint {
                             contentPlayer.seek(to: CMTimeMakeWithSeconds(Double(progressPoint),preferredTimescale: 1), toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero, completionHandler: { (finished) in
                                 contentPlayer.play()
                             })
                         }
                     }
                 }
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_player_ready, video: self.spltVideo)
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_player_ready, video: self.curVideo)
                 self.addAnalyticsEvent(.player_setup, analyticsEventType: .player_setup_ready)
             default:
                 break
