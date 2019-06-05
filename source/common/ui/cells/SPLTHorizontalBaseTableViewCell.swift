@@ -208,13 +208,17 @@ open class SPLTHorizontalBaseTableViewCell: UITableViewCell, UICollectionViewDat
                 self.delegate?.spltHorizontalBaseTableViewCell(self, didSelectChannel: channel, atIndex: indexPath.row)
             } else if category.channels.count == 1 {
                 if let playlistChannel = category.channels[0] as? SPLTPlaylistChannel {
-                    let video = playlistChannel.playlistVideos[indexPath.row]
-                    self.delegate?.spltHorizontalBaseTableViewCell(self, didSelectVideo: video, inChannel: playlistChannel, atIndex: indexPath.row)
+                    if indexPath.row < playlistChannel.playlistVideos.count {
+                        let video = playlistChannel.playlistVideos[indexPath.row]
+                        self.delegate?.spltHorizontalBaseTableViewCell(self, didSelectVideo: video, inChannel: playlistChannel, atIndex: indexPath.row)
+                    }
                 }
             }
         } else if let playlistChannel = self.channel as? SPLTPlaylistChannel {
-            let video = playlistChannel.playlistVideos[indexPath.row]
-            self.delegate?.spltHorizontalBaseTableViewCell(self, didSelectVideo: video, inChannel: playlistChannel, atIndex: indexPath.row)
+            if indexPath.row < playlistChannel.playlistVideos.count {
+                let video = playlistChannel.playlistVideos[indexPath.row]
+                self.delegate?.spltHorizontalBaseTableViewCell(self, didSelectVideo: video, inChannel: playlistChannel, atIndex: indexPath.row)
+            }
         }
     }
     
@@ -225,12 +229,16 @@ open class SPLTHorizontalBaseTableViewCell: UITableViewCell, UICollectionViewDat
                 if let indexPath = collectionView?.indexPath(for: collectionViewCell) {
                     if let category = self.category {
                         if category.channels.count > 1 {
-                            let channel = category.channels[indexPath.row]
-                            self.delegate?.spltHorizontalBaseTableViewCell(self, didFocusChannel: channel, inCategory: category, atIndex: indexPath.row)
+                            if indexPath.row < category.channels.count {
+                                let channel = category.channels[indexPath.row]
+                                self.delegate?.spltHorizontalBaseTableViewCell(self, didFocusChannel: channel, inCategory: category, atIndex: indexPath.row)
+                            }
                         } else {
                             if let playlistChannel = category.channels[0] as? SPLTPlaylistChannel {
-                                let video = playlistChannel.playlistVideos[indexPath.row]
-                                self.delegate?.spltHorizontalBaseTableViewCell(self, didFocusVideo: video, inChannel: playlistChannel, inCategory: category, atIndex: indexPath.row)
+                                if indexPath.row < playlistChannel.playlistVideos.count {
+                                    let video = playlistChannel.playlistVideos[indexPath.row]
+                                    self.delegate?.spltHorizontalBaseTableViewCell(self, didFocusVideo: video, inChannel: playlistChannel, inCategory: category, atIndex: indexPath.row)
+                                }
                             }
                         }
                     }
