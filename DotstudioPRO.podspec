@@ -106,7 +106,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png", "source/common/**/**/**/*.ttf"
+  spec.resources = "source/common/**/**/**/*.ttf"
   spec.ios.resources = "source/ios/**/*.{storyboard,xcassets}"
   spec.tvos.resources = "source/tvos/**/*.{storyboard,xcassets}"
 
