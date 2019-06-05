@@ -164,16 +164,15 @@ class DSChromeCastUtility: NSObject {
 //            return
 //        }
         
-        guard let mediaInfoBuilder = GCKMediaInformationBuilder(contentURL: mediaURL) else {
-            return
-        }
+        let mediaInfoBuilder = GCKMediaInformationBuilder(contentURL: mediaURL)
+        
         // TODO: Remove contentID when sample receiver supports using contentURL
         mediaInfoBuilder.contentID = strVideoUrl
 //        mediaInfoBuilder.streamType = GCKMediaStreamType.none
         mediaInfoBuilder.contentType = "video/mp4"
         mediaInfoBuilder.metadata = metadata
-        mediaInformation = mediaInfoBuilder.build()
-        
+        let mediaInformation = mediaInfoBuilder.build()
+        self.mediaInformation = mediaInformation
         // Send a load request to the remote media client.
         if let request = sessionManager.currentSession?.remoteMediaClient?.loadMedia(mediaInformation) {
             request.delegate = self
