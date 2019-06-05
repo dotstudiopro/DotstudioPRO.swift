@@ -139,11 +139,16 @@ class DSChromeCastUtility: NSObject {
         if let strVideoTitle = video.strTitle {
             metadata.setString(strVideoTitle, forKey: kGCKMetadataKeyTitle)
         }
-        metadata.setString(video.description,
-                           forKey: kGCKMetadataKeySubtitle)
-        metadata.addImage(GCKImage(url: URL(string: video.poster!)!,
-                                   width: 480,
-                                   height: 360))
+        if let strVideoDescription = video.strDescription {
+            metadata.setString(strVideoDescription, forKey: kGCKMetadataKeySubtitle)
+        }
+        
+        if let strVideoPoster = video.poster, let url = URL(string: strVideoPoster) {
+            metadata.addImage(GCKImage(url: url, width: 480, height: 360))
+        }
+//        metadata.addImage(GCKImage(url: URL(string: video.poster!)!,
+//                                   width: 480,
+//                                   height: 360))
         
         // Define information about the media item.
 //        guard let strVideoId = video.strId else {
@@ -159,7 +164,9 @@ class DSChromeCastUtility: NSObject {
 //            return
 //        }
         
-        let mediaInfoBuilder = GCKMediaInformationBuilder(contentURL: mediaURL)
+        guard let mediaInfoBuilder = GCKMediaInformationBuilder(contentURL: mediaURL) else {
+            return
+        }
         // TODO: Remove contentID when sample receiver supports using contentURL
         mediaInfoBuilder.contentID = strVideoUrl
 //        mediaInfoBuilder.streamType = GCKMediaStreamType.none
@@ -168,7 +175,7 @@ class DSChromeCastUtility: NSObject {
         mediaInformation = mediaInfoBuilder.build()
         
         // Send a load request to the remote media client.
-        if let request = sessionManager.currentSession?.remoteMediaClient?.loadMedia(mediaInformation!) {
+        if let request = sessionManager.currentSession?.remoteMediaClient?.loadMedia(mediaInformation) {
             request.delegate = self
         }
         self.delegate?.didRequestMediaPause()
