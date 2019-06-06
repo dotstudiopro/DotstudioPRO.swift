@@ -47,6 +47,7 @@ open class SPLTAdsAPI {
         
         #if os(tvOS)
         strAdTagParameters += "&device_type=apple_tv"
+        strAdTagParameters += "&secure=true"
         #else
         strAdTagParameters += "&device_type=ios"
         #endif
