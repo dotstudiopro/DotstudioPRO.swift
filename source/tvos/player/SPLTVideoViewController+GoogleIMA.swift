@@ -92,7 +92,11 @@ extension SPLTPlayerViewController {
                 self.isVideoContentCompletePlaying = true
             }
             
-            self.adsLoader?.contentComplete()
+            if self.isPostAdAvailable() {
+                self.adsLoader?.contentComplete()
+            } else {
+                self.allContentDidFinishPlayingWithAd()
+            }
         }
     }
     
@@ -180,6 +184,7 @@ extension SPLTPlayerViewController: IMAAdsManagerDelegate {
         
         if self.isVideoContentCompletePlaying {
             //Finish playing the video
+            self.allContentDidFinishPlayingWithAd()
         } else {
             self.addAnalyticsEvent(.playback, analyticsEventType: .play)
             self.contentPlayer?.play()
@@ -197,7 +202,7 @@ extension SPLTPlayerViewController: IMAAdsManagerDelegate {
         // The SDK is done playing ads (at least for now), so resume the content.
         self.isAdPlayback = false
         if self.isVideoContentCompletePlaying {
-            //self.allContentDidFinishPlayingWithAd()
+            self.allContentDidFinishPlayingWithAd()
         } else {
             //Finish playing the video
             self.contentPlayer?.play()

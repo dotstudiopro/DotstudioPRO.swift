@@ -169,6 +169,11 @@ extension SPLTPlayerViewController {
 
     }
     
+    @objc func allContentDidFinishPlayingWithAd() {
+        self.delegate?.didFinishPlayingVideo(self)
+    }
+
+    
 }
 
 

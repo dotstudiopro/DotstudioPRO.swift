@@ -22,8 +22,8 @@ enum SPLTVideoPlayButtonType: Int {
 }
 
 public protocol SPLTPlayerViewControllerDelegate {
-     func didFinishPlayingVideoOnTVOSPlayerViewController(_ tvosPlayerViewController: SPLTPlayerViewController)
-     func didClosePlayingVideoOnTVOSPlayerViewController()
+     func didFinishPlayingVideo(_ dspPlayerViewController: DSPPlayerViewController)
+     func didClosePlayingVideoOnDSPPlayerViewController()
 }
 
 public typealias DSPPlayerViewController = SPLTPlayerViewController
@@ -269,7 +269,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     
     @IBAction open func closeModal(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: false)
-        self.delegate?.didClosePlayingVideoOnTVOSPlayerViewController()
+        self.delegate?.didClosePlayingVideoOnDSPPlayerViewController()
     }
     
     //MARK: - IBAction methods
@@ -314,7 +314,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     open func stopAndRemoveThePlayer() {
         self.stopAndRemoveAVPlayerViewController()
         _ = self.navigationController?.popViewController(animated: true)
-        self.delegate?.didClosePlayingVideoOnTVOSPlayerViewController()
+        self.delegate?.didClosePlayingVideoOnDSPPlayerViewController()
     }
 
     open func tvosMenuButtonTapped() {
@@ -323,7 +323,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
 //        })
         self.stopAndRemoveAVPlayerViewController()
         _ = self.navigationController?.popViewController(animated: false)
-        self.delegate?.didClosePlayingVideoOnTVOSPlayerViewController()
+        self.delegate?.didClosePlayingVideoOnDSPPlayerViewController()
     }
 }
 

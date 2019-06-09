@@ -23,8 +23,11 @@ extension SPLTPlayerViewController: AVPlayerViewControllerDelegate {
         let start_position: Int = Int(CMTimeGetSeconds(oldTime))
         let end_position: Int = Int(CMTimeGetSeconds(targetTime))
         if let curVideo = self.curVideo {
-            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: SPLTAnalyticsEventCategory.playback, analyticsEventType: SPLTAnalyticsEventType.seek, duration: curVideo.iDuration, position: start_position, position_end: end_position, message: nil)
-            SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
+            let analyticsEvent_seek = SPLTAnalyticsEvent(analyticsEventCategory: SPLTAnalyticsEventCategory.playback, analyticsEventType: SPLTAnalyticsEventType.seek, duration: curVideo.iDuration, position: start_position, position_end: end_position, message: nil)
+            SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent_seek)
+            let analyticsEvent_resume_after_seek = SPLTAnalyticsEvent(analyticsEventCategory: SPLTAnalyticsEventCategory.playback, analyticsEventType: SPLTAnalyticsEventType.resume_after_seek, duration: curVideo.iDuration, position: end_position, position_end: nil, message: nil)
+            SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent_resume_after_seek)
+
             SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.seek, video: curVideo, position: start_position, position_end: end_position)
             SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.resume_after_seek, video: curVideo, position: end_position, position_end: nil)
         }
