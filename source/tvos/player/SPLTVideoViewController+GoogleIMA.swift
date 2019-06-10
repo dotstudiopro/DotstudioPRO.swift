@@ -94,6 +94,7 @@ extension SPLTPlayerViewController {
             
             if self.isPostAdAvailable() {
                 self.adsLoader?.contentComplete()
+                self.delegate?.didFinishPlayingVideo(self)
             } else {
                 self.allContentDidFinishPlayingWithAd()
             }
