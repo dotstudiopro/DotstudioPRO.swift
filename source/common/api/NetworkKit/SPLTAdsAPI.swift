@@ -34,10 +34,6 @@ open class SPLTAdsAPI {
             strAdTagParameters += "&app_url=\(strAppUrl)"
         }
         
-        if let strAppName = SPLTConfig.APPNAME {
-            strAdTagParameters += "&app_name=\(strAppName)"
-        }
-        
         let strBundleIdfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
         strAdTagParameters += "&device_ifa=\(strBundleIdfa)"
         
