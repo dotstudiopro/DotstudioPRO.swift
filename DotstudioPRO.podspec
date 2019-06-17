@@ -106,6 +106,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
+  # spec.resource_bundle = { 'Font-Awesome-Swift' => 'source/common/**/**/**/FontAwesome.ttf' }
   spec.resources = "source/common/**/**/**/*.ttf"
   spec.ios.resources = "source/ios/**/*.{storyboard,xcassets}"
   spec.tvos.resources = "source/tvos/**/*.{storyboard,xcassets}"
@@ -135,12 +136,13 @@ Pod::Spec.new do |spec|
 
   spec.swift_version = "5.0"
 
-  # spec.requires_arc = true
+  spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
   spec.dependency 'Alamofire'
   spec.dependency 'AlamofireImage', '~> 3.5'
+  #spec.dependency 'Font-Awesome-Swift', '~> 1.7.2'
 
   spec.ios.dependency 'Lock', '~> 2.10'
   spec.ios.dependency 'GoogleAds-IMA-iOS-SDK', '>=3.3' # '~> 3.3'

@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FontAwesome.ttf">
+            <string>FontAwesome</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--DotstudioIMA Player View Controller-->
         <scene sceneID="o86-Cx-Pwp">
@@ -62,10 +67,10 @@
                                                     <constraint firstAttribute="width" secondItem="UeY-zV-i3b" secondAttribute="height" multiplier="1:1" id="G19-fU-1zi"/>
                                                     <constraint firstAttribute="height" constant="45" id="efC-bf-BGO"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="32"/>
                                                 <state key="normal" image="play-icon"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="48"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="onPlayPauseClicked:" destination="BU2-sb-CJN" eventType="touchUpInside" id="bgX-vz-WOT"/>
@@ -82,9 +87,9 @@
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="36"/>
                                                             </constraint>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="22"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
                                                         </variation>
                                                         <connections>
                                                             <action selector="onClickCloseButton:" destination="BU2-sb-CJN" eventType="touchUpInside" id="VE6-G4-iIM"/>
@@ -114,9 +119,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Hp5-He-Wub" secondAttribute="height" multiplier="1:1" id="2Pw-Jw-eaW"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="27"/>
                                                         </variation>
                                                         <connections>
                                                             <action selector="onClickShareButton:" destination="BU2-sb-CJN" eventType="touchUpInside" id="XGq-EB-R6q"/>
@@ -226,9 +231,9 @@
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                                                             </constraint>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="27"/>
                                                         </variation>
                                                         <connections>
                                                             <action selector="onClickCloseCaption:" destination="BU2-sb-CJN" eventType="touchUpInside" id="dzO-IJ-sJG"/>
@@ -240,9 +245,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="6Fy-SM-3ya" secondAttribute="height" multiplier="1:1" id="oHv-c7-7By"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="26"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="32"/>
                                                         </variation>
                                                         <connections>
                                                             <action selector="onFullScreenClicked:" destination="BU2-sb-CJN" eventType="touchUpInside" id="2Dn-Kj-zNi"/>
