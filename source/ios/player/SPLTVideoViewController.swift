@@ -278,17 +278,22 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         self.adsLoader?.delegate = self
         self.viewVideoFrame = self.viewVideo.frame
         
-//        self.buttonTopBarClose.setFAIcon(icon: .FAClose, forState: .normal)
-        self.buttonTopBarClose.fa.setTitle(.close, for: .normal)
-//        self.buttonTopBarShare.setFAIcon(icon: .FAShare, forState: .normal)
-        self.buttonTopBarShare.fa.setTitle(.shareAlt, for: .normal)
+        let imageIconDefaultSize = CGSize(width: 44, height: 44)
+        let imageTopBarClose = UIImage(icon: .FAClose, size: imageIconDefaultSize, textColor: .white, backgroundColor: .clear)
+        self.buttonTopBarClose?.setImage(imageTopBarClose, for: .normal)
+        
+        let imageTopBarShare = UIImage(icon: .FAShare, size: imageIconDefaultSize, textColor: .white, backgroundColor: .clear)
+        self.buttonTopBarShare?.setImage(imageTopBarShare, for: .normal)
+        
+        
         self.setPlayButtonType(.playButton)
-//        self.buttonExpandFullScreen.setFAIcon(icon: .FAExpand, forState: .normal)
-        self.buttonExpandFullScreen.fa.setTitle(.expand, for: .normal)
-//        self.buttonCloseCaption.setFAIcon(icon: .FACc, forState: .normal)
-        self.buttonCloseCaption.fa.setTitle(.cc, for: .normal)
-//        self.buttonCloseCaption.setFAIcon(icon: .FACc, forState: .selected)
-        self.buttonCloseCaption.fa.setTitle(.cc, for: .selected)
+        
+        let imageExpandFullScreen = UIImage(icon: .FAExpand, size: imageIconDefaultSize, textColor: .white, backgroundColor: .clear)
+        self.buttonExpandFullScreen?.setImage(imageExpandFullScreen, for: .normal)
+        
+        let imageCloseCaption = UIImage(icon: .FACc, size: imageIconDefaultSize, textColor: .white, backgroundColor: .clear)
+        self.buttonCloseCaption?.setImage(imageCloseCaption, for: .normal)
+        self.buttonCloseCaption?.setImage(imageCloseCaption, for: .selected)
         
 //        if SPLTConfig.USE_NAVIGATIONBAR_ON_CHANNEL_SCREEN {
 //            self.buttonTopBarClose.isHidden = true
