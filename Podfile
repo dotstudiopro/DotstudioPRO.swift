@@ -15,6 +15,7 @@ target 'Dotstudiopro-ios' do
   pod 'GoogleAds-IMA-iOS-SDK', '>=3.3' # '~> 3.3'
   pod 'google-cast-sdk', '< 5.0', '>=4.3.4'
 
+  pod 'FontAwesomeKit.Swift'
 end
 
 target 'Dotstudiopro-tvos' do

@@ -147,6 +147,7 @@ Pod::Spec.new do |spec|
   spec.ios.dependency 'Lock', '~> 2.10'
   spec.ios.dependency 'GoogleAds-IMA-iOS-SDK', '>=3.3' # '~> 3.3'
   spec.ios.dependency 'google-cast-sdk', '< 5.0', '>=4.3.4'
+  spec.ios.dependency 'FontAwesomeKit.Swift'
 
   spec.tvos.dependency 'Auth0', '~> 1.15'
 

@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 4.8)
   - Auth0 (1.15.0):
     - SimpleKeychain
+  - FontAwesomeKit.Swift (1.0.2)
   - google-cast-sdk (4.4.1):
     - google-cast-sdk/Core (= 4.4.1)
     - Protobuf (~> 3.0)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage (~> 3.5)
   - Auth0 (~> 1.15)
+  - FontAwesomeKit.Swift
   - google-cast-sdk (< 5.0, >= 4.3.4)
   - GoogleAds-IMA-iOS-SDK (>= 3.3)
   - Lock (~> 2.10)
@@ -31,6 +33,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - Auth0
+    - FontAwesomeKit.Swift
     - google-cast-sdk
     - GoogleAds-IMA-iOS-SDK
     - Lock
@@ -41,12 +44,13 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   Auth0: b741c805711a80eb698fce55d354cc32e0784dce
+  FontAwesomeKit.Swift: cf839537bbff89b5853a00653b2a2f31748c2c1c
   google-cast-sdk: b4583a1591a94b693be5e913e0ae84447fbd6b9d
   GoogleAds-IMA-iOS-SDK: 8f57879738137b81a48ba792e42439e6bff5413b
   Lock: b99c984b607a921260068efc967026dccc5b5cc6
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SimpleKeychain: 3be49072fd2d82de8fa83d847ef1e548622f8fc5
 
-PODFILE CHECKSUM: 64e192b95a1ac53dc067c651e7d1ed7618fe6abe
+PODFILE CHECKSUM: a46952e9c101ee016acd1db703060710920d24d7
 
-COCOAPODS: 1.6.2
+COCOAPODS: 1.7.2
