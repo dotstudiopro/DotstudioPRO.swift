@@ -3,7 +3,7 @@ DotstudioPRO library for ios & tvos swift.
 
 ## Requirements.
 <ul><li>iOS 9+</li>
-<li>Xcode 9+</li>
+<li>Xcode 10.2.1</li>
 <li>Swift 5.0</li></ul>
   
 ## Install using CocoaPods
