@@ -575,6 +575,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         self.isFirstFramePlayed = false
         self.bVideoQuartilesWatched = [false, false, false]
         self.isVideoContentCompletePlaying = false
+        self.isAllVideoAdContentCompletePlaying = false
 
         
         //        self.showProgressVideoView()
