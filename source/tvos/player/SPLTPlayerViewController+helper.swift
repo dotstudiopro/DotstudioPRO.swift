@@ -170,6 +170,7 @@ extension SPLTPlayerViewController {
     }
     
     @objc func allContentDidFinishPlayingWithAd() {
+        print("all ads completed & video completed")
         self.delegate?.didFinishPlayingVideo(self)
     }
 

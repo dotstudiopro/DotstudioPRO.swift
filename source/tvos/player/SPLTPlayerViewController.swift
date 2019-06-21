@@ -34,6 +34,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     
     open var bAdsEnabled: Bool = true
     open var isVideoContentCompletePlaying: Bool = false
+    open var isAllVideoAdContentCompletePlaying: Bool = false
     open var shouldSkipLoadingFullVideo: Bool = false
     open var curVideo: SPLTVideo?
     open var iCurVideoProgressPoint: Int?

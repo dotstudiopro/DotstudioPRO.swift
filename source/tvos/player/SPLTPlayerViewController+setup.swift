@@ -56,7 +56,8 @@ extension SPLTPlayerViewController {
     }
     
     open func initializeAnalyticsAndLoadMedia() {
-        
+        self.isVideoContentCompletePlaying = false
+        self.isAllVideoAdContentCompletePlaying = false
         if let curVideo = self.curVideo {
 
             self.initializeAnalyticsForCurVideo()

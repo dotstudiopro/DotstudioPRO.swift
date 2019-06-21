@@ -139,6 +139,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     open var iCurVideoProgressPoint: Int?
     open var shouldSkipLoadingFullVideo: Bool = false
     open var isVideoContentCompletePlaying: Bool = false
+    open var isAllVideoAdContentCompletePlaying: Bool = false
     open var shouldAutoRotateToLandscape: Bool = false
     
     var contentPlayer: AVPlayer? {
@@ -1280,7 +1281,7 @@ extension SPLTVideoViewController {
     }
     
     @objc func allContentDidFinishPlayingWithAd() {
-        
+        print("all ads completed & video completed")
     }
     
     @objc func contentDidFinishPlaying(_ notification: Notification) {
@@ -1295,8 +1296,13 @@ extension SPLTVideoViewController {
                 self.isVideoContentCompletePlaying = true
             }
             
-//            if self.isPostAdAvailable() {
+            if self.isAllVideoAdContentCompletePlaying {
+                self.allContentDidFinishPlayingWithAd()
+            } else {
                 self.adsLoader?.contentComplete()
+            }
+//            if self.isPostAdAvailable() {
+//                self.adsLoader?.contentComplete()
 //                self.allContentDidFinishPlayingWithAd()
 //            } else {
 //                self.allContentDidFinishPlayingWithAd()
@@ -1490,8 +1496,12 @@ extension SPLTVideoViewController {
                 //                showFullscreenControls(nil)
                 break
             case .ALL_ADS_COMPLETED:
-                print("all ads completed & video completed")
-                self.allContentDidFinishPlayingWithAd()
+                self.isAllVideoAdContentCompletePlaying = true
+                if self.isVideoContentCompletePlaying {
+                    self.allContentDidFinishPlayingWithAd()
+                } else {
+                    // Do nothing as video content playing is pending.
+                }
                 break
             default:
                 break
@@ -1505,13 +1515,13 @@ extension SPLTVideoViewController {
             self.isAdPlayback = false
             self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
             
-            if self.isVideoContentCompletePlaying {
-                self.allContentDidFinishPlayingWithAd()
-            } else {
-//                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+//            if self.isVideoContentCompletePlaying {
+//                self.allContentDidFinishPlayingWithAd()
+//            } else {
+                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
                 self.setPlayButtonType(SPLTVideoPlayButtonType.pauseButton)
                 self.contentPlayer?.play()
-            }
+//            }
         }
         
         open func adsManagerDidRequestContentPause(_ adsManager: IMAAdsManager!) {
@@ -1520,6 +1530,7 @@ extension SPLTVideoViewController {
             //            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_impression)
             self.hideFullscreenControls()
             self.setPlayButtonType(SPLTVideoPlayButtonType.pauseButton)
+            self.addAnalyticsEvent(.playback, analyticsEventType: .pause)
             self.contentPlayer?.pause()
             //            self.buttonClose.isHidden = true
         }
@@ -1529,14 +1540,14 @@ extension SPLTVideoViewController {
             self.isAdPlayback = false
             //            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_complete)
             self.showFullscreenControls(nil)
-            if self.isVideoContentCompletePlaying {
-                self.allContentDidFinishPlayingWithAd()
-            } else {
+//            if self.isVideoContentCompletePlaying {
+//                self.allContentDidFinishPlayingWithAd()
+//            } else {
                 self.setPlayButtonType(SPLTVideoPlayButtonType.playButton)
-//                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+                self.addAnalyticsEvent(.playback, analyticsEventType: .play)
                 self.contentPlayer?.play()
                 //            self.buttonClose.isHidden = false
-            }
+//            }
         }
 
 }

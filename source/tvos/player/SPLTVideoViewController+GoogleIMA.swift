@@ -92,8 +92,13 @@ extension SPLTPlayerViewController {
                 self.isVideoContentCompletePlaying = true
             }
             
-//            if self.isPostAdAvailable() {
+            if self.isAllVideoAdContentCompletePlaying {
+                self.allContentDidFinishPlayingWithAd()
+            } else {
                 self.adsLoader?.contentComplete()
+            }
+//            if self.isPostAdAvailable() {
+//                self.adsLoader?.contentComplete()
 //                self.delegate?.didFinishPlayingVideo(self)
 //            } else {
 //                self.allContentDidFinishPlayingWithAd()
@@ -173,7 +178,12 @@ extension SPLTPlayerViewController: IMAAdsManagerDelegate {
             //                showFullscreenControls(nil)
             break
         case .ALL_ADS_COMPLETED:
-            self.delegate?.didFinishPlayingVideo(self)
+            self.isAllVideoAdContentCompletePlaying = true
+            if self.isVideoContentCompletePlaying {
+                self.allContentDidFinishPlayingWithAd()
+            } else {
+                // Do nothing as video content playing is pending.
+            }
             break
         default:
             break
@@ -186,31 +196,33 @@ extension SPLTPlayerViewController: IMAAdsManagerDelegate {
         self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
         print("AdsManager error: %@ \(String(describing: error.message))")
         
-        if self.isVideoContentCompletePlaying {
-            //Finish playing the video
-            self.allContentDidFinishPlayingWithAd()
-        } else {
+//        if self.isVideoContentCompletePlaying {
+//            //Finish playing the video
+//            self.allContentDidFinishPlayingWithAd()
+//        } else {
             self.addAnalyticsEvent(.playback, analyticsEventType: .play)
             self.contentPlayer?.play()
-        }
+//        }
     }
     
     open func adsManagerDidRequestContentPause(_ adsManager: IMAAdsManager!) {
         // The SDK is going to play ads, so pause the content.
         print("Ads is going to play")
         self.isAdPlayback = true
+        self.addAnalyticsEvent(.playback, analyticsEventType: .pause)
         self.contentPlayer?.pause()
     }
     
     open func adsManagerDidRequestContentResume(_ adsManager: IMAAdsManager!) {
         // The SDK is done playing ads (at least for now), so resume the content.
         self.isAdPlayback = false
-        if self.isVideoContentCompletePlaying {
-            self.allContentDidFinishPlayingWithAd()
-        } else {
+//        if self.isVideoContentCompletePlaying {
+//            self.allContentDidFinishPlayingWithAd()
+//        } else {
             //Finish playing the video
+            self.addAnalyticsEvent(.playback, analyticsEventType: .play)
             self.contentPlayer?.play()
-        }
+//        }
     }
 }
 
