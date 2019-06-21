@@ -107,6 +107,13 @@ open class SPLTIVPMultiSeriesChannelViewController: SPLTIVPSeriesChannelViewCont
     }
     
     open func requestFullChannelForMultiLevelChannel(_ spltMultiLevelChannel: SPLTMultiLevelChannel) {
+        if spltMultiLevelChannel.childChannels.count == 0 {
+            self.hideProgress()
+            self.closeViewController()
+            return
+        }
+        
+        
         for (index,childChannel) in spltMultiLevelChannel.childChannels.enumerated() {
             childChannel.loadFullChannel({ (dictChildChannel) in
                 // loaded child channel.
