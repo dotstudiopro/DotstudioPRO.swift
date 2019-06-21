@@ -18,8 +18,8 @@ enum SPLTVideoPlayButtonType: Int {
     case pauseButton = 1
 }
 
-public enum DSPPlayerThemeColor: String {
-    case ThemeColor = "ThemeColor"
+public enum DSPPlayerTheme: String {
+    case themeColor // = "themeColor"
 }
 
 open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate, IMAAdsManagerDelegate {
@@ -222,7 +222,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         
     }
     
-    var playerTheme: [DSPPlayerThemeColor: UInt32] = [:]
+    var playerTheme: [DSPPlayerTheme: UInt32] = [:]
     
     open var style: DotstudioIMAPlayerViewController.Style = DotstudioIMAPlayerViewController.Style()
     let imageIconDefaultSize = CGSize(width: 66, height: 66)
@@ -340,7 +340,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         }
     }
     func applyTheme() {
-        if let iThemeColor = self.playerTheme[DSPPlayerThemeColor.ThemeColor] as? UInt32 {
+        if let iThemeColor = self.playerTheme[DSPPlayerTheme.themeColor] as? UInt32 {
             let themeColor = UIColor(hex8: iThemeColor)
             self.sliderVideo.tintColor = themeColor
         }

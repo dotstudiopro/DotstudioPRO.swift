@@ -22,7 +22,7 @@ open class DotstudioIMAPlayerViewController: SPLTVideoViewController {
     
     
     open var delegate: DotstudioIMAPlayerViewControllerDelegate?
-    class open func getViewController(theme: [DSPPlayerThemeColor: UInt32]?) -> DotstudioIMAPlayerViewController? {
+    class open func getViewController(theme: [DSPPlayerTheme: UInt32]?) -> DotstudioIMAPlayerViewController? {
         
         //        let storyboardName = "DotstudioIMAPlayerViewController"
         
