@@ -18,6 +18,9 @@ enum SPLTVideoPlayButtonType: Int {
     case pauseButton = 1
 }
 
+public enum DSPPlayerThemeColor: String {
+    case ThemeColor = "ThemeColor"
+}
 
 open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate, IMAAdsManagerDelegate {
     //        static let kTestAppContentUrl_MP4 = "http://rmcdn.2mdn.net/Demo/html5/output.mp4"
@@ -219,6 +222,8 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         
     }
     
+    var playerTheme: [DSPPlayerThemeColor: UInt32] = [:]
+    
     open var style: DotstudioIMAPlayerViewController.Style = DotstudioIMAPlayerViewController.Style()
     let imageIconDefaultSize = CGSize(width: 66, height: 66)
 
@@ -237,6 +242,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         
         
 //        self.setupStyle()
+        self.applyTheme()
         
         if let image = UIImage(named: "AppIconNavBarLogo") {
             self.navigationItem.titleView = UIImageView(image: image) //imageView
@@ -262,6 +268,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.setupStyle()
+        self.applyTheme()
 //        if SPLTConfig.USE_NAVIGATIONBAR_ON_CHANNEL_SCREEN {
 //            self.buttonTopBarClose.isHidden = true
 //            self.constraintTopBarCloseWidth.constant = 0
@@ -332,45 +339,50 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
             self.buttonTopBarClose.updateConstraints()
         }
     }
-    
-    func setupStyle() {
-        self.imageButtonPlay = UIImage(icon: .FAPlay, size: CGSize(width: 66, height: 66), textColor: self.style.playpauseIconColor, backgroundColor: .clear)
-        self.imageButtonPause = UIImage(icon: .FAPause, size: CGSize(width: 66, height: 66), textColor: self.style.playpauseIconColor, backgroundColor: .clear)
-        
-        let imageTopBarClose = UIImage(icon: .FAClose, size: self.imageIconDefaultSize, textColor: self.style.closeIconColor, backgroundColor: .clear)
-        self.buttonTopBarClose.setImage(imageTopBarClose, for: .normal)
-        
-        let imageTopBarShare = UIImage(icon: .FAShare, size: self.imageIconDefaultSize, textColor: self.style.shareIconColor, backgroundColor: .clear)
-        self.buttonTopBarShare.setImage(imageTopBarShare, for: .normal)
-        
-        self.setPlayButtonType(.playButton)
-        self.buttonPlayPause.backgroundColor = UIColor.clear
-        
-        let imageExpandFullScreen = UIImage(icon: .FAExpand, size: self.imageIconDefaultSize, textColor: self.style.expandIconColor, backgroundColor: .clear)
-        self.buttonExpandFullScreen.setImage(imageExpandFullScreen, for: .normal)
-        
-        let imageCloseCaption = UIImage(icon: .FACc, size: CGSize(width: self.imageIconDefaultSize.width-10, height: self.imageIconDefaultSize.height-10), textColor: self.style.closeCaptionIconColor, backgroundColor: .clear)
-        let imageCloseCaptionSelected = UIImage(icon: .FACc, size: CGSize(width: self.imageIconDefaultSize.width-10, height: self.imageIconDefaultSize.height-10), textColor: .darkGray, backgroundColor: .clear)
-
-        self.buttonCloseCaption.setImage(imageCloseCaption, for: .normal)
-        self.buttonCloseCaption.setImage(imageCloseCaptionSelected, for: .selected)
-        self.buttonCloseCaption.isHidden = true
-        
-        self.labelVideoTitle.textColor = self.style.labelVideoTitleColor
-        self.labelVideoProgress.textColor = self.style.labelVideoProgressColor
-        self.labelVideoDuration.textColor = self.style.labelVideoDurationColor
-        self.labelVideoLiveStreaming.textColor = self.style.labelVideoLiveStreamingColor
-        self.labelSubtitles.textColor = self.style.labelSubtitleColor
-        self.sliderVideo.thumbTintColor = self.style.sliderVideoThumbTintColor
-        self.sliderVideo.tintColor = self.style.sliderVideoTintColor
-        
-        self.viewVideoControlsTop.backgroundColor = self.style.topBarBackgroundColor
-        self.viewVideoControlsTop.firstColor = self.style.topBarFirstColor
-        self.viewVideoControlsTop.secondColor = self.style.topBarSecondColor
-        self.viewVideoControlsBottom.backgroundColor = self.style.bottomBarBackgroundColor
-        self.viewVideoControlsBottom.firstColor = self.style.bottomBarFirstColor
-        self.viewVideoControlsBottom.secondColor = self.style.bottomBarSecondColor
+    func applyTheme() {
+        if let iThemeColor = self.playerTheme[DSPPlayerThemeColor.ThemeColor] as? UInt32 {
+            let themeColor = UIColor(hex8: iThemeColor)
+            self.sliderVideo.tintColor = themeColor
+        }
     }
+//    func setupStyle() {
+//        self.imageButtonPlay = UIImage(icon: .FAPlay, size: CGSize(width: 66, height: 66), textColor: self.style.playpauseIconColor, backgroundColor: .clear)
+//        self.imageButtonPause = UIImage(icon: .FAPause, size: CGSize(width: 66, height: 66), textColor: self.style.playpauseIconColor, backgroundColor: .clear)
+//
+//        let imageTopBarClose = UIImage(icon: .FAClose, size: self.imageIconDefaultSize, textColor: self.style.closeIconColor, backgroundColor: .clear)
+//        self.buttonTopBarClose.setImage(imageTopBarClose, for: .normal)
+//
+//        let imageTopBarShare = UIImage(icon: .FAShare, size: self.imageIconDefaultSize, textColor: self.style.shareIconColor, backgroundColor: .clear)
+//        self.buttonTopBarShare.setImage(imageTopBarShare, for: .normal)
+//
+//        self.setPlayButtonType(.playButton)
+//        self.buttonPlayPause.backgroundColor = UIColor.clear
+//
+//        let imageExpandFullScreen = UIImage(icon: .FAExpand, size: self.imageIconDefaultSize, textColor: self.style.expandIconColor, backgroundColor: .clear)
+//        self.buttonExpandFullScreen.setImage(imageExpandFullScreen, for: .normal)
+//
+//        let imageCloseCaption = UIImage(icon: .FACc, size: CGSize(width: self.imageIconDefaultSize.width-10, height: self.imageIconDefaultSize.height-10), textColor: self.style.closeCaptionIconColor, backgroundColor: .clear)
+//        let imageCloseCaptionSelected = UIImage(icon: .FACc, size: CGSize(width: self.imageIconDefaultSize.width-10, height: self.imageIconDefaultSize.height-10), textColor: .darkGray, backgroundColor: .clear)
+//
+//        self.buttonCloseCaption.setImage(imageCloseCaption, for: .normal)
+//        self.buttonCloseCaption.setImage(imageCloseCaptionSelected, for: .selected)
+//        self.buttonCloseCaption.isHidden = true
+//
+//        self.labelVideoTitle.textColor = self.style.labelVideoTitleColor
+//        self.labelVideoProgress.textColor = self.style.labelVideoProgressColor
+//        self.labelVideoDuration.textColor = self.style.labelVideoDurationColor
+//        self.labelVideoLiveStreaming.textColor = self.style.labelVideoLiveStreamingColor
+//        self.labelSubtitles.textColor = self.style.labelSubtitleColor
+//        self.sliderVideo.thumbTintColor = self.style.sliderVideoThumbTintColor
+//        self.sliderVideo.tintColor = self.style.sliderVideoTintColor
+//
+//        self.viewVideoControlsTop.backgroundColor = self.style.topBarBackgroundColor
+//        self.viewVideoControlsTop.firstColor = self.style.topBarFirstColor
+//        self.viewVideoControlsTop.secondColor = self.style.topBarSecondColor
+//        self.viewVideoControlsBottom.backgroundColor = self.style.bottomBarBackgroundColor
+//        self.viewVideoControlsBottom.firstColor = self.style.bottomBarFirstColor
+//        self.viewVideoControlsBottom.secondColor = self.style.bottomBarSecondColor
+//    }
     
     var shouldIgnoreRemovingContentPlayer: Bool = false
     override open func viewWillDisappear(_ animated: Bool) {
