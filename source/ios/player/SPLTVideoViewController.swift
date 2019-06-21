@@ -1295,12 +1295,12 @@ extension SPLTVideoViewController {
                 self.isVideoContentCompletePlaying = true
             }
             
-            if self.isPostAdAvailable() {
+//            if self.isPostAdAvailable() {
                 self.adsLoader?.contentComplete()
-                self.allContentDidFinishPlayingWithAd()
-            } else {
-                self.allContentDidFinishPlayingWithAd()
-            }
+//                self.allContentDidFinishPlayingWithAd()
+//            } else {
+//                self.allContentDidFinishPlayingWithAd()
+//            }
         }
     }
     
@@ -1488,6 +1488,10 @@ extension SPLTVideoViewController {
                 break
             case IMAAdEventType.TAPPED:
                 //                showFullscreenControls(nil)
+                break
+            case .ALL_ADS_COMPLETED:
+                print("all ads completed & video completed")
+                self.allContentDidFinishPlayingWithAd()
                 break
             default:
                 break

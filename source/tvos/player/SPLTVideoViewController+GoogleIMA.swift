@@ -18,19 +18,19 @@ import AVFoundation
 //MARK: - extension GoogleIMA extension method
 extension SPLTPlayerViewController {
     
-    func isPostAdAvailable() -> Bool {
-        // one of the adcuepoint is -1 if post roll is available.
-        if let adsManager = self.adsManager {
-            for adCuePoint in adsManager.adCuePoints {
-                if let iAdCuePoint = adCuePoint as? Int {
-                    if iAdCuePoint == -1 {
-                        return true
-                    }
-                }
-            }
-        }
-        return false
-    }
+//    func isPostAdAvailable() -> Bool {
+//        // one of the adcuepoint is -1 if post roll is available.
+//        if let adsManager = self.adsManager {
+//            for adCuePoint in adsManager.adCuePoints {
+//                if let iAdCuePoint = adCuePoint as? Int {
+//                    if iAdCuePoint == -1 {
+//                        return true
+//                    }
+//                }
+//            }
+//        }
+//        return false
+//    }
     
     func setupContentPlayerForIMA() {
         if let contentPlayer = self.contentPlayer {
@@ -92,12 +92,12 @@ extension SPLTPlayerViewController {
                 self.isVideoContentCompletePlaying = true
             }
             
-            if self.isPostAdAvailable() {
+//            if self.isPostAdAvailable() {
                 self.adsLoader?.contentComplete()
-                self.delegate?.didFinishPlayingVideo(self)
-            } else {
-                self.allContentDidFinishPlayingWithAd()
-            }
+//                self.delegate?.didFinishPlayingVideo(self)
+//            } else {
+//                self.allContentDidFinishPlayingWithAd()
+//            }
         }
     }
     
@@ -171,6 +171,9 @@ extension SPLTPlayerViewController: IMAAdsManagerDelegate {
             break
         case IMAAdEventType.TAPPED:
             //                showFullscreenControls(nil)
+            break
+        case .ALL_ADS_COMPLETED:
+            self.delegate?.didFinishPlayingVideo(self)
             break
         default:
             break

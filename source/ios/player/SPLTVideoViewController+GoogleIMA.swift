@@ -17,19 +17,19 @@ import AVFoundation
 //MARK: - extension GoogleIMA extension method
 extension SPLTVideoViewController {
     
-    func isPostAdAvailable() -> Bool {
-        // one of the adcuepoint is -1 if post roll is available.
-        if let adsManager = self.adsManager {
-            for adCuePoint in adsManager.adCuePoints {
-                if let iAdCuePoint = adCuePoint as? Int {
-                    if iAdCuePoint == -1 {
-                        return true
-                    }
-                }
-            }
-        }
-        return false
-    }
+//    func isPostAdAvailable() -> Bool {
+//        // one of the adcuepoint is -1 if post roll is available.
+//        if let adsManager = self.adsManager {
+//            for adCuePoint in adsManager.adCuePoints {
+//                if let iAdCuePoint = adCuePoint as? Int {
+//                    if iAdCuePoint == -1 {
+//                        return true
+//                    }
+//                }
+//            }
+//        }
+//        return false
+//    }
     func setUpContentPlayerForGoogleIMA(curVideo: SPLTVideo) {
         // Load AVPlayer with path to our content.
         
