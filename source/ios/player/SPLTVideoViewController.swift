@@ -1459,6 +1459,7 @@ extension SPLTVideoViewController {
         // Something went wrong loading ads. Log the error and play the content.
         //            logMessage("Error loading ads: \(adErrorData.adError.message)")
         self.isAdPlayback = false
+        self.isAllVideoAdContentCompletePlaying = true
         SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_error, video: self.curVideo)
         self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
         self.addAnalyticsEvent(.playback, analyticsEventType: .play)

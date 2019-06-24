@@ -130,6 +130,7 @@ extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
     open func adsLoader(_ loader: IMAAdsLoader!, failedWith adErrorData: IMAAdLoadingErrorData!) {
         // Something went wrong loading ads. Log the error and play the content.
         self.isAdPlayback = false
+        self.isAllVideoAdContentCompletePlaying = true
         SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_error, video: self.curVideo)
         self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
         self.addAnalyticsEvent(.playback, analyticsEventType: .play)
