@@ -16,6 +16,8 @@ public protocol SPLTHorizontalBaseTableViewCellDelegate {
     func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didSelectCategory category: SPLTCategory)
     func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didSelectChannel channel: SPLTChannel, atIndex index: Int)
     func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didSelectVideo video: SPLTVideo, inChannel channel: SPLTChannel?, atIndex index: Int)
+    func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didLostFocusChannel channel: SPLTChannel, inCategory: SPLTCategory?, atIndex index: Int)
+    func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didLostFocusVideo video: SPLTVideo, inChannel channel: SPLTChannel?, inCategory: SPLTCategory?, atIndex index: Int)
     func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didFocusChannel channel: SPLTChannel, inCategory: SPLTCategory?, atIndex index: Int)
     func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didFocusVideo video: SPLTVideo, inChannel channel: SPLTChannel?, inCategory: SPLTCategory?, atIndex index: Int)
 }
@@ -225,6 +227,25 @@ open class SPLTHorizontalBaseTableViewCell: UITableViewCell, UICollectionViewDat
     #if os(tvOS)
     open override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if #available(tvOS 10.0, *) {
+            if let collectionViewCell = context.previouslyFocusedItem as? UICollectionViewCell {
+                if let indexPath = collectionView?.indexPath(for: collectionViewCell) {
+                    if let category = self.category {
+                        if category.channels.count > 1 {
+                            if indexPath.row < category.channels.count {
+                                let channel = category.channels[indexPath.row]
+                                self.delegate?.spltHorizontalBaseTableViewCell(self, didLostFocusChannel: channel, inCategory: category, atIndex: indexPath.row)
+                            }
+                        } else {
+                            if let playlistChannel = category.channels[0] as? SPLTPlaylistChannel {
+                                if indexPath.row < playlistChannel.playlistVideos.count {
+                                    let video = playlistChannel.playlistVideos[indexPath.row]
+                                    self.delegate?.spltHorizontalBaseTableViewCell(self, didLostFocusVideo: video, inChannel: playlistChannel, inCategory: category, atIndex: indexPath.row)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             if let collectionViewCell = context.nextFocusedItem as? UICollectionViewCell {
                 if let indexPath = collectionView?.indexPath(for: collectionViewCell) {
                     if let category = self.category {
