@@ -142,12 +142,12 @@ open class SPLTBrowseViewController: SPLTBaseViewController, UITableViewDataSour
             spltIVPPresentor.openIVPViewControllerVideo(video: nil, in: channel, atAutoPlayIndex: index, spltIVPViewControllerDelegate: nil)
         }
     }
-    public func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didLostFocusChannel channel: SPLTChannel, inCategory: SPLTCategory?, atIndex index: Int) {
+    open func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didLostFocusChannel channel: SPLTChannel, inCategory: SPLTCategory?, atIndex index: Int) {
         if let strTitle = channel.strTitle {
             print("Channel lost Focused" + strTitle)
         }
     }
-    public func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didLostFocusVideo video: SPLTVideo, inChannel channel: SPLTChannel?, inCategory: SPLTCategory?, atIndex index: Int) {
+    open func spltHorizontalBaseTableViewCell(_ spltHorizontalBaseTableViewCell: SPLTHorizontalBaseTableViewCell, didLostFocusVideo video: SPLTVideo, inChannel channel: SPLTChannel?, inCategory: SPLTCategory?, atIndex index: Int) {
         if let strTitle = video.strTitle {
             print("Video lost Focused" + strTitle)
         }
