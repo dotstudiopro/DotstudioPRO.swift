@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -258,6 +258,28 @@
 		6C3829C7229413D600B05562 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3829C4229413D500B05562 /* FontAwesome.ttf */; };
 		6C3829C8229413D600B05562 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829C5229413D500B05562 /* FAIcon.swift */; };
 		6C3829C9229413D600B05562 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829C5229413D500B05562 /* FAIcon.swift */; };
+		6CAC7E0F22C65B90003934F1 /* SwiftySKVideoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0322C65B90003934F1 /* SwiftySKVideoNode.swift */; };
+		6CAC7E1022C65B90003934F1 /* SwiftySKVideoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0322C65B90003934F1 /* SwiftySKVideoNode.swift */; };
+		6CAC7E1122C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0422C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift */; };
+		6CAC7E1222C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0422C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift */; };
+		6CAC7E1322C65B90003934F1 /* Float++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0522C65B90003934F1 /* Float++.swift */; };
+		6CAC7E1422C65B90003934F1 /* Float++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0522C65B90003934F1 /* Float++.swift */; };
+		6CAC7E1522C65B90003934F1 /* Swifty360Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0622C65B90003934F1 /* Swifty360Types.swift */; };
+		6CAC7E1622C65B90003934F1 /* Swifty360Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0622C65B90003934F1 /* Swifty360Types.swift */; };
+		6CAC7E1722C65B90003934F1 /* Swifty360PlayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0722C65B90003934F1 /* Swifty360PlayerScene.swift */; };
+		6CAC7E1822C65B90003934F1 /* Swifty360PlayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0722C65B90003934F1 /* Swifty360PlayerScene.swift */; };
+		6CAC7E1922C65B90003934F1 /* Swifty360CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0822C65B90003934F1 /* Swifty360CameraController.swift */; };
+		6CAC7E1A22C65B90003934F1 /* Swifty360CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0822C65B90003934F1 /* Swifty360CameraController.swift */; };
+		6CAC7E1B22C65B90003934F1 /* Swifty360EulerAngleCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0922C65B90003934F1 /* Swifty360EulerAngleCalculations.swift */; };
+		6CAC7E1C22C65B90003934F1 /* Swifty360EulerAngleCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0922C65B90003934F1 /* Swifty360EulerAngleCalculations.swift */; };
+		6CAC7E1D22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0A22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift */; };
+		6CAC7E1E22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0A22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift */; };
+		6CAC7E1F22C65B90003934F1 /* Swifty360MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0B22C65B90003934F1 /* Swifty360MotionManager.swift */; };
+		6CAC7E2022C65B90003934F1 /* Swifty360MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0B22C65B90003934F1 /* Swifty360MotionManager.swift */; };
+		6CAC7E2122C65B90003934F1 /* Swifty360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0C22C65B90003934F1 /* Swifty360ViewController.swift */; };
+		6CAC7E2222C65B90003934F1 /* Swifty360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0C22C65B90003934F1 /* Swifty360ViewController.swift */; };
+		6CAC7E2522C65B90003934F1 /* Swifty360View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0E22C65B90003934F1 /* Swifty360View.swift */; };
+		6CAC7E2622C65B90003934F1 /* Swifty360View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC7E0E22C65B90003934F1 /* Swifty360View.swift */; };
 		6CF59D7E229522CB00F17717 /* DSPRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF59D7D229522CB00F17717 /* DSPRO.swift */; };
 		6CF59D7F229522CB00F17717 /* DSPRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF59D7D229522CB00F17717 /* DSPRO.swift */; };
 /* End PBXBuildFile section */
@@ -419,6 +441,17 @@
 		6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DotstudioIMAPlayerViewController.storyboard; sourceTree = "<group>"; };
 		6C3829C4229413D500B05562 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		6C3829C5229413D500B05562 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		6CAC7E0322C65B90003934F1 /* SwiftySKVideoNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySKVideoNode.swift; sourceTree = "<group>"; };
+		6CAC7E0422C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360CameraPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		6CAC7E0522C65B90003934F1 /* Float++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float++.swift"; sourceTree = "<group>"; };
+		6CAC7E0622C65B90003934F1 /* Swifty360Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360Types.swift; sourceTree = "<group>"; };
+		6CAC7E0722C65B90003934F1 /* Swifty360PlayerScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360PlayerScene.swift; sourceTree = "<group>"; };
+		6CAC7E0822C65B90003934F1 /* Swifty360CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360CameraController.swift; sourceTree = "<group>"; };
+		6CAC7E0922C65B90003934F1 /* Swifty360EulerAngleCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360EulerAngleCalculations.swift; sourceTree = "<group>"; };
+		6CAC7E0A22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360MotionManagerObserverItem.swift; sourceTree = "<group>"; };
+		6CAC7E0B22C65B90003934F1 /* Swifty360MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360MotionManager.swift; sourceTree = "<group>"; };
+		6CAC7E0C22C65B90003934F1 /* Swifty360ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360ViewController.swift; sourceTree = "<group>"; };
+		6CAC7E0E22C65B90003934F1 /* Swifty360View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty360View.swift; sourceTree = "<group>"; };
 		6CF59D7D229522CB00F17717 /* DSPRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSPRO.swift; sourceTree = "<group>"; };
 		85B08942B02AE5DF102494D5 /* Pods-Dotstudiopro-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-tvos.debug.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-tvos/Pods-Dotstudiopro-tvos.debug.xcconfig"; sourceTree = "<group>"; };
 		B283F23B008CEA924C5C6808 /* Pods-Dotstudiopro-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dotstudiopro-ios.release.xcconfig"; path = "Target Support Files/Pods-Dotstudiopro-ios/Pods-Dotstudiopro-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -822,6 +855,7 @@
 		6C3829112293E1C400B05562 /* thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				6CAC7E0222C65B90003934F1 /* Swifty360Player */,
 				6C3829C3229413D500B05562 /* FontAwesome */,
 				6C3829122293E1C400B05562 /* EZYGradientView.swift */,
 				6C3829132293E1C400B05562 /* GoogleAnalytics */,
@@ -940,6 +974,24 @@
 				6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */,
 			);
 			path = player;
+			sourceTree = "<group>";
+		};
+		6CAC7E0222C65B90003934F1 /* Swifty360Player */ = {
+			isa = PBXGroup;
+			children = (
+				6CAC7E0322C65B90003934F1 /* SwiftySKVideoNode.swift */,
+				6CAC7E0422C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift */,
+				6CAC7E0522C65B90003934F1 /* Float++.swift */,
+				6CAC7E0622C65B90003934F1 /* Swifty360Types.swift */,
+				6CAC7E0722C65B90003934F1 /* Swifty360PlayerScene.swift */,
+				6CAC7E0822C65B90003934F1 /* Swifty360CameraController.swift */,
+				6CAC7E0922C65B90003934F1 /* Swifty360EulerAngleCalculations.swift */,
+				6CAC7E0A22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift */,
+				6CAC7E0B22C65B90003934F1 /* Swifty360MotionManager.swift */,
+				6CAC7E0C22C65B90003934F1 /* Swifty360ViewController.swift */,
+				6CAC7E0E22C65B90003934F1 /* Swifty360View.swift */,
+			);
+			path = Swifty360Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1147,6 +1199,7 @@
 				6C3829BB2294125100B05562 /* SPLTVideoViewController.swift in Sources */,
 				6C3828BA2293DE6400B05562 /* SPLTConfig.swift in Sources */,
 				6C3828802293DE6400B05562 /* SPLTVideo.swift in Sources */,
+				6CAC7E1522C65B90003934F1 /* Swifty360Types.swift in Sources */,
 				6C3828C02293DE6400B05562 /* SPLTSubscriptionUtility.swift in Sources */,
 				6C38297C2293E1C400B05562 /* SPLTSplashViewController.swift in Sources */,
 				6C3828742293DE6400B05562 /* SPLTCompanyData.swift in Sources */,
@@ -1169,17 +1222,22 @@
 				6C3829242293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift in Sources */,
 				6C3829B42294125100B05562 /* DSCastUtility.swift in Sources */,
 				6C38288E2293DE6400B05562 /* SPLTAdsAPI.swift in Sources */,
+				6CAC7E2522C65B90003934F1 /* Swifty360View.swift in Sources */,
+				6CAC7E0F22C65B90003934F1 /* SwiftySKVideoNode.swift in Sources */,
 				6C3829862293E1C400B05562 /* SPLTHomeTabBarController.swift in Sources */,
 				6C3829282293E1C400B05562 /* SPLTHorizontalBaseCollectionViewCell.swift in Sources */,
 				6C38287C2293DE6400B05562 /* SPLTUser.swift in Sources */,
+				6CAC7E1122C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift in Sources */,
 				6C3828B62293DE6400B05562 /* SPLTAppVersionCheckerAPI.swift in Sources */,
 				6C38297E2293E1C400B05562 /* SPLTWatchlistViewController.swift in Sources */,
 				6C38285A2293DE6400B05562 /* Errors.swift in Sources */,
 				6C3828B42293DE6400B05562 /* SPLTUserDetailAPI.swift in Sources */,
+				6CAC7E1722C65B90003934F1 /* Swifty360PlayerScene.swift in Sources */,
 				6C3829382293E1C400B05562 /* SPLTTabBarBaseNavigationViewController.swift in Sources */,
 				6C3828C62293DE6400B05562 /* K10Utility.swift in Sources */,
 				6C3828A42293DE6400B05562 /* SPLTAPI.swift in Sources */,
 				6C3828A02293DE6400B05562 /* SPLTHomepageAPI.swift in Sources */,
+				6CAC7E1922C65B90003934F1 /* Swifty360CameraController.swift in Sources */,
 				6C3828782293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift in Sources */,
 				6C3828C22293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift in Sources */,
 				6C3828902293DE6400B05562 /* SPLTWatchlistAPI.swift in Sources */,
@@ -1196,11 +1254,14 @@
 				6C3829262293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift in Sources */,
 				6C38289A2293DE6400B05562 /* SPLTOrderDetailsAPI.swift in Sources */,
 				6C38298C2293E1C400B05562 /* ProgressView.swift in Sources */,
+				6CAC7E1F22C65B90003934F1 /* Swifty360MotionManager.swift in Sources */,
 				6C3829902293E1C400B05562 /* InfiniteCarousel.swift in Sources */,
 				6C3828C82293DE6400B05562 /* SPLTInAppPurchaseUtility.swift in Sources */,
+				6CAC7E1B22C65B90003934F1 /* Swifty360EulerAngleCalculations.swift in Sources */,
 				6C3828842293DE6400B05562 /* SPLTMultiLevelChannel.swift in Sources */,
 				6C38287E2293DE6400B05562 /* DTSZChannelFeed.swift in Sources */,
 				6C3829BD2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift in Sources */,
+				6CAC7E1D22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift in Sources */,
 				6C3829322293E1C400B05562 /* SPLTBaseViewController.swift in Sources */,
 				6C3829462293E1C400B05562 /* Auth0SessionManager.swift in Sources */,
 				6C3828702293DE6400B05562 /* SPLTCustomCategory.swift in Sources */,
@@ -1228,6 +1289,7 @@
 				6C38287A2293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift in Sources */,
 				6C3829822293E1C400B05562 /* SPLTCategoriesViewController.swift in Sources */,
 				6C3829522293E1C400B05562 /* UIViewController+extension.swift in Sources */,
+				6CAC7E1322C65B90003934F1 /* Float++.swift in Sources */,
 				6C38297A2293E1C400B05562 /* SPLTSearchViewController.swift in Sources */,
 				6C38294C2293E1C400B05562 /* UIColorExtension.swift in Sources */,
 				6C38299A2293E1C400B05562 /* SPLTUIUtility.swift in Sources */,
@@ -1236,6 +1298,7 @@
 				6C38292A2293E1C400B05562 /* SPLTGenericCollectionViewCell.swift in Sources */,
 				6C3829842293E1C400B05562 /* SPLTCategoryViewController.swift in Sources */,
 				6C3828CC2293DE6400B05562 /* Randoms.swift in Sources */,
+				6CAC7E2122C65B90003934F1 /* Swifty360ViewController.swift in Sources */,
 				6C3829B32294125100B05562 /* SPLTVideo+extension.swift in Sources */,
 				6C38299C2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */,
 				6C3828BE2293DE6400B05562 /* SPLTAnalyticsUtility.swift in Sources */,
@@ -1262,6 +1325,7 @@
 				6C3828BD2293DE6400B05562 /* SPLTBackgroundTaskUtility.swift in Sources */,
 				6C38292F2293E1C400B05562 /* SPLTBaseNavigationViewController.swift in Sources */,
 				6C38286F2293DE6400B05562 /* SPLTCategory.swift in Sources */,
+				6CAC7E1C22C65B90003934F1 /* Swifty360EulerAngleCalculations.swift in Sources */,
 				6C3828672293DE6400B05562 /* SPLTChannel.swift in Sources */,
 				6C3829792293E1C400B05562 /* SPLTProtocols.swift in Sources */,
 				6C3828A72293DE6400B05562 /* SPLTSearchAPI.swift in Sources */,
@@ -1279,6 +1343,7 @@
 				6C3828652293DE6400B05562 /* SPLTSubscriptionProduct.swift in Sources */,
 				6C3828AF2293DE6400B05562 /* SPLTChannelAPI.swift in Sources */,
 				6C3828972293DE6400B05562 /* SPLTRecommandationAPI.swift in Sources */,
+				6CAC7E2222C65B90003934F1 /* Swifty360ViewController.swift in Sources */,
 				6C3828892293DE6400B05562 /* SPLTHelperAPI.swift in Sources */,
 				6C3829312293E1C400B05562 /* SPLTBaseTabBarController.swift in Sources */,
 				6C3829812293E1C400B05562 /* SPLTBrowseViewController.swift in Sources */,
@@ -1289,6 +1354,7 @@
 				6C3828B92293DE6400B05562 /* SPLTVideoAPI.swift in Sources */,
 				6C38286B2293DE6400B05562 /* DTSZVideo.swift in Sources */,
 				6C3829372293E1C400B05562 /* SPLTBaseImageView.swift in Sources */,
+				6CAC7E1622C65B90003934F1 /* Swifty360Types.swift in Sources */,
 				6C3829252293E1C400B05562 /* SPLTWatchlistCollectionViewCell.swift in Sources */,
 				6C38288F2293DE6400B05562 /* SPLTAdsAPI.swift in Sources */,
 				6C3829872293E1C400B05562 /* SPLTHomeTabBarController.swift in Sources */,
@@ -1306,6 +1372,7 @@
 				6C3828A52293DE6400B05562 /* SPLTAPI.swift in Sources */,
 				6C3829752293E1C400B05562 /* SPLTIVPChannelTableViewController.swift in Sources */,
 				6C3828A12293DE6400B05562 /* SPLTHomepageAPI.swift in Sources */,
+				6CAC7E2622C65B90003934F1 /* Swifty360View.swift in Sources */,
 				6C3828792293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift in Sources */,
 				6C3828C32293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift in Sources */,
 				6C3828912293DE6400B05562 /* SPLTWatchlistAPI.swift in Sources */,
@@ -1323,6 +1390,7 @@
 				6C3828772293DE6400B05562 /* SPLTAnalyticsEvent.swift in Sources */,
 				6C3829272293E1C400B05562 /* SPLTFeaturedHorizontalTableViewCell.swift in Sources */,
 				6C38289B2293DE6400B05562 /* SPLTOrderDetailsAPI.swift in Sources */,
+				6CAC7E2022C65B90003934F1 /* Swifty360MotionManager.swift in Sources */,
 				6C38298D2293E1C400B05562 /* ProgressView.swift in Sources */,
 				6C38296D2293E1C400B05562 /* SPLTIVPChannelRecommandedVideosTableViewCell.swift in Sources */,
 				6C3829912293E1C400B05562 /* InfiniteCarousel.swift in Sources */,
@@ -1331,10 +1399,13 @@
 				6C38287F2293DE6400B05562 /* DTSZChannelFeed.swift in Sources */,
 				6C38295B2293E1C400B05562 /* SPLTIVPPlayerViewController.swift in Sources */,
 				6C3829332293E1C400B05562 /* SPLTBaseViewController.swift in Sources */,
+				6CAC7E1422C65B90003934F1 /* Float++.swift in Sources */,
 				6C3829732293E1C400B05562 /* SPLTIVPVideoChannelTableViewController.swift in Sources */,
+				6CAC7E1222C65B90003934F1 /* Swifty360CameraPanGestureRecognizer.swift in Sources */,
 				6C3828712293DE6400B05562 /* SPLTCustomCategory.swift in Sources */,
 				6C3828872293DE6400B05562 /* SPLTTokenAPI.swift in Sources */,
 				6C3829232293E1C400B05562 /* SPLTBaseCollectionViewCell.swift in Sources */,
+				6CAC7E1A22C65B90003934F1 /* Swifty360CameraController.swift in Sources */,
 				6C3829992293E1C400B05562 /* NetworkActivityIndicatorManager.swift in Sources */,
 				6C38286D2293DE6400B05562 /* SPLTPlaylistChannel.swift in Sources */,
 				6C3829512293E1C400B05562 /* UIColorInputError.swift in Sources */,
@@ -1351,9 +1422,11 @@
 				6C3828B32293DE6400B05562 /* SPLTCategoriesAPI.swift in Sources */,
 				6C3829892293E1C400B05562 /* EZYGradientView.swift in Sources */,
 				6C3828932293DE6400B05562 /* SPLTBaseAPI.swift in Sources */,
+				6CAC7E1E22C65B90003934F1 /* Swifty360MotionManagerObserverItem.swift in Sources */,
 				6C38288D2293DE6400B05562 /* SPLTResumptionAPI.swift in Sources */,
 				6C0A7A2F229670FA00FD338F /* SPLTPlayerViewController+listener.swift in Sources */,
 				6C3828592293DE6400B05562 /* Base64.swift in Sources */,
+				6CAC7E1022C65B90003934F1 /* SwiftySKVideoNode.swift in Sources */,
 				6C38289F2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift in Sources */,
 				6C38287B2293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift in Sources */,
 				6C3829652293E1C400B05562 /* SPLTIVPChannelVideoDetailTableViewCell.swift in Sources */,
@@ -1369,6 +1442,7 @@
 				6C38298B2293E1C400B05562 /* GATracker.swift in Sources */,
 				6C3828612293DE6400B05562 /* SPLTVideoChannel.swift in Sources */,
 				6C38292B2293E1C400B05562 /* SPLTGenericCollectionViewCell.swift in Sources */,
+				6CAC7E1822C65B90003934F1 /* Swifty360PlayerScene.swift in Sources */,
 				6C3829852293E1C400B05562 /* SPLTCategoryViewController.swift in Sources */,
 				6C3828CD2293DE6400B05562 /* Randoms.swift in Sources */,
 				6C38299D2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */,

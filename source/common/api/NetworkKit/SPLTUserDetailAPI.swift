@@ -145,7 +145,7 @@ open class SPLTUserDetailAPI {
             self.uploadNewUserAvatar(image, completion: completion, completionError: completionError)
         }
     }
-    func uploadNewUserAvatar(_ image: UIImage, completion: @escaping (_ infoDict: [String: AnyObject]) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
+    open func uploadNewUserAvatar(_ image: UIImage, completion: @escaping (_ infoDict: [String: AnyObject]) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
         
         if (SPLTRouter.strAccessToken == nil || SPLTRouter.strClientToken == nil) {
             if (SPLTRouter.strClientToken == nil) {
