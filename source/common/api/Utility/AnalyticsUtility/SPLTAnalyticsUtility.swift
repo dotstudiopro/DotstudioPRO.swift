@@ -9,6 +9,8 @@
 import Foundation
 
 public enum SPLTAllAnalyticsEventType {
+    
+    case video_metadata_loaded
     // Funnel Events:
     case setup_player_ready
     case setup_ad_request
@@ -26,8 +28,8 @@ public enum SPLTAllAnalyticsEventType {
     case ad_skipped
     //    case ad_mobile_block_ = "ad_mobile_block_"
     case view_first_frame
-    case view_content_ended
-    case end_playback
+    case view_content_ended  // fired when video complets
+    case end_playback  // fired when user ends playback.
     case view_quartile_1
     case view_quartile_2
     case view_quartile_3
@@ -45,6 +47,7 @@ public enum SPLTAllAnalyticsEventType {
 public protocol SPLTBaseAnalyticsUtility {
     func trackEventWith(_ spltAllAnalyticsEventType: SPLTAllAnalyticsEventType, video: SPLTVideo?)
     func trackSeekEventWith(_ spltAllAnalyticsEventType: SPLTAllAnalyticsEventType, video: SPLTVideo?, position: Int?, position_end: Int?)
+    func trackEventWithElapsedTime(_ iCurSeconds: Int, iDuration: Int, video: SPLTVideo)
     func trackSubscriptionEventWith(_ strSubscription: String, price: Double)
     func trackSubscriptionInitiatedEventWith(_ strSubscription: String, price: Double)
 }
@@ -75,6 +78,13 @@ open class SPLTAnalyticsUtility: NSObject {
         //            SPLTAppsFlyerAnalyticsUtility.sharedInstance.trackEventWith(spltAllAnalyticsEventType, video: video)
         //        }
     }
+    
+    open func trackEventWithElapsedTime(_ iCurSeconds: Int, iDuration: Int, video: SPLTVideo) {
+        for analyticsUtility in self.allAnalyticsUtility {
+            analyticsUtility.trackEventWithElapsedTime(iCurSeconds, iDuration: iDuration, video: video)
+        }
+    }
+    
     open func trackSeekEventWith(_ spltAllAnalyticsEventType: SPLTAllAnalyticsEventType, video: SPLTVideo?, position: Int?, position_end: Int?) {
         for analyticsUtility in self.allAnalyticsUtility {
             analyticsUtility.trackSeekEventWith(spltAllAnalyticsEventType, video: video, position: position, position_end: position_end)

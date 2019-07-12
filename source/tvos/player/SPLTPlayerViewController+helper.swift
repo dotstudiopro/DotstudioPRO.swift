@@ -84,7 +84,9 @@ extension SPLTPlayerViewController {
         if self.isAdPlayback {
             return
         }
-        
+        if let curVideo = self.curVideo {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWithElapsedTime(iSeconds, iDuration: iDuration, video: curVideo)
+        }
         for (index, bVideoQuartileWatched) in bVideoQuartilesWatched.enumerated() {
             if !bVideoQuartileWatched {
                 let iQuartileVideoPoint = ((index + 1) * iDuration / 4 )

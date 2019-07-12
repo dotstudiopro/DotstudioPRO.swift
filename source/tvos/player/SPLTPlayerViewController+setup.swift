@@ -185,7 +185,9 @@ extension SPLTPlayerViewController {
             }
             
             self.initializeAnalyticsForCurVideo()
-            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
+            
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.video_metadata_loaded, video: self.curVideo)
+//            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
 
             if self.bAdsEnabled {
                 self.setupContentPlayerForIMA()
