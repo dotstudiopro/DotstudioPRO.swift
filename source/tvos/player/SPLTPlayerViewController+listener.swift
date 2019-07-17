@@ -15,44 +15,49 @@ import AVKit
 extension SPLTPlayerViewController {
 
     open func addObservers(_ contentPlayer: AVPlayer) {
-        self.periodicTimeObserver = contentPlayer.addPeriodicTimeObserver(
-            forInterval: CMTimeMake(value: 1, timescale: 30), //CMTimeMake(1, 1), //CMTimeMake(1, 30),
-            queue: nil,
-            using: {(time: CMTime) -> Void in
-                if let currentTime = self.avPlayerViewController.player?.currentTime(),
-                    let durationTime = self.avPlayerViewController.player?.currentItem?.duration {
-                    self.didPlayingVideoAtPosition(currentTime, durationTime: durationTime)
-                }
-        })
-        contentPlayer.addObserver(
-            self,
-            forKeyPath: "rate",
-            options: NSKeyValueObservingOptions.new,
-            context: &contentRateContext)
-        contentPlayer.addObserver(
-            self,
-            forKeyPath: "currentItem.duration",
-            options: NSKeyValueObservingOptions.new,
-            context: &contentDurationContext)
-        contentPlayer.addObserver(
-            self,
-            forKeyPath: "status",
-            options: NSKeyValueObservingOptions.new,
-            context: &statusContext)
-        contentPlayer.addObserver(
-            self,
-            forKeyPath: "currentItem.status",
-            options: NSKeyValueObservingOptions.new,
-            context: &playerItemStatusContext)
-        self.isObserversAdded = true
+        if self.periodicTimeObserver == nil {
+            self.periodicTimeObserver = contentPlayer.addPeriodicTimeObserver(
+                forInterval: CMTimeMake(value: 1, timescale: 30), //CMTimeMake(1, 1), //CMTimeMake(1, 30),
+                queue: nil,
+                using: {(time: CMTime) -> Void in
+                    if let currentTime = self.avPlayerViewController.player?.currentTime(),
+                        let durationTime = self.avPlayerViewController.player?.currentItem?.duration {
+                        self.didPlayingVideoAtPosition(currentTime, durationTime: durationTime)
+                    }
+            })
+        }
+        if !self.isObserversAdded {
+            contentPlayer.addObserver(
+                self,
+                forKeyPath: "rate",
+                options: NSKeyValueObservingOptions.new,
+                context: &contentRateContext)
+            contentPlayer.addObserver(
+                self,
+                forKeyPath: "currentItem.duration",
+                options: NSKeyValueObservingOptions.new,
+                context: &contentDurationContext)
+            contentPlayer.addObserver(
+                self,
+                forKeyPath: "status",
+                options: NSKeyValueObservingOptions.new,
+                context: &statusContext)
+            contentPlayer.addObserver(
+                self,
+                forKeyPath: "currentItem.status",
+                options: NSKeyValueObservingOptions.new,
+                context: &playerItemStatusContext)
+            self.isObserversAdded = true
+        }
 
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(SPLTPlayerViewController.contentDidFinishPlaying(_:)),
-            name: Notification.Name.AVPlayerItemDidPlayToEndTime,
-            object: contentPlayer.currentItem);
-        self.isNotificationAVPlayerItemDidPlayToEndTimeAdded = true
-
+        if !self.isNotificationAVPlayerItemDidPlayToEndTimeAdded {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(SPLTPlayerViewController.contentDidFinishPlaying(_:)),
+                name: Notification.Name.AVPlayerItemDidPlayToEndTime,
+                object: contentPlayer.currentItem);
+            self.isNotificationAVPlayerItemDidPlayToEndTimeAdded = true
+        }
     }
     open func removeObservers(_ contentPlayer: AVPlayer) {
         if let periodicTimeObserver = self.periodicTimeObserver {

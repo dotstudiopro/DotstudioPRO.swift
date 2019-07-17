@@ -32,6 +32,10 @@ extension SPLTPlayerViewController {
         }
     }
 
+    open func softRemoveAVPlayer() {
+        self.avPlayerViewController.player?.replaceCurrentItem(with: nil)
+        self.avPlayerViewController.player = nil
+    }
     open func stopAndRemoveAVPlayerViewController() {
         self.saveVideoProgress()
         if let curVideo = self.curVideo {

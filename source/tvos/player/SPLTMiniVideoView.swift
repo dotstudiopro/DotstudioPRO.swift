@@ -119,21 +119,27 @@ open class SPLTMiniVideoView: UIView {
     }
     @objc func setVideoPreview() {
         if let spltPlayerViewController = self.spltPlayerViewController {
-            spltPlayerViewController.stopAndRemoveAVPlayerViewController()
-            self.spltPlayerViewController = nil
+            spltPlayerViewController.softRemoveAVPlayer()
+//            spltPlayerViewController.stopAndRemoveAVPlayerViewController()
+//            self.spltPlayerViewController = nil
+        } else {
+            if let spltPlayerViewController = SPLTPlayerViewController.getViewController() {
+                self.addSubview(spltPlayerViewController.view)
+                self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
+                self.spltPlayerViewController = spltPlayerViewController
+            }
         }
-        if let spltPlayerViewController = SPLTPlayerViewController.getViewController(),
+        if let spltPlayerViewController = self.spltPlayerViewController,
             let curVideo = self.curVideo {
             //        tvosVideoViewController.isMuted = true
 //            spltPlayerViewController.delegate = self
             spltPlayerViewController.curVideo = curVideo
             spltPlayerViewController.bAdsEnabled = false
-            //self.show(tvosVideoViewController, sender: self)
-            //            self.present(spltPlayerViewController, animated: true, completion: nil)
             
-            self.addSubview(spltPlayerViewController.view)
-            self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
-            self.spltPlayerViewController = spltPlayerViewController
+//            self.addSubview(spltPlayerViewController.view)
+//            self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
+//            self.spltPlayerViewController = spltPlayerViewController
+            self.imageView?.isHidden = true
             spltPlayerViewController.loadVideoDetailFromPlay2Route()
 //            self.addChild(spltPlayerViewController)
         }
@@ -148,6 +154,10 @@ open class SPLTMiniVideoView: UIView {
             self.setVideoImagesForCurVideo()
             break
         case .videoPreview:
+            if let imageView = self.imageView {
+                imageView.isHidden = false
+                self.bringSubviewToFront(imageView)
+            }
             self.setVideoPreviewTimer()
             break
         }
@@ -168,9 +178,10 @@ open class SPLTMiniVideoView: UIView {
                 self.timerVideoPreviewStart = nil
             }
             if let spltPlayerViewController = self.spltPlayerViewController {
-                spltPlayerViewController.stopAndRemoveAVPlayerViewController()
-                spltPlayerViewController.view.removeFromSuperview()
-                self.spltPlayerViewController = nil
+                spltPlayerViewController.softRemoveAVPlayer()
+//                spltPlayerViewController.stopAndRemoveAVPlayerViewController()
+//                spltPlayerViewController.view.removeFromSuperview()
+//                self.spltPlayerViewController = nil
             }
             break
         }
