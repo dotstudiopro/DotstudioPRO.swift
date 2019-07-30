@@ -90,8 +90,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "source/common/**/*.swift", "source/common/**/**/*.swift", "source/ui/**/**/**/*.swift"
-  spec.ios.source_files   = "source/ios/**/*.swift", "source/ios/**/**/*.swift", "source/ios/**/**/**/*.swift", "source/ios/**/**/**/**/*.swift"
-  spec.tvos.source_files   = "source/tvos/**/*.swift", "source/tvos/**/**/*.swift", "source/tvos/**/**/**/*.swift", "source/tvos/**/**/**/**/*.swift"
+  spec.ios.source_files   = "source/ios/**/*.swift", "source/ios/**/**/*.swift", "source/ios/**/**/**/*.swift", "source/ios/**/**/**/**/*.swift", "source/player/ios/*.swift", "source/player/ios/**/*.swift"
+  spec.tvos.source_files   = "source/tvos/**/*.swift", "source/tvos/**/**/*.swift", "source/tvos/**/**/**/*.swift", "source/tvos/**/**/**/**/*.swift", "source/player/tvos/*.swift"
   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -108,8 +108,8 @@ Pod::Spec.new do |spec|
   # spec.resource  = "icon.png"
   # spec.resource_bundle = { 'Font-Awesome-Swift' => 'source/common/**/**/**/FontAwesome.ttf' }
   spec.resources = "source/common/**/**/**/*.ttf"
-  spec.ios.resources = "source/ios/**/*.{storyboard,xcassets}"
-  spec.tvos.resources = "source/tvos/**/*.{storyboard,xcassets}"
+  spec.ios.resources = "source/player/ios/*.{storyboard,xcassets}"
+  spec.tvos.resources = "source/player/tvos/*.{storyboard,xcassets}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -151,7 +151,7 @@ Pod::Spec.new do |spec|
 
   spec.tvos.dependency 'Auth0', '~> 1.15'
 
-  spec.tvos.vendored_frameworks = 'source/tvos/player/framework/ClientSideInteractiveMediaAds.framework'
+  spec.tvos.vendored_frameworks = 'source/player/tvos/framework/ClientSideInteractiveMediaAds.framework'
 
 
 end

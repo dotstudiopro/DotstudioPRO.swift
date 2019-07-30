@@ -470,16 +470,6 @@
 		6C0A7A1E22966F0E00FD338F /* player */ = {
 			isa = PBXGroup;
 			children = (
-				6C0A7A332296713B00FD338F /* framework */,
-				6C0A7A29229670FA00FD338F /* SPLTMiniVideoView.swift */,
-				6C0A7A22229670FA00FD338F /* SPLTPlayerViewController.storyboard */,
-				6C0A7A25229670FA00FD338F /* SPLTPlayerViewController.swift */,
-				6C0A7A24229670FA00FD338F /* SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift */,
-				6C0A7A23229670FA00FD338F /* SPLTPlayerViewController+helper.swift */,
-				6C0A7A26229670FA00FD338F /* SPLTPlayerViewController+listener.swift */,
-				6C0A7A27229670FA00FD338F /* SPLTPlayerViewController+setup.swift */,
-				6C0A7A21229670FA00FD338F /* SPLTVideoViewController+GoogleIMA.swift */,
-				6C0A7A28229670FA00FD338F /* Subtitles.swift */,
 			);
 			path = player;
 			sourceTree = "<group>";
@@ -542,6 +532,7 @@
 		6C38280F2293DDD600B05562 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				6CC4AF1622E1959300EBDF07 /* player */,
 				6C528273229432A600367A71 /* common */,
 				6C5282702294323500367A71 /* tvos */,
 				6C52826F2294322500367A71 /* ios */,
@@ -930,6 +921,22 @@
 		6C5282922294F6E800367A71 /* player */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		6CC4AF1622E1959300EBDF07 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				6CC4AF1722E195BF00EBDF07 /* ios */,
+				6CC4AF1822E195C700EBDF07 /* tvos */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		6CC4AF1722E195BF00EBDF07 /* ios */ = {
+			isa = PBXGroup;
+			children = (
 				6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */,
 				6C3829A22294125100B05562 /* Cast */,
 				6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */,
@@ -939,7 +946,24 @@
 				6C3829AE2294125100B05562 /* DotstudioIMAPlayer.xcassets */,
 				6C3829B12294125100B05562 /* DotstudioIMAPlayerViewController.storyboard */,
 			);
-			path = player;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		6CC4AF1822E195C700EBDF07 /* tvos */ = {
+			isa = PBXGroup;
+			children = (
+				6C0A7A332296713B00FD338F /* framework */,
+				6C0A7A29229670FA00FD338F /* SPLTMiniVideoView.swift */,
+				6C0A7A22229670FA00FD338F /* SPLTPlayerViewController.storyboard */,
+				6C0A7A25229670FA00FD338F /* SPLTPlayerViewController.swift */,
+				6C0A7A24229670FA00FD338F /* SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift */,
+				6C0A7A23229670FA00FD338F /* SPLTPlayerViewController+helper.swift */,
+				6C0A7A26229670FA00FD338F /* SPLTPlayerViewController+listener.swift */,
+				6C0A7A27229670FA00FD338F /* SPLTPlayerViewController+setup.swift */,
+				6C0A7A21229670FA00FD338F /* SPLTVideoViewController+GoogleIMA.swift */,
+				6C0A7A28229670FA00FD338F /* Subtitles.swift */,
+			);
+			path = tvos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1603,7 +1627,7 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/source/tvos/player/framework",
+					"$(PROJECT_DIR)/source/player/tvos/framework",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1690,7 +1714,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/source/tvos/player/framework",
+					"$(PROJECT_DIR)/source/player/tvos/framework",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
