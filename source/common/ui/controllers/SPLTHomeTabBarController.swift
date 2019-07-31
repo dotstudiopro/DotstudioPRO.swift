@@ -31,7 +31,7 @@ open class SPLTHomeTabBarController: SPLTBaseTabBarController, SPLTCompanyDataDe
         
         self.startLoadingData()
         
-        SPLTAppVersionCheckerUtility.sharedInstance.checkAppVersionFromVC(viewController: self)
+//        SPLTAppVersionCheckerUtility.sharedInstance.checkAppVersionFromVC(viewController: self)
         NotificationCenter.default.addObserver(self, selector: #selector(self.applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
 
     }
@@ -110,7 +110,7 @@ open class SPLTHomeTabBarController: SPLTBaseTabBarController, SPLTCompanyDataDe
 //MARK: -
 //MARK: - extension Observers
     @objc open func applicationDidBecomeActive() {
-        SPLTAppVersionCheckerUtility.sharedInstance.checkAppVersionFromVC(viewController: self)
+//        SPLTAppVersionCheckerUtility.sharedInstance.checkAppVersionFromVC(viewController: self)
        // self.spltCompanyData.getCategories()
         self.spltCompanyData.checkTokenAndLoadHomePageData({ (cateogries) in
             self.reloadBrowseAndCategoriesViewControllers()

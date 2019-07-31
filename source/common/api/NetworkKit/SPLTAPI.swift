@@ -115,6 +115,7 @@ public enum SPLTRouter: URLConvertible {
 //    case dtsz_SHARE_ANALYTICS
     case testingAnalytics
     case latestAppVersion
+    case latestAppVersionByPackage(String)
     case subscriptionAppleReceiptPost
     case checkSubscriptionStatus(String)
     case getSubscriptionPlans
@@ -246,6 +247,12 @@ public enum SPLTRouter: URLConvertible {
                 #else
                     return SPLTRouter.BASE_URL + "/latestAppVersion/apple_tv"
                 #endif
+            case .latestAppVersionByPackage(let strPackageId):
+                #if os(iOS)
+                return SPLTRouter.BASE_URL + "/latestAppVersion/package/ios/\(strPackageId)"
+                #else
+                return SPLTRouter.BASE_URL + "/latestAppVersion/package/apple_tv/\(strPackageId)"
+                #endif
             case .subscriptionAppleReceiptPost:
                 return SPLTRouter.BASE_URL + "/subscriptions/apple/customer/parse"
             case .checkSubscriptionStatus(let channelId):
@@ -375,6 +382,12 @@ public enum SPLTRouter: URLConvertible {
                         return ("/latestAppVersion/ios", [:])
                     #else
                         return ("/latestAppVersion/apple_tv", [:])
+                    #endif
+                case .latestAppVersionByPackage(let strPackageId):
+                    #if os(iOS)
+                        return ("/latestAppVersion/package/ios/\(strPackageId)", [:])
+                    #else
+                        return ("/latestAppVersion/package/apple_tv/\(strPackageId)", [:])
                     #endif
                 case .subscriptionAppleReceiptPost:
                     return ("/subscriptions/apple/customer/parse", [:])

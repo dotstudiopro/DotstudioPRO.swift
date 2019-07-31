@@ -9,7 +9,9 @@
 import Foundation
 import Alamofire
 
-
+public enum SPLTTokenHandlerError: Error {
+    case noAppAvailability
+}
 class SPLTTokenHandler: RequestAdapter, RequestRetrier {
     private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?, _ clientToken: String?) -> Void
     
@@ -43,7 +45,9 @@ class SPLTTokenHandler: RequestAdapter, RequestRetrier {
 //    // MARK: - RequestAdapter
 //    
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
-        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString) {
+        if SPLTAppVersionCheckerUtility.shared.spltSeverityLevel == .level_4 {
+            throw SPLTTokenHandlerError.noAppAvailability
+        } else if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString) {
             var urlRequest = urlRequest
             urlRequest.setValue(self.accessToken, forHTTPHeaderField: "x-access-token")
             if let clientToken = self.clientToken {
@@ -61,7 +65,6 @@ class SPLTTokenHandler: RequestAdapter, RequestRetrier {
             //x-os-type: “ios” or “android” or “tvos” or “roku”
             return urlRequest
         }
-        
         return urlRequest
     }
     

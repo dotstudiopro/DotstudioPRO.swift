@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+public enum SPLTConfigError: Error {
+    case noWindowDefined
+}
 
 open class SPLTConfig {
     
@@ -29,6 +34,7 @@ open class SPLTConfig {
     static public var shouldByPassSubscriptionCheck = false
     
     static public var shouldAutoLoadCategoryChannels = false
+    static public var window: UIWindow? = nil
     
    open class func setup() {
        //SPLTDebugConfig.setup()

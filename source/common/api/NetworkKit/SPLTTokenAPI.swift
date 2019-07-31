@@ -26,6 +26,9 @@ open class SPLTTokenAPI {
         
         // MARK: URLStringConvertible
         
+        if SPLTAppVersionCheckerUtility.shared.spltSeverityLevel == .level_4 {
+            return
+        }
 //        let strUrl: URLStringConvertible = SPLTRouter.Token.URLString
         let parameters = [
             "key": SPLTRouter.API_KEY,

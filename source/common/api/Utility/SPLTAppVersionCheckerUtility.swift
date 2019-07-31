@@ -11,22 +11,39 @@ import UIKit
 
 enum SPLTSeverityLevelEnum: Int {
     // Funnel Events:
+    case level_OK = -1
     case level_0 = 0
     case level_1 = 1
     case level_2 = 2
     case level_3 = 3
+    case level_4 = 4
 }
 
 open class SPLTAppVersionCheckerUtility: NSObject {
     
-    public static let sharedInstance = SPLTAppVersionCheckerUtility()
+    public static let shared = SPLTAppVersionCheckerUtility()
     //var spltChannelWindowUtilityProtocol: SPLTChannelWindowUtilityProtocol?
     
     var viewController: UIViewController?
+    var window: UIWindow?
+    var spltSeverityLevel :SPLTSeverityLevelEnum = .level_OK
     
-    open func checkAppVersionFromVC(viewController: UIViewController) {
-        self.viewController = viewController
-        SPLTAppVersionCheckerAPI().getLatestAppVersion(completion: { (latestAppVersionDict) in
+    public override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    open func checkAppVersionFromWindow(window: UIWindow?) {
+        self.window = window
+        self.checkLatestAppVersionFromBundleId()
+    }
+    open func checkAppVersionFromVC(vc: UIViewController?) {
+        if let vc_ = vc {
+            self.viewController = vc_
+        }
+        self.checkLatestAppVersionFromBundleId()
+    }
+    internal func checkLatestAppVersionFromBundleId() {
+        SPLTAppVersionCheckerAPI().getLatestAppVersionFromBundleId(completion: { (latestAppVersionDict) in
             // received AppVersion
             self.checkLatestAppVersion(latestAppVersionDict: latestAppVersionDict)
         }) { (error) in
@@ -78,9 +95,13 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         if let eSeverityLevel_ = SPLTSeverityLevelEnum(rawValue: severity_level) {
             eSeverityLevel = eSeverityLevel_
         }
+        self.spltSeverityLevel = eSeverityLevel
         var strTitle = "Update Available"
         var strAlertMessage = "For your app to function properly a required update is now available in the App Store."
         switch eSeverityLevel {
+            case .level_OK:
+                // Everything is fine. No need to show any prompt to update.
+                return
             case .level_0:
                 strTitle = "Update Available"
                 strAlertMessage = "For your app to function properly a required update is now available in the App Store."
@@ -93,6 +114,9 @@ open class SPLTAppVersionCheckerUtility: NSObject {
             case .level_3:
                 strTitle = "Update Required"
                 strAlertMessage = "For your app to function properly a required update is now available in the App Store."
+            case .level_4:
+                strTitle = "App Not available"
+                strAlertMessage = "Unfortunately, this app is no longer available!"
         }
         
         let alert = UIAlertController(title: strTitle, message: strAlertMessage, preferredStyle: .alert)
@@ -107,10 +131,18 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         if eSeverityLevel != .level_3 {
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         }
-        if let viewController = self.viewController {
+        
+        if let viewController = self.window?.rootViewController {
+            viewController.present(alert, animated: true, completion: nil)
+        } else if let viewController = self.viewController {
             viewController.present(alert, animated: true, completion: nil)
         }
 
+    }
+    
+    
+    @objc open func applicationDidBecomeActive() {
+        self.checkAppVersionFromVC(vc: nil)
     }
 }
 
