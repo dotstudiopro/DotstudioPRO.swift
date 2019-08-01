@@ -25,7 +25,17 @@ open class SPLTAppVersionCheckerUtility: NSObject {
     //var spltChannelWindowUtilityProtocol: SPLTChannelWindowUtilityProtocol?
     
     var viewController: UIViewController?
-    var window: UIWindow?
+    var windowObserver: Any?
+    var window: UIWindow? {
+        didSet {
+            if let window_ = window {
+                self.windowObserver = window_.observe(\.rootViewController, options: [.new, .old]) { window_, change in
+                    print("I'm now called \(window_.rootViewController)")
+                    self.checkAndShowAlertOnRootViewController()
+                }
+            }
+        }
+    }
     var spltSeverityLevel :SPLTSeverityLevelEnum = .level_OK
     
     public override init() {
@@ -100,6 +110,8 @@ open class SPLTAppVersionCheckerUtility: NSObject {
             self.promptForAppVersion(strLatestVersion: strLatestVersion, appstore_url: appstore_url, completion: completion, completionError: completionError)
         }
     }
+    
+    var alert: UIAlertController?
     internal func promptForAppVersion(strLatestVersion: String, appstore_url: String, completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
         
 //        var eSeverityLevel: SPLTSeverityLevelEnum = .level_0
@@ -132,33 +144,61 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         
         let alert = UIAlertController(title: strTitle, message: strAlertMessage, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Update Now", style: .default, handler: { (alertAction) in
-            // Redirect User to App Store.
-            if let url = URL(string: appstore_url),
-                UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.openURL(url)
-            }
-        }))
-        if self.spltSeverityLevel != .level_3 {
+        if self.spltSeverityLevel != .level_4 {
+            alert.addAction(UIAlertAction(title: "Update Now", style: .default, handler: { (alertAction) in
+                // Redirect User to App Store.
+                if let url = URL(string: appstore_url),
+                    UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.openURL(url)
+                }
+            }))
+        } else {
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
+            }))
+        }
+        if self.spltSeverityLevel != .level_3 && self.spltSeverityLevel != .level_4 {
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         }
         
-        if let viewController = self.window?.rootViewController {
-            viewController.present(alert, animated: true, completion: nil)
-        } else if let viewController = self.viewController {
-            viewController.present(alert, animated: true, completion: nil)
-        }
+//        if let viewController = self.window?.rootViewController {
+//            viewController.present(alert, animated: true, completion: nil)
+//        } else if let viewController = self.viewController {
+//            viewController.present(alert, animated: true, completion: nil)
+//        }
+        self.alert = alert
+        self.checkAndShowAlertOnRootViewController()
         completion(self.spltSeverityLevel)
+    }
+
+    func checkAndShowAlertOnRootViewController() {
+        if let alert = self.alert {
+            if alert.view.window != nil {
+                alert.dismiss(animated: false) {
+                    self.showAlertOnRootViewController()
+                }
+            } else {
+                self.showAlertOnRootViewController()
+            }
+        }
+    }
+    func showAlertOnRootViewController() {
+        if let alert = self.alert {
+            if let viewController = self.window?.rootViewController {
+                viewController.present(alert, animated: true, completion: nil)
+            } else if let viewController = self.viewController {
+                viewController.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     
     @objc open func applicationDidBecomeActive() {
 //        self.checkAppVersionFromVC(vc: nil)
-//        self.checkLatestAppVersionFromBundleId(completion: { (eSPLTSeverityLevel) in
-//            //
-//        }) { (error) in
-//            // Error
-//        }
+        self.checkLatestAppVersionFromBundleId(completion: { (eSPLTSeverityLevel) in
+            //
+        }) { (error) in
+            // Error
+        }
 
     }
 }

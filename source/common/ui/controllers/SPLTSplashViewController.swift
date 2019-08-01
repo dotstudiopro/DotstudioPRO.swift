@@ -70,7 +70,6 @@ open class SPLTSplashViewController: SPLTBaseViewController {
     
     open func loadImageOnSplashScreen() {
         self.imageView?.isHidden = false
-        
         Timer.scheduledTimer(timeInterval: self.autoTimeOutDuration, target: self, selector: #selector(self.checkSessionAndLogin), userInfo: nil, repeats: false)
     }
     
