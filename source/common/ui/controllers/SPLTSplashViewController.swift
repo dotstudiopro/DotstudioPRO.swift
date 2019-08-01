@@ -31,11 +31,11 @@ open class SPLTSplashViewController: SPLTBaseViewController {
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let window = SPLTConfig.window {
-            SPLTAppVersionCheckerUtility.shared.checkAppVersionFromWindow(window: window)
-        } else {
-            //throw SPLTConfigError.noWindowDefined
-        }
+//        if let window = SPLTConfig.window {
+//            SPLTAppVersionCheckerUtility.shared.checkAppVersionFromWindow(window: window)
+//        } else {
+//            //throw SPLTConfigError.noWindowDefined
+//        }
     }
     
     open override func viewDidAppear(_ animated: Bool) {

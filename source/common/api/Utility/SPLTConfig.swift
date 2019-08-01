@@ -10,6 +10,9 @@ import UIKit
 
 public enum SPLTConfigError: Error {
     case noWindowDefined
+    case noAppIdDefined
+    case noAppUrlDefined
+    case noAppNameDefined
 }
 
 open class SPLTConfig {

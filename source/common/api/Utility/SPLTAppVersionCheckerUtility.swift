@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum SPLTSeverityLevelEnum: Int {
+public enum SPLTSeverityLevelEnum: Int {
     // Funnel Events:
     case level_OK = -1
     case level_0 = 0
@@ -32,31 +32,40 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(self.applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
-    open func checkAppVersionFromWindow(window: UIWindow?) {
+    public func checkAppVersionFromWindow(window: UIWindow?, completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
         self.window = window
-        self.checkLatestAppVersionFromBundleId()
+        self.checkLatestAppVersionFromBundleId(completion: completion, completionError: completionError)
     }
-    open func checkAppVersionFromVC(vc: UIViewController?) {
-        if let vc_ = vc {
-            self.viewController = vc_
-        }
-        self.checkLatestAppVersionFromBundleId()
-    }
-    internal func checkLatestAppVersionFromBundleId() {
+//    public func checkAppVersionFromVC(vc: UIViewController?) {
+//        if let vc_ = vc {
+//            self.viewController = vc_
+//        }
+////        self.checkLatestAppVersionFromBundleId(completion: completion, completionError: completionError)
+//    }
+    internal func checkLatestAppVersionFromBundleId(completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
         SPLTAppVersionCheckerAPI().getLatestAppVersionFromBundleId(completion: { (latestAppVersionDict) in
             // received AppVersion
-            self.checkLatestAppVersion(latestAppVersionDict: latestAppVersionDict)
+            self.checkLatestAppVersion(latestAppVersionDict: latestAppVersionDict, completion: completion, completionError: completionError)
         }) { (error) in
             // Error while checking latest app version
             print("error while checking app version")
         }
     }
     
-    internal func checkLatestAppVersion(latestAppVersionDict: [String: Any]) {
+    internal func checkLatestAppVersion(latestAppVersionDict: [String: Any], completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
         if let strLatestVersion = latestAppVersionDict["version"] as? String,
             let severity_level = latestAppVersionDict["severity_level"] as? Int,
             let appstore_url = latestAppVersionDict["appstore_url"] as? String {
-            self.checkAndPromptForAppVersion(strLatestVersion: strLatestVersion, severity_level: severity_level, appstore_url: appstore_url)
+            
+            if let eSeverityLevel_ = SPLTSeverityLevelEnum(rawValue: severity_level) {
+                self.spltSeverityLevel = eSeverityLevel_
+            }
+            
+
+            
+            self.checkAndPromptForAppVersion(strLatestVersion: strLatestVersion, appstore_url: appstore_url, completion: completion, completionError: completionError)
+        } else {
+            completionError(NSError(domain: "SPLTAppVersionCheckerUtility", code: 1, userInfo: ["message":"version not found"]))
         }
     }
     func isLatestAppVersionInstalled(strLatestVersion: String) -> Bool {
@@ -84,21 +93,23 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         }
         return true
     }
-    internal func checkAndPromptForAppVersion(strLatestVersion: String, severity_level: Int, appstore_url: String) {
-        if !self.isLatestAppVersionInstalled(strLatestVersion: strLatestVersion) {
-            self.promptForAppVersion(strLatestVersion: strLatestVersion, severity_level: severity_level, appstore_url: appstore_url)
+    internal func checkAndPromptForAppVersion(strLatestVersion: String, appstore_url: String, completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
+        if self.isLatestAppVersionInstalled(strLatestVersion: strLatestVersion) {
+            completion(self.spltSeverityLevel)
+        } else {
+            self.promptForAppVersion(strLatestVersion: strLatestVersion, appstore_url: appstore_url, completion: completion, completionError: completionError)
         }
     }
-    internal func promptForAppVersion(strLatestVersion: String, severity_level: Int, appstore_url: String) {
+    internal func promptForAppVersion(strLatestVersion: String, appstore_url: String, completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
         
-        var eSeverityLevel: SPLTSeverityLevelEnum = .level_0
-        if let eSeverityLevel_ = SPLTSeverityLevelEnum(rawValue: severity_level) {
-            eSeverityLevel = eSeverityLevel_
-        }
-        self.spltSeverityLevel = eSeverityLevel
+//        var eSeverityLevel: SPLTSeverityLevelEnum = .level_0
+//        if let eSeverityLevel_ = SPLTSeverityLevelEnum(rawValue: severity_level) {
+//            eSeverityLevel = eSeverityLevel_
+//        }
+//        self.spltSeverityLevel = eSeverityLevel
         var strTitle = "Update Available"
         var strAlertMessage = "For your app to function properly a required update is now available in the App Store."
-        switch eSeverityLevel {
+        switch self.spltSeverityLevel {
             case .level_OK:
                 // Everything is fine. No need to show any prompt to update.
                 return
@@ -128,7 +139,7 @@ open class SPLTAppVersionCheckerUtility: NSObject {
                 UIApplication.shared.openURL(url)
             }
         }))
-        if eSeverityLevel != .level_3 {
+        if self.spltSeverityLevel != .level_3 {
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         }
         
@@ -137,12 +148,18 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         } else if let viewController = self.viewController {
             viewController.present(alert, animated: true, completion: nil)
         }
-
+        completion(self.spltSeverityLevel)
     }
     
     
     @objc open func applicationDidBecomeActive() {
-        self.checkAppVersionFromVC(vc: nil)
+//        self.checkAppVersionFromVC(vc: nil)
+//        self.checkLatestAppVersionFromBundleId(completion: { (eSPLTSeverityLevel) in
+//            //
+//        }) { (error) in
+//            // Error
+//        }
+
     }
 }
 
