@@ -17,6 +17,19 @@ open class SPLTMiniVideoView: UIView {
     }
     open var previewType: PreviewType = .imageAnimator
     
+    public enum ThumbnailPreviewType {
+        case thumbnail
+        case poster
+        case wallpaper
+    }
+    open var thumbnailPreviewType: ThumbnailPreviewType = .thumbnail
+    
+    //    public enum ChannelThumbnailPreviewType {
+    //        case poster
+    //        case spotlightPoster
+    //    }
+    //    open var channelThumbnailPreviewType: ChannelThumbnailPreviewType = .poster
+    
     open var imageView: UIImageView?
     open var curVideo: SPLTVideo?
     
@@ -26,15 +39,15 @@ open class SPLTMiniVideoView: UIView {
         self.previewType = previewType
         self.addImageView()
         
-//        // Show when focused
-//        switch self.previewType {
-//            case .imageAnimator:
-//                self.setVideoImagesForCurVideo()
-//                break
-//            case .videoPreview:
-//                self.setVideoPreview()
-//                break
-//        }
+        //        // Show when focused
+        //        switch self.previewType {
+        //            case .imageAnimator:
+        //                self.setVideoImagesForCurVideo()
+        //                break
+        //            case .videoPreview:
+        //                self.setVideoPreview()
+        //                break
+        //        }
     }
     
     // imageAnimator methods
@@ -46,11 +59,20 @@ open class SPLTMiniVideoView: UIView {
             self.bringSubviewToFront(imgView)
             self.imageView = imgView
         }
-        if let strImagePath = self.curVideo?.thumb {
-            let width = Int((self.imageView?.frame.width)!)
-            let height = Int((self.imageView?.frame.height)!)
-            if let url = URL(string: "\(strImagePath)/\(width)/\(height)") {
-                self.imageView?.splt_setImageFromURL(url)
+        
+        var strImagePath: String?
+        strImagePath = self.curVideo?.thumb
+
+        if self.thumbnailPreviewType == .poster, let strPoster = self.curVideo?.poster {
+            strImagePath = strPoster
+        } else if self.thumbnailPreviewType == .wallpaper, let strWallpaper = self.curVideo?.wallpaper {
+            strImagePath = strWallpaper
+        }
+        if let imageView = self.imageView, let strImagePath_ = strImagePath {
+            let width = Int(imageView.frame.width)
+            let height = Int(imageView.frame.height)
+            if let url = URL(string: "\(strImagePath_)/\(width)/\(height)") {
+                imageView.splt_setImageFromURL(url)
             }
         }
     }
@@ -120,8 +142,8 @@ open class SPLTMiniVideoView: UIView {
     @objc func setVideoPreview() {
         if let spltPlayerViewController = self.spltPlayerViewController {
             spltPlayerViewController.softRemoveAVPlayer()
-//            spltPlayerViewController.stopAndRemoveAVPlayerViewController()
-//            self.spltPlayerViewController = nil
+            //            spltPlayerViewController.stopAndRemoveAVPlayerViewController()
+            //            self.spltPlayerViewController = nil
         } else {
             if let spltPlayerViewController = SPLTPlayerViewController.getViewController() {
                 self.addSubview(spltPlayerViewController.view)
@@ -132,16 +154,16 @@ open class SPLTMiniVideoView: UIView {
         if let spltPlayerViewController = self.spltPlayerViewController,
             let curVideo = self.curVideo {
             //        tvosVideoViewController.isMuted = true
-//            spltPlayerViewController.delegate = self
+            //            spltPlayerViewController.delegate = self
             spltPlayerViewController.curVideo = curVideo
             spltPlayerViewController.bAdsEnabled = false
             
-//            self.addSubview(spltPlayerViewController.view)
-//            self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
-//            self.spltPlayerViewController = spltPlayerViewController
+            //            self.addSubview(spltPlayerViewController.view)
+            //            self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
+            //            self.spltPlayerViewController = spltPlayerViewController
             self.imageView?.isHidden = true
             spltPlayerViewController.loadVideoDetailFromPlay2Route()
-//            self.addChild(spltPlayerViewController)
+            //            self.addChild(spltPlayerViewController)
         }
     }
     
@@ -179,9 +201,9 @@ open class SPLTMiniVideoView: UIView {
             }
             if let spltPlayerViewController = self.spltPlayerViewController {
                 spltPlayerViewController.softRemoveAVPlayer()
-//                spltPlayerViewController.stopAndRemoveAVPlayerViewController()
-//                spltPlayerViewController.view.removeFromSuperview()
-//                self.spltPlayerViewController = nil
+                //                spltPlayerViewController.stopAndRemoveAVPlayerViewController()
+                //                spltPlayerViewController.view.removeFromSuperview()
+                //                self.spltPlayerViewController = nil
             }
             break
         }
