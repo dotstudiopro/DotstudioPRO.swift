@@ -30,13 +30,15 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         didSet {
             if let window_ = window {
                 self.windowObserver = window_.observe(\.rootViewController, options: [.new, .old]) { window_, change in
-                    print("I'm now called \(window_.rootViewController)")
-                    self.checkAndShowAlertOnRootViewController()
+//                    print("I'm now called \(window_.rootViewController)")
+                    //self.checkAndShowAlertOnRootViewController()
+                    self.checkAndPromptForAppVersion()
                 }
             }
         }
     }
     var spltSeverityLevel :SPLTSeverityLevelEnum = .level_OK
+    var appstore_url: String?
     
     public override init() {
         super.init()
@@ -107,13 +109,13 @@ open class SPLTAppVersionCheckerUtility: NSObject {
         if self.isLatestAppVersionInstalled(strLatestVersion: strLatestVersion) {
             completion(self.spltSeverityLevel)
         } else {
-            self.promptForAppVersion(strLatestVersion: strLatestVersion, appstore_url: appstore_url, completion: completion, completionError: completionError)
+            self.promptForAppVersion(appstore_url: appstore_url, completion: completion, completionError: completionError)
         }
     }
     
     var alert: UIAlertController?
-    internal func promptForAppVersion(strLatestVersion: String, appstore_url: String, completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
-        
+    internal func promptForAppVersion(appstore_url: String, completion: @escaping (_ eSeverityLevel: SPLTSeverityLevelEnum) -> Void, completionError: @escaping (_ error: NSError) -> Void) {
+        self.appstore_url = appstore_url
 //        var eSeverityLevel: SPLTSeverityLevelEnum = .level_0
 //        if let eSeverityLevel_ = SPLTSeverityLevelEnum(rawValue: severity_level) {
 //            eSeverityLevel = eSeverityLevel_
@@ -165,22 +167,45 @@ open class SPLTAppVersionCheckerUtility: NSObject {
 //        } else if let viewController = self.viewController {
 //            viewController.present(alert, animated: true, completion: nil)
 //        }
-        self.alert = alert
-        self.checkAndShowAlertOnRootViewController()
-        completion(self.spltSeverityLevel)
+        
+        if let oldAlert = self.alert {
+            self.alert = nil
+            oldAlert.dismiss(animated: false) {
+                // alert dismissed
+                self.alert = alert
+                self.showAlertOnRootViewController()
+                completion(self.spltSeverityLevel)
+            }
+        } else {
+            self.alert = alert
+            self.showAlertOnRootViewController()
+            completion(self.spltSeverityLevel)
+        }
+//        self.alert = alert
+//        self.showAlertOnRootViewController()
+//        completion(self.spltSeverityLevel)
     }
 
-    func checkAndShowAlertOnRootViewController() {
-        if let alert = self.alert {
-            if alert.view.window != nil {
-                alert.dismiss(animated: false) {
-                    self.showAlertOnRootViewController()
-                }
-            } else {
-                self.showAlertOnRootViewController()
+    func checkAndPromptForAppVersion() {
+        if let appstore_url = self.appstore_url {
+            self.promptForAppVersion(appstore_url: appstore_url, completion: { (eSPLTSeverityLevel) in
+                // success
+            }) { (error) in
+                // error
             }
         }
     }
+//    func checkAndShowAlertOnRootViewController() {
+//        if let alert = self.alert {
+//            if alert.view.window != nil {
+//                alert.dismiss(animated: false) {
+//                    self.showAlertOnRootViewController()
+//                }
+//            } else {
+//                self.showAlertOnRootViewController()
+//            }
+//        }
+//    }
     func showAlertOnRootViewController() {
         if let alert = self.alert {
             if let viewController = self.window?.rootViewController {
