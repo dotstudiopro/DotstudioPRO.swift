@@ -230,8 +230,13 @@ open class SPLTVideo: NSObject {
         if let strSlug = videoDict["slug"] as? String {
             self.strSlug = strSlug
         }
+        
         if let poster = videoDict["poster"] as? String, poster != "" {
-            self.poster = poster
+            if (poster.range(of: "http:") == nil) && (poster.range(of: "https:") == nil) {
+                self.poster = SPLTFullPathRouter.imageFullPath(poster).URLString
+            } else {
+                self.poster = poster
+            }
         }
         if let thumbId = videoDict["thumb"] as? String {
             if (thumbId.range(of: "http:") == nil) && (thumbId.range(of: "https:") == nil) {
@@ -243,13 +248,22 @@ open class SPLTVideo: NSObject {
         if let strThumbIds = videoDict["thumbs"] as? [String] {
             self.thumbs.removeAll()
             for strThumbId in strThumbIds {
-                let thumb = SPLTFullPathRouter.imageFullPath(strThumbId).URLString
-                self.thumbs.append(thumb)
+                if (strThumbId.range(of: "http:") == nil) && (strThumbId.range(of: "https:") == nil) {
+                    let thumb = SPLTFullPathRouter.imageFullPath(strThumbId).URLString
+                    self.thumbs.append(thumb)
+                } else {
+                    let thumb = strThumbId
+                    self.thumbs.append(thumb)
+                }
             }
         }
 
         if let wallpaper = videoDict["wallpaper"] as? String, wallpaper != "" {
-            self.wallpaper = wallpaper
+            if (wallpaper.range(of: "http:") == nil) && (wallpaper.range(of: "https:") == nil) {
+                self.wallpaper = SPLTFullPathRouter.imageFullPath(wallpaper).URLString
+            } else {
+                self.wallpaper = wallpaper
+            }
         }
         
         if let actors = videoDict["actors"] as? [String] {
