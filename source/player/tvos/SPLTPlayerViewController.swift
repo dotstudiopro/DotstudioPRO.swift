@@ -49,6 +49,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     var adsLoader: IMAAdsLoader?
     var adsManager: IMAAdsManager?
     var strCurAdTagUrl: String?
+    var shouldTrackAnalytics: Bool = true
     
     var contentPlayer: AVPlayer? {
         didSet {
@@ -138,8 +139,10 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
         }
         self.iCurElapsedSeconds = Int(currentTime)
         if !self.isFirstFramePlayed {
-            self.addAnalyticsEvent(.playback, analyticsEventType: .first_frame)
-            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_first_frame, video: self.curVideo)
+            if self.shouldTrackAnalytics {
+                self.addAnalyticsEvent(.playback, analyticsEventType: .first_frame)
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_first_frame, video: self.curVideo)
+            }
             self.isFirstFramePlayed = true
         }
         if let iDuration = self.getSecondsFromTime(time: duration) {
@@ -213,8 +216,10 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
                             })
                             self.iCurVideoProgressPoint = nil
                         }
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_player_ready, video: self.curVideo)
-                        self.addAnalyticsEvent(.player_setup, analyticsEventType: .player_setup_ready)
+                        if self.shouldTrackAnalytics {
+                            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_player_ready, video: self.curVideo)
+                            self.addAnalyticsEvent(.player_setup, analyticsEventType: .player_setup_ready)
+                        }
                     }
                     
                 default: break

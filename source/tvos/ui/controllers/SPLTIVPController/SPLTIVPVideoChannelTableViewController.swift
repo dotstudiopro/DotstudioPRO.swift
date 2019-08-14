@@ -12,7 +12,6 @@ open class SPLTIVPVideoChannelTableViewController: SPLTIVPChannelTableViewContro
     override open func reloadAllData() {
         if let spltVideoChannel = self.channel as? SPLTVideoChannel {
             if let video = spltVideoChannel.video {
-                //                SPLTAnalyticsUtility.sharedInstance.trackEventWith("Play", action: "AutoPlay", label: video.strId, value: nil)
                 self.setCurrentVideo(curVideo: video)
             }
         }

@@ -54,13 +54,6 @@ open class SPLTIVPSeriesChannelViewController: SPLTIVPVideoChannelViewController
             if self.iCurVideoIndex < playlistChannel.playlistVideos.count, self.iCurVideoIndex >= 0 {
                 self.setCurrentVideo(curVideo: playlistChannel.playlistVideos[self.iCurVideoIndex])
             }
-            
-/*            for (index, playlistVideo) in playlistChannel.playlistVideos.enumerated() {
-                if index == self.iCurVideoIndex {
-                    //                    SPLTAnalyticsUtility.sharedInstance.trackEventWith("Play", action: "AutoPlay", label: playlistVideo.strId, value: nil)
-                    self.setCurrentVideo(curVideo: playlistVideo)
-                }
-            }*/
         }
         super.reloadAllData()
     }

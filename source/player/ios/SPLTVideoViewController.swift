@@ -47,7 +47,8 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     @IBOutlet weak open var imageViewChannelVideo: UIImageView!
     @IBOutlet weak open var imageViewVideoWaterMark: UIImageViewAligned!
     open var showFullDescription: Bool = false
-    
+    var shouldTrackAnalytics: Bool = true
+
     open var defaultLandscapeOrientation: UIInterfaceOrientation = .landscapeRight
 //    @IBOutlet open var constraintAspectRatioVideoView: NSLayoutConstraint?
 //    @IBOutlet open var constraintVideoViewBottom: NSLayoutConstraint?
@@ -539,8 +540,10 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     }
     func closeViewController() {
         self.saveCurrentVideoProgress()
-        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.end_playback, video: self.curVideo)
-        self.addAnalyticsEvent(.playback, analyticsEventType: .end_playback)
+        if self.shouldTrackAnalytics {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.end_playback, video: self.curVideo)
+            self.addAnalyticsEvent(.playback, analyticsEventType: .end_playback)
+        }
     }
     
     //MARK:- set Player methods
@@ -698,9 +701,11 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         self.labelSubtitles.isHidden = true
         
         self.initializeAnalyticsForCurVideo()
-        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
+        if self.shouldTrackAnalytics {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
+        }
         self.setUpContentPlayer(curVideo: curVideo)
-        
+
         if self.shouldAutoRotateToLandscape {
             let value = UIInterfaceOrientation.landscapeRight.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
@@ -774,7 +779,9 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         //        }
         
         if let curVideo = self.curVideo {
-            SPLTAnalyticsUtility.sharedInstance.trackEventWithElapsedTime(iSeconds, iDuration: iDuration, video: curVideo)
+            if self.shouldTrackAnalytics {
+                SPLTAnalyticsUtility.sharedInstance.trackEventWithElapsedTime(iSeconds, iDuration: iDuration, video: curVideo)
+            }
         }
         for (index, bVideoQuartileWatched) in bVideoQuartilesWatched.enumerated() {
             if !bVideoQuartileWatched {
@@ -783,20 +790,22 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
                     // Crossed quartile.
                     self.bVideoQuartilesWatched[index] = true
                     print("quartile crossed : \(index)")
-                    switch index {
-                    case 0:
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_1, video: self.curVideo)
-                        self.addAnalyticsEvent(.playback, analyticsEventType: .first_quartile)
-                        break
-                    case 1:
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_2, video: self.curVideo)
-                        self.addAnalyticsEvent(.playback, analyticsEventType: .second_quartile)
-                        break
-                    case 2:
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_3, video: self.curVideo)
-                        self.addAnalyticsEvent(.playback, analyticsEventType: .third_quartile)
-                        break
-                    default: break
+                    if self.shouldTrackAnalytics {
+                        switch index {
+                            case 0:
+                                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_1, video: self.curVideo)
+                                self.addAnalyticsEvent(.playback, analyticsEventType: .first_quartile)
+                                break
+                            case 1:
+                                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_2, video: self.curVideo)
+                                self.addAnalyticsEvent(.playback, analyticsEventType: .second_quartile)
+                                break
+                            case 2:
+                                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_quartile_3, video: self.curVideo)
+                                self.addAnalyticsEvent(.playback, analyticsEventType: .third_quartile)
+                                break
+                            default: break
+                        }
                     }
                 } else {
                     // break loop as if elapsed seconds didn't cross 1st quartile, no need to check 2nd & 3rd.
@@ -816,8 +825,10 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         }
         self.iCurElapsedSeconds = Int(currentTime)
         if !self.isFirstFramePlayed {
-            self.addAnalyticsEvent(.playback, analyticsEventType: .first_frame)
-            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_first_frame, video: self.curVideo)
+            if self.shouldTrackAnalytics {
+                self.addAnalyticsEvent(.playback, analyticsEventType: .first_frame)
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_first_frame, video: self.curVideo)
+            }
             self.isFirstFramePlayed = true
         }
         if let iDuration = self.getSecondsFromTime(time: duration) {
@@ -1018,8 +1029,10 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
                         self.viewVideoControls.isHidden = false
                         self.checkAndHideVideoControls()
                         self.updateSubtitlesPosition()
-                        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_player_ready, video: self.curVideo)
-                        self.addAnalyticsEvent(.player_setup, analyticsEventType: .player_setup_ready)
+                        if self.shouldTrackAnalytics {
+                            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_player_ready, video: self.curVideo)
+                            self.addAnalyticsEvent(.player_setup, analyticsEventType: .player_setup_ready)
+                        }
                     }
                     
                 default: break
@@ -1143,15 +1156,19 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         self.contentPlayer = nil
     }
     open func playContent() {
-        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
-        self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+        if self.shouldTrackAnalytics {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.play_event, video: self.curVideo)
+            self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+        }
         self.contentPlayer?.play()
         // Hide controls timer when played again.
         self.startHideControlsTimer()
     }
     open func pauseContent() {
-        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.pause_event, video: self.curVideo)
-        self.addAnalyticsEvent(.playback, analyticsEventType: .pause)
+        if self.shouldTrackAnalytics {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.pause_event, video: self.curVideo)
+            self.addAnalyticsEvent(.playback, analyticsEventType: .pause)
+        }
         self.contentPlayer?.pause()
         // don't hide controls when paused.
         NSObject.cancelPreviousPerformRequests(
@@ -1205,10 +1222,12 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
                 print("seek success/false  -> \(bValue)") //
                 if bValue == true {
                     // last seek which was success, all other canceled out.
-                    SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.seek, video: self.curVideo, position: position_before_seeking, position_end: seek_end_time)
-                    SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.resume_after_seek, video: self.curVideo, position: seek_end_time, position_end: nil)
-                    self.addAnalyticsEvent(.playback, analyticsEventType: .seek, position: position_before_seeking, position_end: seek_end_time)
-                    self.addAnalyticsEvent(.playback, analyticsEventType: .resume_after_seek, position: seek_end_time, position_end: nil)
+                    if self.shouldTrackAnalytics {
+                        SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.seek, video: self.curVideo, position: position_before_seeking, position_end: seek_end_time)
+                        SPLTAnalyticsUtility.sharedInstance.trackSeekEventWith(.resume_after_seek, video: self.curVideo, position: seek_end_time, position_end: nil)
+                        self.addAnalyticsEvent(.playback, analyticsEventType: .seek, position: position_before_seeking, position_end: seek_end_time)
+                        self.addAnalyticsEvent(.playback, analyticsEventType: .resume_after_seek, position: seek_end_time, position_end: nil)
+                    }
                 }
             })
         }
@@ -1305,11 +1324,11 @@ extension SPLTVideoViewController {
         // Make sure we don't call contentComplete as a result of an ad completing.
         if (notification.object as! AVPlayerItem) == contentPlayer?.currentItem {
             if self.isVideoContentCompletePlaying == false {
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_content_ended, video: self.curVideo)
-                self.labelVideoProgress.text = self.labelVideoDuration.text
-                if (notification.object as! AVPlayerItem) == contentPlayer?.currentItem {
+                if self.shouldTrackAnalytics {
+                    SPLTAnalyticsUtility.sharedInstance.trackEventWith(.view_content_ended, video: self.curVideo)
                     self.addAnalyticsEvent(.playback, analyticsEventType: .complete)
                 }
+                self.labelVideoProgress.text = self.labelVideoDuration.text
                 self.isVideoContentCompletePlaying = true
             }
             
@@ -1391,7 +1410,9 @@ extension SPLTVideoViewController {
         if let curVideo = self.curVideo {
             if let strVideoId = curVideo.strId, let strVideoCompanyId = curVideo.strComapnyId {
                 let channel_spotlight_company_id = strVideoCompanyId
-                SPLTAnalyticsEventsHelper.sharedInstance.initializeWith(nil, pageVideoId: strVideoId, pageVideoCompanyId: strVideoCompanyId, pagePlaylistId: nil, pageCompanyId: channel_spotlight_company_id)
+                if self.shouldTrackAnalytics {
+                    SPLTAnalyticsEventsHelper.sharedInstance.initializeWith(nil, pageVideoId: strVideoId, pageVideoCompanyId: strVideoCompanyId, pagePlaylistId: nil, pageCompanyId: channel_spotlight_company_id)
+                }
             }
         }
     }
@@ -1402,8 +1423,10 @@ extension SPLTVideoViewController {
             if let position_ = position {
                 cur_position = position_
             }
-            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: curVideo.iDuration, position: cur_position, position_end: position_end, message: "width: \(Int(self.viewVideoControlWithAd.frame.width)), height: \(Int(self.viewVideoControlWithAd.frame.height))")
-            SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
+            if self.shouldTrackAnalytics {
+                let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: curVideo.iDuration, position: cur_position, position_end: position_end, message: "width: \(Int(self.viewVideoControlWithAd.frame.width)), height: \(Int(self.viewVideoControlWithAd.frame.height))")
+                SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
+            }
         }
     }
     
@@ -1411,8 +1434,10 @@ extension SPLTVideoViewController {
         let analyticsEventCategory :SPLTAnalyticsEventCategory = SPLTAnalyticsEventCategory.player_setup
         let analyticsEventType: SPLTAnalyticsEventType = SPLTAnalyticsEventType.player_setup_resize
         if let curVideo = self.curVideo {
-            let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: curVideo.iDuration, position: self.iCurElapsedSeconds, position_end: nil, message: "width: \(Int(newSize.width)), height: \(Int(newSize.height))")
-            SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
+            if self.shouldTrackAnalytics {
+                let analyticsEvent = SPLTAnalyticsEvent(analyticsEventCategory: analyticsEventCategory, analyticsEventType: analyticsEventType, duration: curVideo.iDuration, position: self.iCurElapsedSeconds, position_end: nil, message: "width: \(Int(newSize.width)), height: \(Int(newSize.height))")
+                SPLTAnalyticsEventsHelper.sharedInstance.addEvent(analyticsEvent)
+            }
         }
     }
 }
@@ -1444,8 +1469,10 @@ extension SPLTVideoViewController {
     //MARK: -
     //MARK: - extension IMAAdsLoaderDelegate methods
     open func adsLoader(_ loader: IMAAdsLoader!, adsLoadedWith adsLoadedData: IMAAdsLoadedData!) {
-        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_loaded, video: self.curVideo)
-        self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_loaded)
+        if self.shouldTrackAnalytics {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_loaded, video: self.curVideo)
+            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_loaded)
+        }
         
         // Grab the instance of the IMAAdsManager and set ourselves as the delegate.
         self.adsManager = adsLoadedData.adsManager
@@ -1464,9 +1491,11 @@ extension SPLTVideoViewController {
         //            logMessage("Error loading ads: \(adErrorData.adError.message)")
         self.isAdPlayback = false
         self.isAllVideoAdContentCompletePlaying = true
-        SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_error, video: self.curVideo)
-        self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
-        self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+        if self.shouldTrackAnalytics {
+            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_error, video: self.curVideo)
+            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
+            self.addAnalyticsEvent(.playback, analyticsEventType: .play)
+        }
         self.setPlayButtonType(SPLTVideoPlayButtonType.pauseButton)
         self.contentPlayer?.play()
         self.isVideoSetupOnGoing = false
@@ -1481,20 +1510,26 @@ extension SPLTVideoViewController {
             case IMAAdEventType.AD_BREAK_READY:
                 break
             case IMAAdEventType.CLICKED:
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_clicked, video: self.curVideo)
-                self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_click)
+                if self.shouldTrackAnalytics {
+                    SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_clicked, video: self.curVideo)
+                    self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_click)
+                }
                 break
             case IMAAdEventType.SKIPPED:
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_skipped, video: self.curVideo)
-                self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_skip)
+                if self.shouldTrackAnalytics {
+                    SPLTAnalyticsUtility.sharedInstance.trackEventWith(.ad_skipped, video: self.curVideo)
+                    self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_skip)
+                }
                 break
             case IMAAdEventType.LOADED:
                 //                if (pictureInPictureController == nil ||
                 //                    !pictureInPictureController!.isPictureInPictureActive) {
                 //                    adsManager.start()
                 //                }
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_impression, video: self.curVideo)
-                self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_impression)
+                if self.shouldTrackAnalytics {
+                    SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_impression, video: self.curVideo)
+                    self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_impression)
+                }
                 self.adsManager?.start()
                 break
             case IMAAdEventType.PAUSE:
@@ -1504,11 +1539,15 @@ extension SPLTVideoViewController {
                 self.setPlayButtonType(SPLTVideoPlayButtonType.pauseButton)
                 break
             case IMAAdEventType.STARTED:
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_started, video: self.curVideo)
+                if self.shouldTrackAnalytics {
+                    SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_started, video: self.curVideo)
+                }
                 break
             case IMAAdEventType.COMPLETE:
-                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_complete, video: self.curVideo)
-                self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_complete)
+                if self.shouldTrackAnalytics {
+                    SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_complete, video: self.curVideo)
+                    self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_complete)
+                }
                 break
             case IMAAdEventType.TAPPED:
                 //                showFullscreenControls(nil)

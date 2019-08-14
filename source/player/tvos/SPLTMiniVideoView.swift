@@ -146,6 +146,7 @@ open class SPLTMiniVideoView: UIView {
             //            self.spltPlayerViewController = nil
         } else {
             if let spltPlayerViewController = SPLTPlayerViewController.getViewController() {
+                spltPlayerViewController.shouldTrackAnalytics = false
                 self.addSubview(spltPlayerViewController.view)
                 self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
                 self.spltPlayerViewController = spltPlayerViewController

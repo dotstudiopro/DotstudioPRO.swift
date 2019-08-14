@@ -190,8 +190,10 @@ extension SPLTVideoViewController {
                 contentPlayhead: contentPlayhead,
                 userContext: nil)
             request?.vastLoadTimeout = 8000
-            SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_request, video: self.curVideo)
-            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_request)
+            if self.shouldTrackAnalytics {
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_request, video: self.curVideo)
+                self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_request)
+            }
             self.adsLoader?.requestAds(with: request)
         }
         
