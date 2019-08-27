@@ -54,7 +54,7 @@ extension SPLTVideoViewController {
                 self.contentPlayer?.externalPlaybackVideoGravity = avLayerVideoGravity
             }
             self.contentPlayer?.isMuted = self.isMuted
-            self.contentPlayer?.currentItem?.preferredPeakBitRate = 300.0
+//            self.contentPlayer?.currentItem?.preferredPeakBitRate = 300.0
             // To test subtitles...
             //                let videoFile = Bundle.main.path(forResource: "trailer_720p", ofType: "mov")
             
