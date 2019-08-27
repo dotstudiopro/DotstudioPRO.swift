@@ -709,11 +709,11 @@
 		6C3828E12293E1C400B05562 /* SPLTIVPController */ = {
 			isa = PBXGroup;
 			children = (
+				6C3828E52293E1C400B05562 /* SPLTIVPVideoViewController.swift */,
 				6C3828E22293E1C400B05562 /* SPLTIVPChannelViewController.swift */,
 				6C3828E32293E1C400B05562 /* SPLTIVPVideoChannelViewController.swift */,
-				6C3828E42293E1C400B05562 /* SPLTIVPMultiSeriesChannelViewController.swift */,
-				6C3828E52293E1C400B05562 /* SPLTIVPVideoViewController.swift */,
 				6C3828E62293E1C400B05562 /* SPLTIVPSeriesChannelViewController.swift */,
+				6C3828E42293E1C400B05562 /* SPLTIVPMultiSeriesChannelViewController.swift */,
 			);
 			path = SPLTIVPController;
 			sourceTree = "<group>";

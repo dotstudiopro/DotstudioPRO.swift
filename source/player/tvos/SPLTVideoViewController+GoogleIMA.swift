@@ -122,6 +122,12 @@ extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
         // Grab the instance of the IMAAdsManager and set ourselves as the delegate.
         self.adsManager = adsLoadedData.adsManager
         self.adsManager?.delegate = self
+
+        if let imaAdsManager = self.adsManager {
+            SPLTAnalyticsUtility.sharedInstance.didLoadIMAAdsManager(imaAdsManager)
+        }
+        SPLTAnalyticsUtility.sharedInstance.startAdsTracking()
+        
         
         // Create ads rendering settings to tell the SDK to use the in-app browser.
         let adsRenderingSettings = IMAAdsRenderingSettings()

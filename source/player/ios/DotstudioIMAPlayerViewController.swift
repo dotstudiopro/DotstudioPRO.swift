@@ -98,6 +98,7 @@ open class DotstudioIMAPlayerViewController: SPLTVideoViewController {
 
     override func allContentDidFinishPlayingWithAd() {
         print("all ads completed & video completed")
+        super.allContentDidFinishPlayingWithAd()
         self.delegate?.didFinishPlayingVideo(self)
     }
 //    override func contentDidFinishPlaying(_ notification: Notification) {

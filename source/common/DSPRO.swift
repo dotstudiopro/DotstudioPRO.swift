@@ -15,8 +15,10 @@ open class DSPRO {
     public class func initializeWith(config: [String: Any], completion: @escaping (_ bInitialized: Bool) -> Void, completionError: @escaping (_ error: NSError) -> Void) throws {
         SPLTConfig.infoDictionaryBundleMain = Bundle.main.infoDictionary
         SPLTConfig.bundleIdentifierBundleMain = Bundle.main.bundleIdentifier
-        if let strAppName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
+        if let strAppName = config["APP_NAME"] as? String {
             SPLTConfig.APPNAME = strAppName
+        } else {
+            throw SPLTConfigError.noAppNameDefined
         }
 
         if let shouldAutoLoadCategoryChannels = config["shouldAutoLoadCategoryChannels"] as? Bool {

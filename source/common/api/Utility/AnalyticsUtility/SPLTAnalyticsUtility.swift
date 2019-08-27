@@ -7,6 +7,12 @@
 //
 
 import Foundation
+import AVFoundation
+#if os(iOS)
+    import GoogleInteractiveMediaAds
+#elseif os(tvOS)
+    import ClientSideInteractiveMediaAds
+#endif
 
 public enum SPLTAllAnalyticsEventType {
     
@@ -45,6 +51,15 @@ public enum SPLTAllAnalyticsEventType {
 }
 
 public protocol SPLTBaseAnalyticsUtility {
+    func didInitializeAVPlayer(_ player: AVPlayer, forVideo video: SPLTVideo)
+    func didLoadIMAAdsManager(_ imaAdsManager: IMAAdsManager)
+    
+    func startVideoTracking()
+    func stopVideoTracking()
+    func startAdsTracking()
+    func stopAdsTracking()
+    
+    
     func trackEventWith(_ spltAllAnalyticsEventType: SPLTAllAnalyticsEventType, video: SPLTVideo?)
     func trackSeekEventWith(_ spltAllAnalyticsEventType: SPLTAllAnalyticsEventType, video: SPLTVideo?, position: Int?, position_end: Int?)
     func trackEventWithElapsedTime(_ iCurSeconds: Int, iDuration: Int, video: SPLTVideo)
@@ -66,6 +81,40 @@ open class SPLTAnalyticsUtility: NSObject {
     open func addAnalyticsUtility(_ spltBaseAnalyticsUtility: SPLTBaseAnalyticsUtility) {
         self.allAnalyticsUtility.append(spltBaseAnalyticsUtility)
     }
+    
+    
+    open func didInitializeAVPlayer(_ player: AVPlayer, forVideo video: SPLTVideo) {
+        for analyticsUtility in self.allAnalyticsUtility {
+            analyticsUtility.didInitializeAVPlayer(player, forVideo: video)
+        }
+    }
+    open func didLoadIMAAdsManager(_ imaAdsManager: IMAAdsManager) {
+        for analyticsUtility in self.allAnalyticsUtility {
+            analyticsUtility.didLoadIMAAdsManager(imaAdsManager)
+        }
+    }
+    open func startVideoTracking() {
+        for analyticsUtility in self.allAnalyticsUtility {
+            analyticsUtility.startVideoTracking()
+        }
+    }
+    open func stopVideoTracking() {
+        for analyticsUtility in self.allAnalyticsUtility {
+            analyticsUtility.stopVideoTracking()
+        }
+    }
+    open func startAdsTracking() {
+        for analyticsUtility in self.allAnalyticsUtility {
+            analyticsUtility.startAdsTracking()
+        }
+    }
+    open func stopAdsTracking() {
+        for analyticsUtility in self.allAnalyticsUtility {
+            analyticsUtility.stopAdsTracking()
+        }
+    }
+    
+    
     
     open func trackEventWith(_ spltAllAnalyticsEventType: SPLTAllAnalyticsEventType, video: SPLTVideo?) {
         for analyticsUtility in self.allAnalyticsUtility {

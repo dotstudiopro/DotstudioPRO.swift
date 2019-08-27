@@ -190,6 +190,11 @@ extension SPLTPlayerViewController {
                 SPLTAnalyticsUtility.sharedInstance.trackEventWith(.video_metadata_loaded, video: self.curVideo)
             }
 
+            if let contentPlayer = self.contentPlayer {
+                SPLTAnalyticsUtility.sharedInstance.didInitializeAVPlayer(contentPlayer, forVideo: curVideo)
+            }
+            SPLTAnalyticsUtility.sharedInstance.startVideoTracking()
+            
             if self.bAdsEnabled {
                 self.setupContentPlayerForIMA()
                 self.setUpAdsLoader()

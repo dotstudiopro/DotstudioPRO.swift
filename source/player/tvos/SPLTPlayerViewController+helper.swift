@@ -189,6 +189,9 @@ extension SPLTPlayerViewController {
     
     @objc func allContentDidFinishPlayingWithAd() {
         print("all ads completed & video completed")
+        
+        SPLTAnalyticsUtility.sharedInstance.stopAdsTracking()
+        SPLTAnalyticsUtility.sharedInstance.stopVideoTracking()
         self.delegate?.didFinishPlayingVideo(self)
     }
 
