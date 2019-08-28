@@ -34,7 +34,7 @@ extension SPLTVideoViewController {
         }
         
     }
-    func castVideo() {
+    open func castVideo() {
 //        guard let castVC = DotstudioIMAPlayerViewController.getCastViewController() else { return  }
 //        let castViewcontroller = castVC as! DSCastViewController
 //        castViewcontroller.selectedVideo = self.curVideo
@@ -43,10 +43,14 @@ extension SPLTVideoViewController {
 //
         if let curVideo = self.curVideo {
 //            self.pause()
-            DSCastUtility.shared.onClickCastVideo(video: curVideo, fromViewController: self)
+            if let isGeoblocked = self.curVideo?.isGeoblocked, isGeoblocked == true {
+                self.showAlertWithMessage(message: "This content is geoblocked in your region.")
+            } else {
+                DSCastUtility.shared.onClickCastVideo(video: curVideo, fromViewController: self)
+            }
         }
     }
-    func stopCasting() {
+    open func stopCasting() {
 //        self.castVideo()
         DSCastUtility.shared.stopCasting(video: self.curVideo, fromViewController: self)
     }
