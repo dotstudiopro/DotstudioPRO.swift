@@ -17,10 +17,16 @@ open class DSPRO {
         SPLTConfig.bundleIdentifierBundleMain = Bundle.main.bundleIdentifier
         if let strAppName = config["APP_NAME"] as? String {
             SPLTConfig.APPNAME = strAppName
+            SPLTConfig.strHeaderApplicationName = strAppName
         } else {
             throw SPLTConfigError.noAppNameDefined
         }
 
+        if let auth0FBconnectionName = config["auth0FBconnectionName"] as? String {
+            SPLTConfig.auth0FBconnectionName = auth0FBconnectionName
+        }
+        
+        
         if let shouldAutoLoadCategoryChannels = config["shouldAutoLoadCategoryChannels"] as? Bool {
             SPLTConfig.shouldAutoLoadCategoryChannels = shouldAutoLoadCategoryChannels
         }

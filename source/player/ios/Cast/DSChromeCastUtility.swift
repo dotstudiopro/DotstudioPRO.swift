@@ -24,7 +24,7 @@ class DSChromeCastUtility: NSObject {
     var chromeCastDeviceList = [DSCastDeviceModel]()
     var castDeviceModel: DSCastDeviceModel?
     
-    let kReceiverAppID = "4F8B3483"
+    let kReceiverAppID = kGCKDefaultMediaReceiverApplicationID //"4F8B3483"
     let kDebugLoggingEnabled = true
     
     var delegate: DSBaseCastUtilityDelegate?
