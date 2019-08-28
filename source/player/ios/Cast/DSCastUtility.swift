@@ -55,8 +55,8 @@ enum DSPConnectedCastDeviceType {
 /*
  This class will combine all cast utility devices & show it on View Controller. It also initializes all sub utilities.
  */
-class DSCastUtility:NSObject {
-    static let shared = DSCastUtility()
+public class DSCastUtility:NSObject {
+    public static let shared = DSCastUtility()
     var mainDeviceList = [DSCastDeviceModel]()
     var delegate: DSCastUtilityDelegate?
     var baseCastDelegate:DSBaseCastUtility?
@@ -67,7 +67,7 @@ class DSCastUtility:NSObject {
     var viewController: UIViewController?
     var curCastDeviceModel: DSCastDeviceModel?
     var castViewcontroller: DSCastViewController?
-    var isCasting: Bool = false
+    public var isCasting: Bool = false
 
     override init(){
         super.init()
