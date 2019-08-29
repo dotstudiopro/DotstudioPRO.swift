@@ -152,6 +152,8 @@ open class SPLTAppVersionCheckerUtility: NSObject {
                 if let url = URL(string: appstore_url),
                     UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.openURL(url)
+                } else {
+                    self.checkAndPromptForAppVersion()
                 }
             }))
         } else {
@@ -168,7 +170,7 @@ open class SPLTAppVersionCheckerUtility: NSObject {
 //            viewController.present(alert, animated: true, completion: nil)
 //        }
         
-        if let oldAlert = self.alert {
+        if let oldAlert = self.alert, oldAlert.view.window != nil {
             self.alert = nil
             oldAlert.dismiss(animated: false) {
                 // alert dismissed
