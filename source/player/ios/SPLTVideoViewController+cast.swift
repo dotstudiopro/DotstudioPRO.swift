@@ -52,7 +52,9 @@ extension SPLTVideoViewController {
     }
     open func stopCasting() {
 //        self.castVideo()
-        DSCastUtility.shared.stopCasting(video: self.curVideo, fromViewController: self)
+        if DSCastUtility.shared.isCasting {
+            DSCastUtility.shared.stopCasting(video: self.curVideo, fromViewController: self)
+        }
     }
     func updateUIwhenVideoCastInProgress() {
         self.imageViewChannelVideo.isHidden = false

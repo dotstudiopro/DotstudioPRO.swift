@@ -278,8 +278,6 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
 //            self.barButtonItemShare?.image = nil
 //            self.navigationController?.navigationBar.isHidden = false
 //        }
-        
-        self.applicationDidBecomeActive()
     }
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -1393,6 +1391,9 @@ extension SPLTVideoViewController {
         }
     }
     @objc func applicationDidBecomeActive() {
+        if DSCastUtility.shared.isCasting {
+            return
+        }
         if self.isAdPlayback {
             self.adsManager?.resume()
         } else {

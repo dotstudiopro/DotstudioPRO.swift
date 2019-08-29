@@ -204,7 +204,7 @@ extension DSChromeCastUtility:GCKSessionManagerListener{
         // Add GCKRemoteMediaClientListener.
         session.remoteMediaClient?.add(self)
         //self.playVideoRemotely()
-        self.playVideoWithSelectedVideo()
+//        self.playVideoWithSelectedVideo()
         self.delegate?.didConnectedToCastDevice(baseCastUtility: self)
     }
     
