@@ -35,7 +35,7 @@ extension DSPPlayerViewController {
         
     }
     open func castVideo() {
-//        guard let castVC = DotstudioIMAPlayerViewController.getCastViewController() else { return  }
+//        guard let castVC = DSPPlayerViewController.getCastViewController() else { return  }
 //        let castViewcontroller = castVC as! DSCastViewController
 //        castViewcontroller.selectedVideo = self.curVideo
 //        castViewcontroller.modalPresentationStyle = .overFullScreen

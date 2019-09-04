@@ -1,6 +1,6 @@
 //
 //  DSCastViewController.swift
-//  DotstudioIMAPlayer
+//  DSPPlayerViewController
 //
 //  Created by Anwar Hussain  on 29/04/19.
 //
@@ -52,7 +52,7 @@ class DSCastViewController: UIViewController {
     
     class open func getCastViewController() -> DSCastViewController? {
         
-        let storyboard = UIStoryboard(name:"DotstudioIMAPlayerViewController", bundle:Bundle(for:self))
+        let storyboard = UIStoryboard(name:"DSPPlayerViewController", bundle:Bundle(for:self))
         let vc = storyboard.instantiateViewController(withIdentifier: "DSCastViewController")
         if let castController = vc as? DSCastViewController {
             return castController

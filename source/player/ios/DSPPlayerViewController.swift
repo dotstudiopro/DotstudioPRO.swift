@@ -1,6 +1,6 @@
 //
 //  DSPPlayerViewController.swift
-//  DotstudioIMAPlayer
+//  DSPPlayerViewController
 //
 //  Created by Ketan Sakariya on 23/05/18.
 //
