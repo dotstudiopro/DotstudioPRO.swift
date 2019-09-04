@@ -4,6 +4,7 @@
         <adaptation id="light"/>
     </device>
     <dependencies>
+        <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <!--Player View Controller-->
         <scene sceneID="A0O-49-7fA">
             <objects>
-                <viewController storyboardIdentifier="SPLTPlayerViewController" id="Loc-A0-VRs" customClass="SPLTPlayerViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DSPPlayerViewController" id="Loc-A0-VRs" customClass="DSPPlayerViewController" customModule="DotstudioPRO" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vct-eo-K2D"/>
                         <viewControllerLayoutGuide type="bottom" id="PAI-8k-9qa"/>

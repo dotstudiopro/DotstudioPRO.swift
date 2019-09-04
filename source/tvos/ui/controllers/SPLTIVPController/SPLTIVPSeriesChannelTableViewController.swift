@@ -130,7 +130,7 @@ extension SPLTIVPSeriesChannelTableViewController {
         }
     }
     
-    open override func didFinishPlayingVideoOnTVOSPlayerViewController(_ spltPlayerViewController: SPLTIVPPlayerViewController) {
+    open override func didFinishPlayingVideoOnTVOSPlayerViewController(_ dspPlayerViewController: SPLTIVPPlayerViewController) {
         if let playlistChannel = self.channel as? SPLTPlaylistChannel {
             let iNextVideoIndex = self.iCurVideoIndex + 1
             if iNextVideoIndex < playlistChannel.playlistVideos.count {

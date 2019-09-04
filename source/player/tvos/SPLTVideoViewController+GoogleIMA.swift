@@ -16,7 +16,7 @@ import AVFoundation
 
 //MARK: -
 //MARK: - extension GoogleIMA extension method
-extension SPLTPlayerViewController {
+extension DSPPlayerViewController {
     
 //    func isPostAdAvailable() -> Bool {
 //        // one of the adcuepoint is -1 if post roll is available.
@@ -112,7 +112,7 @@ extension SPLTPlayerViewController {
 
 //MARK: -
 //MARK: - extension IMAAdsLoaderDelegate methods
-extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
+extension DSPPlayerViewController: IMAAdsLoaderDelegate {
     open func adsLoader(_ loader: IMAAdsLoader!, adsLoadedWith adsLoadedData: IMAAdsLoadedData!) {
         if self.shouldTrackAnalytics {
             SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_loaded, video: self.curVideo)
@@ -154,7 +154,7 @@ extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
 
 //MARK: -
 //MARK: - extension IMAAdsManagerDelegate
-extension SPLTPlayerViewController: IMAAdsManagerDelegate {
+extension DSPPlayerViewController: IMAAdsManagerDelegate {
     
     open func adsManager(_ adsManager: IMAAdsManager!, didReceive event: IMAAdEvent!) {
         print(event.type.rawValue)

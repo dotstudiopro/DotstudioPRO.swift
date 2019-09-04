@@ -21,16 +21,16 @@ enum SPLTVideoPlayButtonType: Int {
     case pauseButton = 1
 }
 
-public protocol SPLTPlayerViewControllerDelegate {
+public protocol DSPPlayerViewControllerDelegate {
      func didFinishPlayingVideo(_ dspPlayerViewController: DSPPlayerViewController)
      func didClosePlayingVideoOnDSPPlayerViewController()
 }
 
-public typealias DSPPlayerViewController = SPLTPlayerViewController
+//public typealias DSPPlayerViewController = SPLTPlayerViewController
 
-open class SPLTPlayerViewController: SPLTBaseViewController{
+open class DSPPlayerViewController: SPLTBaseViewController{
     
-    open var delegate: SPLTPlayerViewControllerDelegate?
+    open var delegate: DSPPlayerViewControllerDelegate?
     
     open var bAdsEnabled: Bool = true
     open var isVideoContentCompletePlaying: Bool = false
@@ -95,10 +95,10 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     open var hasSubstitles:Bool = false
 
     
-    open class func getViewController() -> SPLTPlayerViewController? {
+    open class func getViewController() -> DSPPlayerViewController? {
         
-        let spltPlayerViewController = SPLTPlayerViewController()
-        return spltPlayerViewController
+        let dspPlayerViewController = DSPPlayerViewController()
+        return dspPlayerViewController
     }
     
     override open func viewDidLoad() {
@@ -106,7 +106,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
         
         self.navigationController?.isNavigationBarHidden = true
         
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(SPLTPlayerViewController.tapped(_:)))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(DSPPlayerViewController.tapped(_:)))
         tapRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue as Int)];
         self.view.addGestureRecognizer(tapRecognizer)
         
@@ -336,7 +336,7 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
 }
 
 //MARK: - App Become Active/Deactive methods
-extension SPLTPlayerViewController {
+extension DSPPlayerViewController {
     @objc func applicationWillResignActive() {
         if self.isAdPlayback {
             self.adsManager?.pause()
@@ -363,7 +363,7 @@ extension SPLTPlayerViewController {
 
 //MARK: -
 //MARK: - extension save video progress
-extension SPLTPlayerViewController{
+extension DSPPlayerViewController{
     func saveCurrentVideoProgress() {
         if let currentTime_cmtime = self.contentPlayer?.currentTime(), currentTime_cmtime.isValid {
             let floatCurrentTime = CMTimeGetSeconds(currentTime_cmtime)

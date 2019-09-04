@@ -18,7 +18,7 @@
         <!--Player View Controller-->
         <scene sceneID="o86-Cx-Pwp">
             <objects>
-                <viewController storyboardIdentifier="DSPPlayerViewController" id="BU2-sb-CJN" customClass="DSPPlayerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DSPPlayerViewController" id="BU2-sb-CJN" customClass="DSPPlayerViewController" customModule="DotstudioPRO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dkd-3v-sS5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,12 +11,12 @@
 		5ADA3B40CDFC058AC14D139B /* Pods_Dotstudiopro_tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A89E56FFE5F1E9FB3B794 /* Pods_Dotstudiopro_tvos.framework */; };
 		6C0A7A2022966FB500FD338F /* SPLTVideo+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A12294125100B05562 /* SPLTVideo+extension.swift */; };
 		6C0A7A2A229670FA00FD338F /* SPLTVideoViewController+GoogleIMA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A21229670FA00FD338F /* SPLTVideoViewController+GoogleIMA.swift */; };
-		6C0A7A2B229670FA00FD338F /* SPLTPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0A7A22229670FA00FD338F /* SPLTPlayerViewController.storyboard */; };
-		6C0A7A2C229670FA00FD338F /* SPLTPlayerViewController+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A23229670FA00FD338F /* SPLTPlayerViewController+helper.swift */; };
-		6C0A7A2D229670FA00FD338F /* SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A24229670FA00FD338F /* SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift */; };
-		6C0A7A2E229670FA00FD338F /* SPLTPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A25229670FA00FD338F /* SPLTPlayerViewController.swift */; };
-		6C0A7A2F229670FA00FD338F /* SPLTPlayerViewController+listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A26229670FA00FD338F /* SPLTPlayerViewController+listener.swift */; };
-		6C0A7A30229670FA00FD338F /* SPLTPlayerViewController+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A27229670FA00FD338F /* SPLTPlayerViewController+setup.swift */; };
+		6C0A7A2B229670FA00FD338F /* DSPPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0A7A22229670FA00FD338F /* DSPPlayerViewController.storyboard */; };
+		6C0A7A2C229670FA00FD338F /* DSPPlayerViewController+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A23229670FA00FD338F /* DSPPlayerViewController+helper.swift */; };
+		6C0A7A2D229670FA00FD338F /* DSPPlayerViewController+AVPlayerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A24229670FA00FD338F /* DSPPlayerViewController+AVPlayerViewControllerDelegate.swift */; };
+		6C0A7A2E229670FA00FD338F /* DSPPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A25229670FA00FD338F /* DSPPlayerViewController.swift */; };
+		6C0A7A2F229670FA00FD338F /* DSPPlayerViewController+listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A26229670FA00FD338F /* DSPPlayerViewController+listener.swift */; };
+		6C0A7A30229670FA00FD338F /* DSPPlayerViewController+setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A27229670FA00FD338F /* DSPPlayerViewController+setup.swift */; };
 		6C0A7A31229670FA00FD338F /* Subtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A28229670FA00FD338F /* Subtitles.swift */; };
 		6C0A7A32229670FA00FD338F /* SPLTMiniVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A7A29229670FA00FD338F /* SPLTMiniVideoView.swift */; };
 		6C0A7A352296715600FD338F /* ClientSideInteractiveMediaAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0A7A342296715600FD338F /* ClientSideInteractiveMediaAds.framework */; };
@@ -264,12 +264,12 @@
 		189A89E56FFE5F1E9FB3B794 /* Pods_Dotstudiopro_tvos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dotstudiopro_tvos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FB3251D8CFEF598AD02FC2 /* Pods_Dotstudiopro_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dotstudiopro_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C0A7A21229670FA00FD338F /* SPLTVideoViewController+GoogleIMA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTVideoViewController+GoogleIMA.swift"; sourceTree = "<group>"; };
-		6C0A7A22229670FA00FD338F /* SPLTPlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SPLTPlayerViewController.storyboard; sourceTree = "<group>"; };
-		6C0A7A23229670FA00FD338F /* SPLTPlayerViewController+helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTPlayerViewController+helper.swift"; sourceTree = "<group>"; };
-		6C0A7A24229670FA00FD338F /* SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift"; sourceTree = "<group>"; };
-		6C0A7A25229670FA00FD338F /* SPLTPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTPlayerViewController.swift; sourceTree = "<group>"; };
-		6C0A7A26229670FA00FD338F /* SPLTPlayerViewController+listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTPlayerViewController+listener.swift"; sourceTree = "<group>"; };
-		6C0A7A27229670FA00FD338F /* SPLTPlayerViewController+setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTPlayerViewController+setup.swift"; sourceTree = "<group>"; };
+		6C0A7A22229670FA00FD338F /* DSPPlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DSPPlayerViewController.storyboard; sourceTree = "<group>"; };
+		6C0A7A23229670FA00FD338F /* DSPPlayerViewController+helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DSPPlayerViewController+helper.swift"; sourceTree = "<group>"; };
+		6C0A7A24229670FA00FD338F /* DSPPlayerViewController+AVPlayerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DSPPlayerViewController+AVPlayerViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		6C0A7A25229670FA00FD338F /* DSPPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSPPlayerViewController.swift; sourceTree = "<group>"; };
+		6C0A7A26229670FA00FD338F /* DSPPlayerViewController+listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DSPPlayerViewController+listener.swift"; sourceTree = "<group>"; };
+		6C0A7A27229670FA00FD338F /* DSPPlayerViewController+setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DSPPlayerViewController+setup.swift"; sourceTree = "<group>"; };
 		6C0A7A28229670FA00FD338F /* Subtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitles.swift; sourceTree = "<group>"; };
 		6C0A7A29229670FA00FD338F /* SPLTMiniVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTMiniVideoView.swift; sourceTree = "<group>"; };
 		6C0A7A342296715600FD338F /* ClientSideInteractiveMediaAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ClientSideInteractiveMediaAds.framework; sourceTree = "<group>"; };
@@ -948,12 +948,12 @@
 			children = (
 				6C0A7A332296713B00FD338F /* framework */,
 				6C0A7A29229670FA00FD338F /* SPLTMiniVideoView.swift */,
-				6C0A7A22229670FA00FD338F /* SPLTPlayerViewController.storyboard */,
-				6C0A7A25229670FA00FD338F /* SPLTPlayerViewController.swift */,
-				6C0A7A24229670FA00FD338F /* SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift */,
-				6C0A7A23229670FA00FD338F /* SPLTPlayerViewController+helper.swift */,
-				6C0A7A26229670FA00FD338F /* SPLTPlayerViewController+listener.swift */,
-				6C0A7A27229670FA00FD338F /* SPLTPlayerViewController+setup.swift */,
+				6C0A7A22229670FA00FD338F /* DSPPlayerViewController.storyboard */,
+				6C0A7A25229670FA00FD338F /* DSPPlayerViewController.swift */,
+				6C0A7A24229670FA00FD338F /* DSPPlayerViewController+AVPlayerViewControllerDelegate.swift */,
+				6C0A7A23229670FA00FD338F /* DSPPlayerViewController+helper.swift */,
+				6C0A7A26229670FA00FD338F /* DSPPlayerViewController+listener.swift */,
+				6C0A7A27229670FA00FD338F /* DSPPlayerViewController+setup.swift */,
 				6C0A7A21229670FA00FD338F /* SPLTVideoViewController+GoogleIMA.swift */,
 				6C0A7A28229670FA00FD338F /* Subtitles.swift */,
 			);
@@ -1073,7 +1073,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3829C7229413D600B05562 /* FontAwesome.ttf in Resources */,
-				6C0A7A2B229670FA00FD338F /* SPLTPlayerViewController.storyboard in Resources */,
+				6C0A7A2B229670FA00FD338F /* DSPPlayerViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1282,7 +1282,7 @@
 				6C3829792293E1C400B05562 /* SPLTProtocols.swift in Sources */,
 				6C3828A72293DE6400B05562 /* SPLTSearchAPI.swift in Sources */,
 				6C38285F2293DE6400B05562 /* A0JWT.swift in Sources */,
-				6C0A7A2C229670FA00FD338F /* SPLTPlayerViewController+helper.swift in Sources */,
+				6C0A7A2C229670FA00FD338F /* DSPPlayerViewController+helper.swift in Sources */,
 				6C3828692293DE6400B05562 /* SPLTRecommandedData.swift in Sources */,
 				6C3828BB2293DE6400B05562 /* SPLTConfig.swift in Sources */,
 				6C3829632293E1C400B05562 /* SPLTIVPSeriesChannelVideoDetailTableViewCell.swift in Sources */,
@@ -1325,10 +1325,10 @@
 				6C3828792293DE6400B05562 /* SPLTAnalyticsEventsAPIObject.swift in Sources */,
 				6C3828C32293DE6400B05562 /* SPLTAppVersionCheckerUtility.swift in Sources */,
 				6C3828912293DE6400B05562 /* SPLTWatchlistAPI.swift in Sources */,
-				6C0A7A2D229670FA00FD338F /* SPLTPlayerViewController+AVPlayerViewControllerDelegate.swift in Sources */,
+				6C0A7A2D229670FA00FD338F /* DSPPlayerViewController+AVPlayerViewControllerDelegate.swift in Sources */,
 				6C38295D2293E1C400B05562 /* SPLTIVPVideoViewController.swift in Sources */,
-				6C0A7A30229670FA00FD338F /* SPLTPlayerViewController+setup.swift in Sources */,
-				6C0A7A2E229670FA00FD338F /* SPLTPlayerViewController.swift in Sources */,
+				6C0A7A30229670FA00FD338F /* DSPPlayerViewController+setup.swift in Sources */,
+				6C0A7A2E229670FA00FD338F /* DSPPlayerViewController.swift in Sources */,
 				6C3829552293E1C400B05562 /* StringExtension.swift in Sources */,
 				6C3828732293DE6400B05562 /* DTSZChannel.swift in Sources */,
 				6C3828B12293DE6400B05562 /* SPLTLoginVerificationAPI.swift in Sources */,
@@ -1368,7 +1368,7 @@
 				6C3829892293E1C400B05562 /* EZYGradientView.swift in Sources */,
 				6C3828932293DE6400B05562 /* SPLTBaseAPI.swift in Sources */,
 				6C38288D2293DE6400B05562 /* SPLTResumptionAPI.swift in Sources */,
-				6C0A7A2F229670FA00FD338F /* SPLTPlayerViewController+listener.swift in Sources */,
+				6C0A7A2F229670FA00FD338F /* DSPPlayerViewController+listener.swift in Sources */,
 				6C3828592293DE6400B05562 /* Base64.swift in Sources */,
 				6C38289F2293DE6400B05562 /* SPLTPurchaseVideoAPI.swift in Sources */,
 				6C38287B2293DE6400B05562 /* SPLTAnalyticsEventsHelper.swift in Sources */,

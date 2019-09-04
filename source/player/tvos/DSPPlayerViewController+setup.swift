@@ -14,7 +14,7 @@ import AVKit
 import CoreMedia
 import ClientSideInteractiveMediaAds
 
-extension SPLTPlayerViewController {
+extension DSPPlayerViewController {
     
     open func loadVideoDetailFromPlay2Route() {
         self.avPlayerViewController.delegate = self

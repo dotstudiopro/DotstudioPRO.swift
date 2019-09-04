@@ -12,7 +12,7 @@ import AVKit
 
 
 
-extension SPLTPlayerViewController {
+extension DSPPlayerViewController {
 
     open func addObservers(_ contentPlayer: AVPlayer) {
         if self.periodicTimeObserver == nil {
@@ -53,7 +53,7 @@ extension SPLTPlayerViewController {
         if !self.isNotificationAVPlayerItemDidPlayToEndTimeAdded {
             NotificationCenter.default.addObserver(
                 self,
-                selector: #selector(SPLTPlayerViewController.contentDidFinishPlaying(_:)),
+                selector: #selector(DSPPlayerViewController.contentDidFinishPlaying(_:)),
                 name: Notification.Name.AVPlayerItemDidPlayToEndTime,
                 object: contentPlayer.currentItem);
             self.isNotificationAVPlayerItemDidPlayToEndTimeAdded = true

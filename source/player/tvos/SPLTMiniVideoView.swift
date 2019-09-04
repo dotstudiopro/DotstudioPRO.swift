@@ -129,7 +129,7 @@ open class SPLTMiniVideoView: UIView {
     
     
     // videoPreview methods
-    var spltPlayerViewController: SPLTPlayerViewController?
+    var dspPlayerViewController: DSPPlayerViewController?
     var timerVideoPreviewStart: Timer?
     func setVideoPreviewTimer() {
         if let timerVideoPreviewStart = self.timerVideoPreviewStart {
@@ -140,31 +140,29 @@ open class SPLTMiniVideoView: UIView {
         self.timerVideoPreviewStart = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(SPLTMiniVideoView.setVideoPreview), userInfo: nil, repeats: false)
     }
     @objc func setVideoPreview() {
-        if let spltPlayerViewController = self.spltPlayerViewController {
-            spltPlayerViewController.softRemoveAVPlayer()
-            //            spltPlayerViewController.stopAndRemoveAVPlayerViewController()
-            //            self.spltPlayerViewController = nil
+        if let dspPlayerViewController = self.dspPlayerViewController {
+            dspPlayerViewController.softRemoveAVPlayer()
         } else {
-            if let spltPlayerViewController = SPLTPlayerViewController.getViewController() {
-                spltPlayerViewController.shouldTrackAnalytics = false
-                self.addSubview(spltPlayerViewController.view)
-                self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
-                self.spltPlayerViewController = spltPlayerViewController
+            if let dspPlayerViewController = DSPPlayerViewController.getViewController() {
+                dspPlayerViewController.shouldTrackAnalytics = false
+                self.addSubview(dspPlayerViewController.view)
+                self.splt_constrainViewEqual(subView: dspPlayerViewController.view)
+                self.dspPlayerViewController = dspPlayerViewController
             }
         }
-        if let spltPlayerViewController = self.spltPlayerViewController,
+        if let dspPlayerViewController = self.dspPlayerViewController,
             let curVideo = self.curVideo {
             //        tvosVideoViewController.isMuted = true
-            //            spltPlayerViewController.delegate = self
-            spltPlayerViewController.curVideo = curVideo
-            spltPlayerViewController.bAdsEnabled = false
+            //            dspPlayerViewController.delegate = self
+            dspPlayerViewController.curVideo = curVideo
+            dspPlayerViewController.bAdsEnabled = false
             
-            //            self.addSubview(spltPlayerViewController.view)
-            //            self.splt_constrainViewEqual(subView: spltPlayerViewController.view)
-            //            self.spltPlayerViewController = spltPlayerViewController
+            //            self.addSubview(dspPlayerViewController.view)
+            //            self.splt_constrainViewEqual(subView: dspPlayerViewController.view)
+            //            self.dspPlayerViewController = dspPlayerViewController
             self.imageView?.isHidden = true
-            spltPlayerViewController.loadVideoDetailFromPlay2Route()
-            //            self.addChild(spltPlayerViewController)
+            dspPlayerViewController.loadVideoDetailFromPlay2Route()
+            //            self.addChild(dspPlayerViewController)
         }
     }
     
@@ -200,11 +198,11 @@ open class SPLTMiniVideoView: UIView {
                 timerVideoPreviewStart.invalidate()
                 self.timerVideoPreviewStart = nil
             }
-            if let spltPlayerViewController = self.spltPlayerViewController {
-                spltPlayerViewController.softRemoveAVPlayer()
-                //                spltPlayerViewController.stopAndRemoveAVPlayerViewController()
-                //                spltPlayerViewController.view.removeFromSuperview()
-                //                self.spltPlayerViewController = nil
+            if let dspPlayerViewController = self.dspPlayerViewController {
+                dspPlayerViewController.softRemoveAVPlayer()
+                //                dspPlayerViewController.stopAndRemoveAVPlayerViewController()
+                //                dspPlayerViewController.view.removeFromSuperview()
+                //                self.dspPlayerViewController = nil
             }
             break
         }

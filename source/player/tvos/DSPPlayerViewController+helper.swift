@@ -13,7 +13,7 @@ import AVFoundation
 
 
 
-extension SPLTPlayerViewController {
+extension DSPPlayerViewController {
     
     open func saveVideoProgress() {
         if let curVideo = self.curVideo,
@@ -201,7 +201,7 @@ extension SPLTPlayerViewController {
 
 //MARK: -
 //MARK: - extension Analytics Event helper method
-extension SPLTPlayerViewController {
+extension DSPPlayerViewController {
     
     open func initializeAnalyticsForCurVideo() {
         if let curVideo = self.curVideo {
