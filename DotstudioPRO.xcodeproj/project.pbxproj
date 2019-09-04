@@ -240,7 +240,7 @@
 		6C38299B2293E1C400B05562 /* SPLTUIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291E2293E1C400B05562 /* SPLTUIUtility.swift */; };
 		6C38299C2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291F2293E1C400B05562 /* SPLTWatchlistUtility.swift */; };
 		6C38299D2293E1C400B05562 /* SPLTWatchlistUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C38291F2293E1C400B05562 /* SPLTWatchlistUtility.swift */; };
-		6C3829B22294125100B05562 /* SPLTVideoViewController+cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */; };
+		6C3829B22294125100B05562 /* DSPPlayerViewController+cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A02294125100B05562 /* DSPPlayerViewController+cast.swift */; };
 		6C3829B32294125100B05562 /* SPLTVideo+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A12294125100B05562 /* SPLTVideo+extension.swift */; };
 		6C3829B42294125100B05562 /* DSCastUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A32294125100B05562 /* DSCastUtility.swift */; };
 		6C3829B52294125100B05562 /* DSChromeCastUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3829A42294125100B05562 /* DSChromeCastUtility.swift */; };
@@ -401,7 +401,7 @@
 		6C38291D2293E1C400B05562 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		6C38291E2293E1C400B05562 /* SPLTUIUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTUIUtility.swift; sourceTree = "<group>"; };
 		6C38291F2293E1C400B05562 /* SPLTWatchlistUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLTWatchlistUtility.swift; sourceTree = "<group>"; };
-		6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTVideoViewController+cast.swift"; sourceTree = "<group>"; };
+		6C3829A02294125100B05562 /* DSPPlayerViewController+cast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DSPPlayerViewController+cast.swift"; sourceTree = "<group>"; };
 		6C3829A12294125100B05562 /* SPLTVideo+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTVideo+extension.swift"; sourceTree = "<group>"; };
 		6C3829A32294125100B05562 /* DSCastUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSCastUtility.swift; sourceTree = "<group>"; };
 		6C3829A42294125100B05562 /* DSChromeCastUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSChromeCastUtility.swift; sourceTree = "<group>"; };
@@ -409,10 +409,8 @@
 		6C3829A62294125100B05562 /* DSCastButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSCastButton.swift; sourceTree = "<group>"; };
 		6C3829A72294125100B05562 /* DSCastDeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSCastDeviceModel.swift; sourceTree = "<group>"; };
 		6C3829A82294125100B05562 /* DSAirplayCastUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAirplayCastUtility.swift; sourceTree = "<group>"; };
-		6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotstudioIMAPlayerViewController.swift; sourceTree = "<group>"; };
 		6C3829AA2294125100B05562 /* DSPPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSPPlayerViewController.swift; sourceTree = "<group>"; };
 		6C3829AB2294125100B05562 /* SubtitlesAVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitlesAVPlayer.swift; sourceTree = "<group>"; };
-		6C3829AC2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPLTVideoViewController+GoogleIMA.swift"; sourceTree = "<group>"; };
 		6C3829AE2294125100B05562 /* DSPPlayerViewController.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DSPPlayerViewController.xcassets; sourceTree = "<group>"; };
 		6C3829B12294125100B05562 /* DSPPlayerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DSPPlayerViewController.storyboard; sourceTree = "<group>"; };
 		6C3829C4229413D500B05562 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -935,12 +933,10 @@
 		6CC4AF1722E195BF00EBDF07 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				6C3829A02294125100B05562 /* SPLTVideoViewController+cast.swift */,
+				6C3829A02294125100B05562 /* DSPPlayerViewController+cast.swift */,
 				6C3829A22294125100B05562 /* Cast */,
-				6C3829A92294125100B05562 /* DotstudioIMAPlayerViewController.swift */,
 				6C3829AA2294125100B05562 /* DSPPlayerViewController.swift */,
 				6C3829AB2294125100B05562 /* SubtitlesAVPlayer.swift */,
-				6C3829AC2294125100B05562 /* SPLTVideoViewController+GoogleIMA.swift */,
 				6C3829AE2294125100B05562 /* DSPPlayerViewController.xcassets */,
 				6C3829B12294125100B05562 /* DSPPlayerViewController.storyboard */,
 			);
@@ -1236,7 +1232,7 @@
 				6C3829942293E1C400B05562 /* SPLTAppDelegate.swift in Sources */,
 				6C3828942293DE6400B05562 /* SPLTAnalyticsAPI.swift in Sources */,
 				6C3828542293DE6400B05562 /* JWTDecode.swift in Sources */,
-				6C3829B22294125100B05562 /* SPLTVideoViewController+cast.swift in Sources */,
+				6C3829B22294125100B05562 /* DSPPlayerViewController+cast.swift in Sources */,
 				6C3828A22293DE6400B05562 /* SPLTScheduledProgramsAPI.swift in Sources */,
 				6C38294E2293E1C400B05562 /* UIView+extension.swift in Sources */,
 				6C3828B22293DE6400B05562 /* SPLTCategoriesAPI.swift in Sources */,

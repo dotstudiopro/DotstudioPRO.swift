@@ -1,5 +1,5 @@
 //
-//  SPLTVideoViewController.swift
+//  DSPPlayerViewController.swift
 //  DotstudioIMAPlayer
 //
 //  Created by Ketan Sakariya on 23/05/18.
