@@ -188,6 +188,8 @@ open class SPLTHorizontalBaseTableViewCell: UITableViewCell, UICollectionViewDat
             } else if category.channels.count == 1 {
                 if let playlistChannel = category.channels[0] as? SPLTPlaylistChannel {
                     return playlistChannel.playlistVideos.count
+                } else if let videoChannel = category.channels[0] as? SPLTVideoChannel {
+                    return 1
                 }
             }
         } else if let playlistChannel = self.channel as? SPLTPlaylistChannel {
@@ -213,6 +215,10 @@ open class SPLTHorizontalBaseTableViewCell: UITableViewCell, UICollectionViewDat
                     if indexPath.row < playlistChannel.playlistVideos.count {
                         let video = playlistChannel.playlistVideos[indexPath.row]
                         self.delegate?.spltHorizontalBaseTableViewCell(self, didSelectVideo: video, inChannel: playlistChannel, atIndex: indexPath.row)
+                    }
+                } else if let videoChannel = category.channels[0] as? SPLTVideoChannel {
+                    if let video = videoChannel.video {
+                        self.delegate?.spltHorizontalBaseTableViewCell(self, didSelectVideo: video, inChannel: videoChannel, atIndex: 0)
                     }
                 }
             }
@@ -241,6 +247,8 @@ open class SPLTHorizontalBaseTableViewCell: UITableViewCell, UICollectionViewDat
                                     let video = playlistChannel.playlistVideos[indexPath.row]
                                     self.delegate?.spltHorizontalBaseTableViewCell(self, didLostFocusVideo: video, inChannel: playlistChannel, inCategory: category, atIndex: indexPath.row)
                                 }
+                            } else if let videoChannel = category.channels[0] as? SPLTVideoChannel, let video = videoChannel.video {
+                                self.delegate?.spltHorizontalBaseTableViewCell(self, didLostFocusVideo: video, inChannel: videoChannel, inCategory: category, atIndex: 0)
                             }
                         }
                     }
@@ -260,6 +268,8 @@ open class SPLTHorizontalBaseTableViewCell: UITableViewCell, UICollectionViewDat
                                     let video = playlistChannel.playlistVideos[indexPath.row]
                                     self.delegate?.spltHorizontalBaseTableViewCell(self, didFocusVideo: video, inChannel: playlistChannel, inCategory: category, atIndex: indexPath.row)
                                 }
+                            } else if let videoChannel = category.channels[0] as? SPLTVideoChannel, let video = videoChannel.video {
+                                self.delegate?.spltHorizontalBaseTableViewCell(self, didFocusVideo: video, inChannel: videoChannel, inCategory: category, atIndex: 0)
                             }
                         }
                     }
