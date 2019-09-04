@@ -22,7 +22,19 @@ public enum DSPPlayerTheme: String {
     case themeColor // = "themeColor"
 }
 
-open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate, IMAAdsManagerDelegate {
+//public typealias DSPPlayerViewControllerDelegate = SPLTVideoViewControllerDelegate
+
+public protocol DSPPlayerViewControllerDelegate {
+    func didClickCloseButton(_ dspPlayerViewController: DSPPlayerViewController)
+    func didClickCastButton(_ dspPlayerViewController: DSPPlayerViewController)
+    func didClickShareButton(_ dspPlayerViewController: DSPPlayerViewController)
+    func didClickShareButtonWithSender(_ dspPlayerViewController: DSPPlayerViewController, sender: UIButton)
+    func didFinishPlayingVideo(_ dspPlayerViewController: DSPPlayerViewController)
+}
+
+//public typealias DSPPlayerViewController = SPLTVideoViewController
+
+open class DSPPlayerViewController: SPLTBaseViewController, IMAAdsLoaderDelegate, IMAAdsManagerDelegate {
     //        static let kTestAppContentUrl_MP4 = "http://rmcdn.2mdn.net/Demo/html5/output.mp4"
     //    static let kTestAppContentUrl_MP4 = "https://e4z6v2z8.ssl.hwcdn.net/files/company/57fe8fe399f815e309dbc2f4/assets/videos/5872f74399f8158b2a4c51b2/vod/5872f74399f8158b2a4c51b2.m3u8?hwauth=exp=1484778914974~acl=*~hmac=12e5c2c135a37e7cb7ae37b980889e36ac83a37e0acca2406aba9203414e9dcc" //"http://rmcdn.2mdn.net/Demo/html5/output.mp4"
     
@@ -32,6 +44,9 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     //    "correlator="
     //    static let kTestAppAdTagUrl = "http://shadow01.yumenetworks.com/dynamic_preroll_playlist.vast2xml?domain=1552hCkaKYjg"
     //    static let kTestAppAdTagUrl = "http://adserver.dotstudiopro.com/adserver/www/delivery/fc.php?script=apVideo:vast2&zoneid=1099"
+    
+    open var delegate: DSPPlayerViewControllerDelegate?
+
     
     //IBOutlets
     @IBOutlet open weak var buttonClose: UIButton!
@@ -164,7 +179,9 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     
     var contentPlayhead: IMAAVPlayerContentPlayhead?
     var adsLoader: IMAAdsLoader?
-    var adsManager: IMAAdsManager?
+    open var adsManager: IMAAdsManager?
+    open var delegateIMAAdsManager :IMAAdsManagerDelegate?
+
     
     //    var iCurrentVideoIndex: Int = 0
     //    var videoDetail: DTSZVideo! = DTSZVideo()
@@ -225,12 +242,28 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     
     var playerTheme: [DSPPlayerTheme: UInt32] = [:]
     
-    open var style: DotstudioIMAPlayerViewController.Style = DotstudioIMAPlayerViewController.Style()
+    open var style: DSPPlayerViewController.Style = DSPPlayerViewController.Style()
     let imageIconDefaultSize = CGSize(width: 66, height: 66)
 
     var imageButtonPlay = UIImage(icon: .FAPlay, size: CGSize(width: 66, height: 66), textColor: .white, backgroundColor: .clear)
     var imageButtonPause = UIImage(icon: .FAPause, size: CGSize(width: 66, height: 66), textColor: .white, backgroundColor: .clear)
 
+    
+    class open func getViewController(theme: [DSPPlayerTheme: UInt32]?) -> DSPPlayerViewController? {
+        
+        let storyboard = UIStoryboard(name:"DSPPlayerViewController", bundle:Bundle(for:self))
+        let vc = storyboard.instantiateViewController(withIdentifier: "DSPPlayerViewController")
+        if let vcDSPPlayerViewController = vc as? DSPPlayerViewController {
+            if let playerTheme = theme {
+                vcDSPPlayerViewController.playerTheme = playerTheme
+            }
+            return vcDSPPlayerViewController
+        }
+        
+        //        return storyboard.instantiateViewController(withIdentifier: "test")
+        return nil
+        
+    }
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -259,6 +292,8 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         self.viewVideoControlWithAd.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
         
         self.registerNotifications()
+        DSCastUtility.shared.initialize(withDelegate: self)
+
     
     }
     
@@ -1057,18 +1092,27 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     
     @IBAction func onClickCloseButton(_ sender: Any) {
         //self.closeViewController()
-        // This method will be overridden
+        self.saveCurrentVideoProgress()
+        self.delegate?.didClickCloseButton(self)
+        self.deallocateThePlayerObject()
     }
     @IBAction func onClickCastButton(_ sender: Any) {
         //self.castVideo()
-        // This method will be overridden
+        if let isGeoblocked = self.curVideo?.isGeoblocked, isGeoblocked == true {
+            self.showAlertWithMessage(message: "This content is geoblocked in your region.")
+        } else {
+            //self.delegate?.didClickCastButton(self)
+            //self.castVideo()
+            if let curVideo = self.curVideo {
+                self.castVideo()
+            }
+        }
     }
     @IBAction func onClickCastButtonFromCastViewToDisconnect(_ sender: Any) {
         self.stopCasting()
     }
     @IBAction func onClickShareButton(_ sender: UIButton) {
-        //self.shareButtonTapped(sender: sender)
-        // This method will be overridden
+        self.delegate?.didClickShareButtonWithSender(self, sender: sender)
     }
 
     @IBAction func onClickCloseCaption(_ sender: Any) {
@@ -1177,7 +1221,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         // don't hide controls when paused.
         NSObject.cancelPreviousPerformRequests(
             withTarget: self,
-            selector: #selector(SPLTVideoViewController.hideFullscreenControls),
+            selector: #selector(DSPPlayerViewController.hideFullscreenControls),
             object: self)
     }
 //    open func stopContent() {
@@ -1240,7 +1284,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
     @IBAction func videoControlsTouchStarted(_ sender: AnyObject) {
         NSObject.cancelPreviousPerformRequests(
             withTarget: self,
-            selector: #selector(SPLTVideoViewController.hideFullscreenControls),
+            selector: #selector(DSPPlayerViewController.hideFullscreenControls),
             object: self)
     }
     
@@ -1268,7 +1312,7 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
         //            selector: #selector(SPLTVideoViewController.hideFullscreenControls),
         //            userInfo: nil,
         //            repeats: false)
-        self.perform(#selector(SPLTVideoViewController.hideFullscreenControls), with: self, afterDelay: 3)
+        self.perform(#selector(DSPPlayerViewController.hideFullscreenControls), with: self, afterDelay: 3)
         self.checkAndHideVideoControls()
         //        NSObject.cancelPreviousPerformRequests(
         //            withTarget: self,
@@ -1310,9 +1354,65 @@ open class SPLTVideoViewController: SPLTBaseViewController, IMAAdsLoaderDelegate
 
 //MARK: -
 //MARK: - extension Google IMA Ads Integration
-extension SPLTVideoViewController {
+extension DSPPlayerViewController {
     func setUpContentPlayer(curVideo: SPLTVideo) {
-        self.setUpContentPlayerForGoogleIMA(curVideo: curVideo)
+//        self.setUpContentPlayerForGoogleIMA(curVideo: curVideo)
+        if let strVideoUrl = curVideo.strVideoUrl {
+            var finalStrVideoUrl = strVideoUrl
+            if self.useMP4URL {
+                if let strMP4VideoUrl = curVideo.getMP4Url() {
+                    finalStrVideoUrl = strMP4VideoUrl
+                }
+            }
+            guard let contentURL = URL(string: finalStrVideoUrl) else {
+                print("ERROR: please use a valid URL for the content URL")
+                return
+            }
+            self.contentPlayer = AVPlayer(url: contentURL)
+            if let avLayerVideoGravity = self.avLayerVideoGravity {
+                self.contentPlayer?.externalPlaybackVideoGravity = avLayerVideoGravity
+            }
+            self.contentPlayer?.isMuted = self.isMuted
+            self.labelSubtitles.text = ""
+            self.showCloseCaption = false
+            self.buttonCloseCaption.isHidden = true
+            self.constraintButtonCloseCaption.constant = 0
+            if let strCloseCaptionUrl = curVideo.strCloseCaptionUrl {
+                if let subtitleURL = URL(string: strCloseCaptionUrl) {
+                    self.contentPlayer?.addSubtitles(labelSubtitle: self.labelSubtitles).open(file: subtitleURL)
+                    self.constraintButtonCloseCaption.constant = 40
+                    self.buttonCloseCaption.isHidden = false
+                    self.buttonCloseCaption.isSelected = false
+                }
+            }
+            if let strVideoTitle = curVideo.strTitle {
+                self.labelVideoTitle.text = strVideoTitle
+            }
+            // Playhead observers for progress bar.
+            if let contentPlayer = self.contentPlayer {
+                self.addObservers(contentPlayer)
+            }
+            // Set up fullscreen tap listener to show controls
+            self.videoTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(DSPPlayerViewController.showFullscreenControls(_:)))
+            self.viewVideoControls.addGestureRecognizer(self.videoTapRecognizer!)
+            self.videoControlsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(DSPPlayerViewController.showFullscreenControls(_:)))
+            self.viewVideo.addGestureRecognizer(self.videoControlsTapRecognizer!)
+            
+            // Create a player layer for the player.
+            self.playerLayer = AVPlayerLayer(player: contentPlayer)
+            if let avLayerVideoGravity = self.avLayerVideoGravity {
+                self.playerLayer?.videoGravity = avLayerVideoGravity
+            }
+            // Size, position, and display the AVPlayer.
+            self.playerLayer?.frame = self.viewVideo.layer.bounds
+            self.viewVideo.layer.addSublayer(playerLayer!)
+            
+            // Set up our content playhead and contentComplete callback.
+            #if SKIP_ADS
+            #else
+            contentPlayhead = IMAAVPlayerContentPlayhead(avPlayer: contentPlayer)
+            #endif
+        }
     }
     
     func playPostRollAd() -> Bool {
@@ -1322,9 +1422,9 @@ extension SPLTVideoViewController {
     
     @objc func allContentDidFinishPlayingWithAd() {
         print("all ads completed & video completed")
-        
         SPLTAnalyticsUtility.sharedInstance.stopAdsTracking()
         SPLTAnalyticsUtility.sharedInstance.stopVideoTracking()
+        self.delegate?.didFinishPlayingVideo(self)
     }
     
     @objc func contentDidFinishPlaying(_ notification: Notification) {
@@ -1354,22 +1454,58 @@ extension SPLTVideoViewController {
     }
     
     func setUpAdsLoader() {
-        self.setUpAdsLoaderForGoogleIMA()
+//        self.setUpAdsLoaderForGoogleIMA()
+        let imaSettings = IMASettings()
+        imaSettings.maxRedirects = 8
+        self.adsLoader = IMAAdsLoader(settings: imaSettings)
+        self.adsLoader?.delegate = self
     }
     
     func getVmapAdTagParameters() -> String? {
-        var strAdTagParams: String? = nil
-            strAdTagParams = self.getVmapAdTagParametersForGoogleIMA()
-        return strAdTagParams
+//        var strAdTagParams: String? = nil
+//            strAdTagParams = self.getVmapAdTagParametersForGoogleIMA()
+//        return strAdTagParams
+        return SPLTAdsAPI.getVmapAdTagParameters()
     }
     @objc func getVmapAdTag(curVideo: SPLTVideo) -> String? {
-        var strAdTag: String? = nil
-        strAdTag = self.getVmapAdTagForGoogleIMA(curVideo: curVideo)
-        return strAdTag
+//        var strAdTag: String? = nil
+//        strAdTag = self.getVmapAdTagForGoogleIMA(curVideo: curVideo)
+//        return strAdTag
+        if let strVideoId = curVideo.strId {
+            let screenRect = UIScreen.main.bounds
+            var screenWidth = Int(screenRect.width * UIScreen.main.scale)
+            var screenHeight = Int(screenRect.height * UIScreen.main.scale)
+            if screenRect.height > screenRect.width {
+                screenWidth = Int(screenRect.height * UIScreen.main.scale)
+                screenHeight = Int(screenRect.width * UIScreen.main.scale)
+            }
+            var adTagUrl = "https://api.myspotlight.tv/vmap/\(strVideoId)/\(screenWidth)/\(screenHeight)/\(strVideoId)"
+            if let strVmapAdTagParameters = self.getVmapAdTagParameters() {
+                adTagUrl += "?\(strVmapAdTagParameters)"
+            }
+            return adTagUrl
+        }
+        return nil
     }
     
     func requestAds(curVideo: SPLTVideo) {
-        self.requestAdsForGoogleIMA(curVideo: curVideo)
+        //self.requestAdsForGoogleIMA(curVideo: curVideo)
+        if let adTagUrl = self.getVmapAdTag(curVideo: curVideo) {
+            // Create ad display container for ad rendering.
+            let adDisplayContainer = IMAAdDisplayContainer(adContainer: viewVideo, companionSlots: nil)
+            // Create an ad request with our ad tag, display container, and optional user context.
+            let request = IMAAdsRequest(
+                adTagUrl: adTagUrl, //SPLTChannelViewController.kTestAppAdTagUrl,
+                adDisplayContainer: adDisplayContainer,
+                contentPlayhead: contentPlayhead,
+                userContext: nil)
+            request?.vastLoadTimeout = 8000
+            if self.shouldTrackAnalytics {
+                SPLTAnalyticsUtility.sharedInstance.trackEventWith(.setup_ad_request, video: self.curVideo)
+                self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_request)
+            }
+            self.adsLoader?.requestAds(with: request)
+        }
     }
     
 }
@@ -1378,7 +1514,7 @@ extension SPLTVideoViewController {
 
 //MARK: -
 //MARK: - extension App Become Active/Deactive scenarios
-extension SPLTVideoViewController {
+extension DSPPlayerViewController {
     @objc func applicationWillResignActive() {
         if self.isAdPlayback {
             self.adsManager?.pause()
@@ -1414,7 +1550,7 @@ extension SPLTVideoViewController {
 
 //MARK: -
 //MARK: - extension Analytics Event helper method
-extension SPLTVideoViewController {
+extension DSPPlayerViewController {
     
     func initializeAnalyticsForCurVideo() {
         if let curVideo = self.curVideo {
@@ -1454,7 +1590,7 @@ extension SPLTVideoViewController {
 
 //MARK: -
 //MARK: - extension save video progress
-extension SPLTVideoViewController {
+extension DSPPlayerViewController {
     func saveCurrentVideoProgress() {
         if let currentTime_cmtime = self.contentPlayer?.currentTime(), currentTime_cmtime.isValid {
             let floatCurrentTime = CMTimeGetSeconds(currentTime_cmtime)
@@ -1489,7 +1625,7 @@ extension SPLTVideoViewController {
         self.adsManager?.delegate = self
 
         if let imaAdsManager = self.adsManager {
-            SPLTAnalyticsUtility.sharedInstance.didLoadIMAAdsManager(imaAdsManager)
+            SPLTAnalyticsUtility.sharedInstance.didLoadIMAAdsManager(imaAdsManager, fromVC: self)
         }
         SPLTAnalyticsUtility.sharedInstance.startAdsTracking()
         
@@ -1500,6 +1636,9 @@ extension SPLTVideoViewController {
         // Initialize the ads manager.
         self.adsManager?.initialize(with: adsRenderingSettings)
         self.isVideoSetupOnGoing = false
+    }
+    func didLoadIMAAdsManager(_ imaAdsManager: IMAAdsManager) {
+        SPLTAnalyticsUtility.sharedInstance.didLoadIMAAdsManager(imaAdsManager, fromVC: self)
     }
     
     open func adsLoader(_ loader: IMAAdsLoader!, failedWith adErrorData: IMAAdLoadingErrorData!) {
@@ -1522,6 +1661,7 @@ extension SPLTVideoViewController {
     //MARK: - extension IMAAdsManagerDelegate
     open func adsManager(_ adsManager: IMAAdsManager!, didReceive event: IMAAdEvent!) {
             //            logMessage("AdsManager event \(event.typeString!)")
+        self.delegateIMAAdsManager?.adsManager(adsManager, didReceive: event)
             switch (event.type) {
             case IMAAdEventType.AD_BREAK_READY:
                 break
@@ -1585,6 +1725,7 @@ extension SPLTVideoViewController {
             // Something went wrong with the ads manager after ads were loaded. Log the error and play the
             // content.
             //            logMessage("AdsManager error: \(error.message)")
+            self.delegateIMAAdsManager?.adsManager(adsManager, didReceive: error)
             self.isAdPlayback = false
             self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_error)
             
@@ -1599,6 +1740,7 @@ extension SPLTVideoViewController {
         
         open func adsManagerDidRequestContentPause(_ adsManager: IMAAdsManager!) {
             // The SDK is going to play ads, so pause the content.
+            self.delegateIMAAdsManager?.adsManagerDidRequestContentPause(adsManager)
             self.isAdPlayback = true
             //            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_impression)
             self.hideFullscreenControls()
@@ -1610,6 +1752,7 @@ extension SPLTVideoViewController {
         
         open func adsManagerDidRequestContentResume(_ adsManager: IMAAdsManager!) {
             // The SDK is done playing ads (at least for now), so resume the content.
+            self.delegateIMAAdsManager?.adsManagerDidRequestContentResume(adsManager)
             self.isAdPlayback = false
             //            self.addAnalyticsEvent(.advertising, analyticsEventType: .ad_complete)
             self.showFullscreenControls(nil)
@@ -1622,6 +1765,20 @@ extension SPLTVideoViewController {
                 //            self.buttonClose.isHidden = false
 //            }
         }
+    
+//    IMAAdsManagerDelegate
+    public func adsManager(_ adsManager: IMAAdsManager!, adDidProgressToTime mediaTime: TimeInterval, totalTime: TimeInterval) {
+        self.delegateIMAAdsManager?.adsManager?(adsManager, adDidProgressToTime: mediaTime, totalTime: totalTime)
+    }
+    public func adsManagerAdPlaybackReady(_ adsManager: IMAAdsManager!) {
+        self.delegateIMAAdsManager?.adsManagerAdPlaybackReady?(adsManager)
+    }
+    public func adsManagerAdDidStartBuffering(_ adsManager: IMAAdsManager!) {
+        self.delegateIMAAdsManager?.adsManagerAdDidStartBuffering?(adsManager)
+    }
+    public func adsManager(_ adsManager: IMAAdsManager!, adDidBufferToMediaTime mediaTime: TimeInterval) {
+        self.delegateIMAAdsManager?.adsManager?(adsManager, adDidBufferToMediaTime: mediaTime)
+    }
 
 }
 

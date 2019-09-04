@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension SPLTVideoViewController {
+extension DSPPlayerViewController {
     
     func setupCastData() {
         if let curVideo = self.curVideo {
@@ -106,7 +106,7 @@ extension SPLTVideoViewController {
 //    }
 //}
 
-extension SPLTVideoViewController: DSCastUtilityDelegate {
+extension DSPPlayerViewController: DSCastUtilityDelegate {
     
     func didConnectedToCastDevice() {
 //        self.pause()

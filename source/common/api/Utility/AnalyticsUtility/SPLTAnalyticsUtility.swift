@@ -52,7 +52,7 @@ public enum SPLTAllAnalyticsEventType {
 
 public protocol SPLTBaseAnalyticsUtility {
     func didInitializeAVPlayer(_ player: AVPlayer, forVideo video: SPLTVideo)
-    func didLoadIMAAdsManager(_ imaAdsManager: IMAAdsManager)
+    func didLoadIMAAdsManager(_ imaAdsManager: IMAAdsManager, fromVC dspPlayerViewController:DSPPlayerViewController)
     
     func startVideoTracking()
     func stopVideoTracking()
@@ -88,9 +88,9 @@ open class SPLTAnalyticsUtility: NSObject {
             analyticsUtility.didInitializeAVPlayer(player, forVideo: video)
         }
     }
-    open func didLoadIMAAdsManager(_ imaAdsManager: IMAAdsManager) {
+    open func didLoadIMAAdsManager(_ imaAdsManager: IMAAdsManager, fromVC dspPlayerViewController:DSPPlayerViewController) {
         for analyticsUtility in self.allAnalyticsUtility {
-            analyticsUtility.didLoadIMAAdsManager(imaAdsManager)
+            analyticsUtility.didLoadIMAAdsManager(imaAdsManager, fromVC: dspPlayerViewController)
         }
     }
     open func startVideoTracking() {

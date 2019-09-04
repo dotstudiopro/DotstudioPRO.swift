@@ -124,7 +124,7 @@ extension SPLTPlayerViewController: IMAAdsLoaderDelegate {
         self.adsManager?.delegate = self
 
         if let imaAdsManager = self.adsManager {
-            SPLTAnalyticsUtility.sharedInstance.didLoadIMAAdsManager(imaAdsManager)
+            SPLTAnalyticsUtility.sharedInstance.didLoadIMAAdsManager(imaAdsManager, fromVC: self)
         }
         SPLTAnalyticsUtility.sharedInstance.startAdsTracking()
         

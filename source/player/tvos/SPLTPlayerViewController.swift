@@ -47,7 +47,9 @@ open class SPLTPlayerViewController: SPLTBaseViewController{
     
     var contentPlayhead: IMAAVPlayerContentPlayhead?
     var adsLoader: IMAAdsLoader?
-    var adsManager: IMAAdsManager?
+    open var adsManager: IMAAdsManager?
+    open var delegateIMAAdsManager :IMAAdsManagerDelegate?
+    
     var strCurAdTagUrl: String?
     var shouldTrackAnalytics: Bool = true
     
